@@ -1,4 +1,7 @@
 package com.Tobeto.RentaCar.repositories;
 
-public interface RentalRepository {
+import com.Tobeto.RentaCar.entities.Rental;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RentalRepository extends JpaRepository<Rental, Integer> {
 }
