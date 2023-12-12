@@ -36,11 +36,11 @@ public class Car {
 
 
     @ManyToOne
-    @JoinColumn(name = "car")
+    @JoinColumn(name = "color_id")
     private  Color color;
 
     @ManyToOne
-    @JoinColumn(name = "car")
+    @JoinColumn(name = "model_id")
     private  Model model;
 
 
