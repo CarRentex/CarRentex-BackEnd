@@ -32,14 +32,6 @@ public class Car {
     // foreignkey
 
 
-
-
-
-
-
-
-
-
     @OneToMany(mappedBy = "car")
     private List<Rental> rentals;
 
