@@ -2,4 +2,11 @@ denem
 e
 ahmet pair
 aheeeet
+<<<<<<< HEAD
 busraa
+=======
+aa
+>>>>>>> origin
+
+
+
