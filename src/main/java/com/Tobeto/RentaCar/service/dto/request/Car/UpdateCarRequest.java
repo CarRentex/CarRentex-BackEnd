@@ -1,13 +1,12 @@
-package com.Tobeto.RentaCar.service.dto.response.Car;
-
+package com.Tobeto.RentaCar.service.dto.request.Car;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class GetCarListResponse {
+@AllArgsConstructor
+public class UpdateCarRequest {
     private int kilometer;
     private int year;
     private double dailyPrice;

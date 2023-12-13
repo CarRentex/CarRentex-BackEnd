@@ -1,4 +1,5 @@
-package com.Tobeto.RentaCar.service.dto.request.Employee;
+package com.Tobeto.RentaCar.service.dto.request.Customer;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -6,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddEmployeeRequest {
-    private String salary;
+public class UpdateCustomerRequest {
+    private String nationalityId;
 }

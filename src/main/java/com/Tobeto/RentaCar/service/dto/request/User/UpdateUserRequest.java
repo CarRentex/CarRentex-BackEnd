@@ -1,12 +1,13 @@
-package com.Tobeto.RentaCar.service.dto.response.User;
+package com.Tobeto.RentaCar.service.dto.request.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class GetUserListResponse {
+@AllArgsConstructor
+public class UpdateUserRequest {
     private String name;
     private String surname;
     private String gsm;

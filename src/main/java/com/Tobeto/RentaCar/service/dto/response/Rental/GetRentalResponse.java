@@ -1,5 +1,5 @@
-package com.Tobeto.RentaCar.service.dto.request.Rental;
-import jakarta.persistence.Column;
+package com.Tobeto.RentaCar.service.dto.response.Rental;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddRentalRequest {
+public class GetRentalResponse {
     private LocalDate startDate;
     private LocalDate endDate;
     private LocalDate returnDate;

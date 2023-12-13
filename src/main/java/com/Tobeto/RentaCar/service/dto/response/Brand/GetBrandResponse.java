@@ -1,4 +1,5 @@
-package com.Tobeto.RentaCar.service.dto.response.Employee;
+package com.Tobeto.RentaCar.service.dto.response.Brand;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -6,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetEmployeeListResponse {
-    private String salary;
+public class GetBrandResponse {
+    private String name;
 }

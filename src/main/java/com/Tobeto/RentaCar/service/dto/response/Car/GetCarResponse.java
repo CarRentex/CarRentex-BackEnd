@@ -5,9 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class GetCarListResponse {
+@AllArgsConstructor
+public class GetCarResponse {
     private int kilometer;
     private int year;
     private double dailyPrice;
