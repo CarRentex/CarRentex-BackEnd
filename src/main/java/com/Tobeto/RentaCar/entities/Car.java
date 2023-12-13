@@ -31,10 +31,8 @@ public class Car {
 
     // foreignkey
 
-
     @OneToMany(mappedBy = "car")
     private List<Rental> rentals;
-
 
     @ManyToOne
     @JoinColumn(name = "color_id")

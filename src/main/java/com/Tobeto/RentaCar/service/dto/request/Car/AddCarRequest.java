@@ -20,4 +20,10 @@ public class AddCarRequest {
     @Pattern(regexp = "^[0-9]{2} [A-Z]{1,3} [0-9]{2,5}$", message = "invalid format")
     @NotBlank
     private String plate;
+
+    //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
+    //private int colorId;
+    //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
+    //private int modelId;
+
 }
