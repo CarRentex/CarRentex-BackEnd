@@ -1,5 +1,6 @@
 package com.Tobeto.RentaCar.controllers;
 
+import com.Tobeto.RentaCar.entities.Brand;
 import com.Tobeto.RentaCar.service.abstracts.BrandService;
 import com.Tobeto.RentaCar.service.dto.request.Brand.AddBrandRequest;
 import com.Tobeto.RentaCar.service.dto.request.Brand.UpdateBrandRequest;
@@ -19,7 +20,7 @@ public class BrandController {
     private final BrandService brandService;
 
     @GetMapping
-    public List<GetBrandListResponse> getAll() {
+    public List<Brand> getAll() {
         return this.brandService.getAll();
     }
     @GetMapping("{id}")

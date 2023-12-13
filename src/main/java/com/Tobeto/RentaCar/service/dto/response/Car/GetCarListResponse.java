@@ -12,4 +12,6 @@ public class GetCarListResponse {
     private int year;
     private double dailyPrice;
     private String plate;
+    private int colorId;
+    private int modelId;
 }
