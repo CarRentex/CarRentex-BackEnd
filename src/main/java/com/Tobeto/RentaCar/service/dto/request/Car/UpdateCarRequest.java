@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateCarRequest {
+    // id işlemi almalı
     @PositiveOrZero(message = "The annotated element must be a positive number or 0.")
     @NotBlank
     private int kilometer;

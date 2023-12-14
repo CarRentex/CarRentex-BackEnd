@@ -9,7 +9,7 @@ import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
 import java.util.List;
 
 public interface CarService {
-    List<Car> getAll();
+    List<GetCarListResponse> getAll();
     GetCarResponse getById(int id);
     void add(AddCarRequest addCarRequest);
     void update(UpdateCarRequest carRequest, int id);
