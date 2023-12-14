@@ -13,7 +13,7 @@ Bu proje, kullanıcılara araç kiralama, araç listeleme, rezervasyon yapma ve 
 
 ## Proje VeriTabanı ER Diagram
 
-<img src="" width="500">
+<img src="https://github.com/bkarlida/Tobeto-RentAcar_Pair1/blob/main/dbdiagram.png" width="500">
 
 
 ## Özellikler
