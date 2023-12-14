@@ -32,7 +32,10 @@ public class CarManager implements CarService {
 
     @Override
     public GetCarResponse getById(int id) {
-        return null;
+
+        Car cars = carRepository.findById(id).orElseThrow();
+        GetCarResponse response = mapperService.forResponse().map(cars, GetCarResponse.class);
+        return response;
     }
 
     @Override
@@ -50,10 +53,11 @@ public class CarManager implements CarService {
     @Override
     public void update(UpdateCarRequest carRequest, int id) {
         // Id işlemi almalı Updatecarequesti güncelle id yi dahil et
+        Car car = mapperService.forRequest().map(carRequest, Car.class);
+        carRepository.save(car);
     }
-
     @Override
     public void delete(int id) {
-
+        carRepository.deleteById(id);
     }
 }
