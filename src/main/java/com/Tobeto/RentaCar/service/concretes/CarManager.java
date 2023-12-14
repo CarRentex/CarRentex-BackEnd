@@ -40,7 +40,8 @@ public class CarManager implements CarService {
 
     @Override
     public void add(AddCarRequest addCarRequest) { // Automapping Yapıldı
-        carRepository.existsByPlate(addCarRequest.getPlate().replaceAll("\\s", ""));
+        if (!carRepository.existsByPlate(addCarRequest.getPlate().replaceAll("\\s", "")))
+                throw new RuntimeException("Plate registered in the system");
         Car car = mapperService.forRequest().map(addCarRequest, Car.class);
         carRepository.save(car);
 /*        //Color color = new Color();

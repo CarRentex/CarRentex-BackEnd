@@ -11,9 +11,7 @@ public class UpdateCarRequest {
     // id işlemi almalı
     private int id;
     @PositiveOrZero(message = "The annotated element must be a positive number or 0.")
-    @NotBlank
     private int kilometer;
-    @NotBlank
     @Min(value = 2005, message = "Year cannot be less than 2005")
     @Max(value = 2024, message = "The year cannot be greater than 2024")
     private int year;
