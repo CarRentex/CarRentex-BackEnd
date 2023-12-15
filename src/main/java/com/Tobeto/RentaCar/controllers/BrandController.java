@@ -32,7 +32,7 @@ public class BrandController {
         this.brandService.add(addBrandRequest);
     }
     @PutMapping("{id}")
-    public void update(@RequestBody UpdateBrandRequest updateBrandRequest, @PathVariable int id){
+    public void update(@RequestBody  @Valid UpdateBrandRequest updateBrandRequest, @PathVariable int id){
         this.brandService.update(updateBrandRequest,id);
     }
     @DeleteMapping("{id}")
