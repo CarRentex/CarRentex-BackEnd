@@ -20,14 +20,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class ColorManager implements ColorService {
     private final ColorRepository colorRepository;
-    private final ModelMapperService mapperService;
+    private  ModelMapperService mapperService;
 
     @Override
     public List<GetColorListResponse> getAll() {
         List<Color> colors =  colorRepository.findAll();
         List<GetColorListResponse> getColorListResponses = colors.stream()
                 .map(color->this.mapperService.forResponse()
-                        .map(colors, GetColorListResponse.class)).collect(Collectors.toList());
+                        .map(color, GetColorListResponse.class)).collect(Collectors.toList());
         return getColorListResponses;
     }
 
@@ -40,14 +40,14 @@ public class ColorManager implements ColorService {
 
     @Override
     public void add(AddColorRequest addColorRequest) {
-        if (!colorRepository.existsByName(addColorRequest.getName()))
+        if (colorRepository.existsByName(addColorRequest.getName()))
             throw new RuntimeException("Color available in the system");
         Color colors = mapperService.forRequest().map(addColorRequest, Color.class);
         colorRepository.save(colors);
     }
 
     @Override
-    public void update(UpdateColorRequest colorRequest, int id) {
+    public void update(UpdateColorRequest colorRequest) {
         Color colors = mapperService.forRequest().map(colorRequest, Color.class);
         colorRepository.save(colors);
     }

@@ -20,7 +20,7 @@ import java.util.List;
 public class BrandManager implements BrandService {
 
     private final BrandRepository brandRepository;
-    private final ModelMapperService modelMappers;
+    private  ModelMapperService modelMappers;
     @Override
     public void add(AddBrandRequest addBrandRequest) {
 

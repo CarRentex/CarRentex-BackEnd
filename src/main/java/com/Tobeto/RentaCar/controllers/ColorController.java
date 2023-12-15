@@ -1,10 +1,10 @@
 package com.Tobeto.RentaCar.controllers;
 
-import com.Tobeto.RentaCar.entities.Brand;
-import com.Tobeto.RentaCar.service.abstracts.BrandService;
-import com.Tobeto.RentaCar.service.dto.request.Brand.AddBrandRequest;
-import com.Tobeto.RentaCar.service.dto.request.Brand.UpdateBrandRequest;
-import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandResponse;
+import com.Tobeto.RentaCar.service.abstracts.ColorService;
+import com.Tobeto.RentaCar.service.dto.request.Color.AddColorRequest;
+import com.Tobeto.RentaCar.service.dto.request.Color.UpdateColorRequest;
+import com.Tobeto.RentaCar.service.dto.response.Color.GetColorListResponse;
+import com.Tobeto.RentaCar.service.dto.response.Color.GetColorResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,27 +15,27 @@ import java.util.List;
 @RequestMapping("api/colors")
 @AllArgsConstructor
 public class ColorController {
-    private final BrandService brandService;
+    private final ColorService colorService;
 
     @GetMapping
-    public List<Brand> getAll() {
-        return this.brandService.getAll();
+    public List<GetColorListResponse> getAll() {
+        return this.colorService.getAll();
     }
     @GetMapping("{id}")
-    public GetBrandResponse getById(@PathVariable int id){
-        return this.brandService.getById(id);
+    public GetColorResponse getById(@PathVariable int id){
+        return this.colorService.getById(id);
     }
     @PostMapping
-    public void add(@RequestBody @Valid AddBrandRequest addBrandRequest){
-        this.brandService.add(addBrandRequest);
+    public void add(@RequestBody @Valid AddColorRequest addColorRequest){
+        this.colorService.add(addColorRequest);
     }
     @PutMapping("{id}")
-    public void update(@RequestBody  @Valid UpdateBrandRequest updateBrandRequest, @PathVariable int id){
-        this.brandService.update(updateBrandRequest,id);
+    public void update(@RequestBody  @Valid UpdateColorRequest updateColorRequest){
+        this.colorService.update(updateColorRequest);
     }
     @DeleteMapping("{id}")
     public void delete(@PathVariable int id){
-        this.brandService.delete(id);
+        this.colorService.delete(id);
     }
 
 }

@@ -15,6 +15,6 @@ public interface ColorService {
     List<GetColorListResponse> getAll();
     GetColorResponse getById(int id);
     void add(AddColorRequest addColorRequest);
-    void update(UpdateColorRequest colorRequest, int id);
+    void update(UpdateColorRequest colorRequest);
     void delete(int id);
 }
