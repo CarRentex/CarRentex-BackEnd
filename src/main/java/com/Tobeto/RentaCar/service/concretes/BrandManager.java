@@ -29,7 +29,7 @@ public class BrandManager implements BrandService {
     public void create (AddBrandRequest addBrandRequest) {
 
         if (brandRepository.existsByName(addBrandRequest.getName().trim()))
-            throw new RuntimeException("Aynı isimle iki marka gönderilemez");
+            throw new RuntimeException("brand is available in the system");
         // Auto mapping işlemi yapıldı
         Brand brand = this.mapperService.forRequest().map(addBrandRequest, Brand.class);
         this.brandRepository.save(brand);

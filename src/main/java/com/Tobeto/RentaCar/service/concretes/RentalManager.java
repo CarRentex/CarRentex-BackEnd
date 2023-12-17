@@ -11,6 +11,7 @@ import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
 import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalResponse;
+import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -44,16 +45,17 @@ public class RentalManager implements RentalService {
     public void create (AddRentalRequest rentalRequest) {
         // business rule
         if (rentalRequest.getStartDate().isBefore(LocalDate.now())) {
-            throw new RuntimeException("Başlangıç tarihi bugünden daha geçmiş bir tarih olamaz.");
+            throw new RuntimeException("The start date cannot be a date earlier than today.");
         }
-        // Bitiş tarihi başlangıç tarihinden daha geçmiş bir tarih olamaz.
         if (rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate())) {
-            throw new RuntimeException("Bitiş tarihi başlangıç tarihinden daha geçmiş bir tarih olamaz.");
+            throw new RuntimeException("The end date cannot be a date earlier than the start date.");
         }
-      // Bir araç maksimum 25 gün kiralanabilir.
         if (rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate())) {
-            throw new RuntimeException("Araç maksimum 25 gün kiralanabilir.");
+            throw new RuntimeException("The car can be rented for a maximum of 25 days.");
         }
+        rentalRequest.setEndKilometer(null);
+
+        rentalRequest.setStartKilometer(rentalRepository.getRentKilometer(rentalRequest.getCarID()));
         Rental rental = mapperService.forRequest().map(rentalRequest, Rental.class);
         rentalRepository.save(rental);
     }

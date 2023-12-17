@@ -17,11 +17,12 @@ public class AddRentalRequest {
     //@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format")
     private LocalDate endDate;
    // @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format")
-    @Null
+    //@Null
     private LocalDate returnDate;
     private int startKilometer;
-    @Null
-    private int endKilometer;
+    //@Null
+    private Integer endKilometer;
     private double totalPrice;
     private double discount;
+    private int carID;
 }
