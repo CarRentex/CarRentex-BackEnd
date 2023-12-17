@@ -29,8 +29,8 @@ public class ModelController {
         return this.modelService.getById(id);
     }
     @PostMapping("/create")
-    public void add(@RequestBody @Valid AddModelRequest addModelRequest){
-        this.modelService.add(addModelRequest);
+    public void create (@RequestBody @Valid AddModelRequest addModelRequest){
+        this.modelService.create(addModelRequest);
     }
     @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateModelRequest updateModelRequest){

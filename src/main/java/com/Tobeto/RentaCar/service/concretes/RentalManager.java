@@ -41,7 +41,7 @@ public class RentalManager implements RentalService {
     }
 
     @Override
-    public void add(AddRentalRequest rentalRequest) {
+    public void create (AddRentalRequest rentalRequest) {
         // business rule
         if (rentalRequest.getStartDate().isBefore(LocalDate.now())) {
             throw new RuntimeException("Başlangıç tarihi bugünden daha geçmiş bir tarih olamaz.");

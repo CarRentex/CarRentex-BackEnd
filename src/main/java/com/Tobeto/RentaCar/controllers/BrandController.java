@@ -28,8 +28,8 @@ public class BrandController {
         return this.brandService.getById(id);
     }
     @PostMapping("/create")
-    public void add(@RequestBody @Valid AddBrandRequest addBrandRequest){
-        this.brandService.add(addBrandRequest);
+    public void create (@RequestBody @Valid AddBrandRequest addBrandRequest){
+        this.brandService.create(addBrandRequest);
     }
     @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateBrandRequest updateBrandRequest){

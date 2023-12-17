@@ -26,8 +26,8 @@ public class ColorController {
         return this.colorService.getById(id);
     }
     @PostMapping("/create")
-    public void add(@RequestBody @Valid AddColorRequest addColorRequest){
-        this.colorService.add(addColorRequest);
+    public void create (@RequestBody @Valid AddColorRequest addColorRequest){
+        this.colorService.create(addColorRequest);
     }
     @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateColorRequest updateColorRequest){

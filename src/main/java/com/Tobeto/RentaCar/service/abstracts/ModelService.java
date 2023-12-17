@@ -9,7 +9,7 @@ import java.util.List;
 public interface ModelService {
     List<GetModelListResponse> getAll();
     GetModelResponse getById(int id);
-    void add(AddModelRequest addModelRequest);
+    void create (AddModelRequest addModelRequest);
     void update(UpdateModelRequest modelRequest);
     void delete(int id);
 

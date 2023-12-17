@@ -31,8 +31,8 @@ public class RentalController {
     }
 
     @PostMapping("/create")
-    public void add(@RequestBody @Valid AddRentalRequest rentalRequest) {
-        rentalService.add(rentalRequest);
+    public void create(@RequestBody @Valid AddRentalRequest rentalRequest) {
+        rentalService.create(rentalRequest);
     }
     @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateRentalRequest rentalRequest){

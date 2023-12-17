@@ -39,7 +39,7 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public void add(AddCarRequest addCarRequest) { // Automapping Yapıldı
+    public void create (AddCarRequest addCarRequest) { // Automapping Yapıldı
         addCarRequest.setPlate(addCarRequest.getPlate().replaceAll("\\s", ""));
         if (carRepository.existsByPlate(addCarRequest.getPlate()))
                 throw new RuntimeException("Plate registered in the system");

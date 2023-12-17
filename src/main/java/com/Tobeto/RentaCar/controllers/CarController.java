@@ -35,8 +35,8 @@ public class CarController {
     }
 
     @PostMapping("/create")
-    public void add(@RequestBody @Valid AddCarRequest addCarRequest) {
-        carService.add(addCarRequest);
+    public void create (@RequestBody @Valid AddCarRequest addCarRequest) {
+        carService.create(addCarRequest);
     }
     @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateCarRequest updateCarRequest){

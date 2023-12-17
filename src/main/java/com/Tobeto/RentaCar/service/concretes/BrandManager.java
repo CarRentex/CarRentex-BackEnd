@@ -26,7 +26,7 @@ public class BrandManager implements BrandService {
     private final BrandRepository brandRepository;
     private  ModelMapperService mapperService;
     @Override
-    public void add(AddBrandRequest addBrandRequest) {
+    public void create (AddBrandRequest addBrandRequest) {
 
         if (brandRepository.existsByName(addBrandRequest.getName().trim()))
             throw new RuntimeException("Aynı isimle iki marka gönderilemez");

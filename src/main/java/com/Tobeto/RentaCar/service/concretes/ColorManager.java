@@ -39,7 +39,7 @@ public class ColorManager implements ColorService {
     }
 
     @Override
-    public void add(AddColorRequest addColorRequest) {
+    public void create (AddColorRequest addColorRequest) {
         if (colorRepository.existsByName(addColorRequest.getName()))
             throw new RuntimeException("Color available in the system");
         Color colors = mapperService.forRequest().map(addColorRequest, Color.class);

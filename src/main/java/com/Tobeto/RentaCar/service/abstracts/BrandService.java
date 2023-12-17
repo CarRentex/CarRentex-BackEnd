@@ -9,7 +9,7 @@ import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandResponse;
 import java.util.List;
 
 public interface BrandService {
-    void add(AddBrandRequest addBrandRequest);
+    void create (AddBrandRequest addBrandRequest);
     GetBrandResponse getById(int id);
     List<GetBrandListResponse> getAll();
     void update(UpdateBrandRequest updateBrandRequest);

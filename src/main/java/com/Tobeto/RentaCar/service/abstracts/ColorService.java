@@ -14,7 +14,7 @@ import java.util.List;
 public interface ColorService {
     List<GetColorListResponse> getAll();
     GetColorResponse getById(int id);
-    void add(AddColorRequest addColorRequest);
+    void create (AddColorRequest addColorRequest);
     void update(UpdateColorRequest colorRequest);
     void delete(int id);
 }

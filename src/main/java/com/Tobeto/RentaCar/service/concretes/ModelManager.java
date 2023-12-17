@@ -34,7 +34,7 @@ public class ModelManager implements ModelService {
     }
 
     @Override
-    public void add(AddModelRequest addModelRequest) {
+    public void create (AddModelRequest addModelRequest) {
         if (modelRepository.existsByName(addModelRequest.getName()))
             throw new RuntimeException("Model available in the system");
 

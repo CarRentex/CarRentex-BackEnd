@@ -11,7 +11,7 @@ import java.util.List;
 public interface CarService {
     List<GetCarListResponse> getAll();
     GetCarResponse getById(int id);
-    void add(AddCarRequest addCarRequest);
+    void create (AddCarRequest addCarRequest);
     void update(UpdateCarRequest carRequest);
     void delete(int id);
 }
