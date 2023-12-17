@@ -8,12 +8,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface RentalRepository extends JpaRepository<Rental, Integer> {
+// kullanım dışı örnek
+//    @Query("SELECT c.kilometer FROM Car c " +
+//            "WHERE c.id = :carId")
+//    public int getRentKilometer(int carId);
 
-    @Query("SELECT c.kilometer FROM Car c " +
-            "WHERE c.id = :carId")
-    public int getRentKilometer(int carId);
-
-
-    //@Query("SELECT r FROM Rental r WHERE r.carId = :carId AND r.startKilometer = :startKilometer")
-    //public Rental findRentalByCarIdAndStartKilometer(Long carId,Double startKilometer);
 }

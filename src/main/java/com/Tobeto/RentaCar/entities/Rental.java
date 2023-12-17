@@ -24,8 +24,8 @@ public class Rental {
     @Column(name = "start_kilometer", length =30)
     private int startKilometer;
     @Column(name = "end_kilometer", length =30)
-    private Integer endKilometer;
-    @Column(name = "total_price", length =30, nullable = false)
+    private int endKilometer;
+    @Column(name = "total_price", length =30)
     private double totalPrice;
     @Column(name = "discount", length =10)
     private double discount;

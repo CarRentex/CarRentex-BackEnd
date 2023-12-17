@@ -21,8 +21,8 @@ public class AddRentalRequest {
     private LocalDate returnDate;
     private int startKilometer;
     //@Null
-    private Integer endKilometer;
-    private double totalPrice;
+    private int endKilometer;
+    //private double totalPrice;
     private double discount;
     private int carID;
 }

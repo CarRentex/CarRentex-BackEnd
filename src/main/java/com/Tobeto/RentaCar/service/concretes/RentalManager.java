@@ -1,29 +1,31 @@
 package com.Tobeto.RentaCar.service.concretes;
 
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
-import com.Tobeto.RentaCar.entities.Car;
 import com.Tobeto.RentaCar.entities.Rental;
 import com.Tobeto.RentaCar.repositories.RentalRepository;
+import com.Tobeto.RentaCar.service.abstracts.CarService;
 import com.Tobeto.RentaCar.service.abstracts.RentalService;
 import com.Tobeto.RentaCar.service.dto.request.Rental.AddRentalRequest;
 import com.Tobeto.RentaCar.service.dto.request.Rental.UpdateRentalRequest;
-import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
 import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalResponse;
-import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.time.temporal.ChronoUnit;
 
 @Service
 @AllArgsConstructor
 public class RentalManager implements RentalService {
     private final RentalRepository rentalRepository;
     private ModelMapperService mapperService;
+    private final CarService carService;
+
 
     @Override
     public List<GetRentalListResponse> getAll() {
@@ -53,10 +55,14 @@ public class RentalManager implements RentalService {
         if (rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate())) {
             throw new RuntimeException("The car can be rented for a maximum of 25 days.");
         }
-        rentalRequest.setEndKilometer(null);
+        // dikkat düzeltilecek
+        rentalRequest.setEndKilometer(0);
 
-        rentalRequest.setStartKilometer(rentalRepository.getRentKilometer(rentalRequest.getCarID()));
+        GetCarResponse carResponse = carService.getById(rentalRequest.getCarID());
+        rentalRequest.setStartKilometer(carResponse.getKilometer());
         Rental rental = mapperService.forRequest().map(rentalRequest, Rental.class);
+        rental.setTotalPrice(rentalRequest.getStartDate().until(rentalRequest.getEndDate(), ChronoUnit.DAYS)
+                * carResponse.getDailyPrice() * (1.0 - rentalRequest.getDiscount() / 100));
         rentalRepository.save(rental);
     }
 

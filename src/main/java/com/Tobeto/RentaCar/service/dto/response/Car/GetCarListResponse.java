@@ -13,6 +13,6 @@ public class GetCarListResponse {
     private double dailyPrice;
     private String plate;
     private String colorName;
-    private String  modelName;
+    private String modelName;
     private String brandName;
 }
