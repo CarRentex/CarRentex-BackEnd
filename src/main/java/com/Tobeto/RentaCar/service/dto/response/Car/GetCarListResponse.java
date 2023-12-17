@@ -14,4 +14,5 @@ public class GetCarListResponse {
     private String plate;
     private String colorName;
     private String  modelName;
+    private String brandName;
 }

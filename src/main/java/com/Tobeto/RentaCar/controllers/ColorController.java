@@ -25,11 +25,11 @@ public class ColorController {
     public GetColorResponse getById(@PathVariable int id){
         return this.colorService.getById(id);
     }
-    @PostMapping
+    @PostMapping("/create")
     public void add(@RequestBody @Valid AddColorRequest addColorRequest){
         this.colorService.add(addColorRequest);
     }
-    @PutMapping("{id}")
+    @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateColorRequest updateColorRequest){
         this.colorService.update(updateColorRequest);
     }

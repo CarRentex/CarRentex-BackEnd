@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GetModelResponse {
     private String name;
+    private String brandName;
 
 }

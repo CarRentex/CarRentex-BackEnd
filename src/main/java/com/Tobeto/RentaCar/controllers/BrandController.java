@@ -20,20 +20,20 @@ public class BrandController {
     private final BrandService brandService;
 
     @GetMapping
-    public List<Brand> getAll() {
+    public List<GetBrandListResponse> getAll() {
         return this.brandService.getAll();
     }
     @GetMapping("{id}")
     public GetBrandResponse getById(@PathVariable int id){
         return this.brandService.getById(id);
     }
-    @PostMapping
+    @PostMapping("/create")
     public void add(@RequestBody @Valid AddBrandRequest addBrandRequest){
         this.brandService.add(addBrandRequest);
     }
-    @PutMapping("{id}")
-    public void update(@RequestBody  @Valid UpdateBrandRequest updateBrandRequest, @PathVariable int id){
-        this.brandService.update(updateBrandRequest,id);
+    @PutMapping("/update")
+    public void update(@RequestBody  @Valid UpdateBrandRequest updateBrandRequest){
+        this.brandService.update(updateBrandRequest);
     }
     @DeleteMapping("{id}")
     public void delete(@PathVariable int id){

@@ -11,7 +11,7 @@ import java.util.List;
 public interface BrandService {
     void add(AddBrandRequest addBrandRequest);
     GetBrandResponse getById(int id);
-    List<Brand> getAll();
-    void update(UpdateBrandRequest updateBrandRequest, int id);
+    List<GetBrandListResponse> getAll();
+    void update(UpdateBrandRequest updateBrandRequest);
     void delete(int id);
 }

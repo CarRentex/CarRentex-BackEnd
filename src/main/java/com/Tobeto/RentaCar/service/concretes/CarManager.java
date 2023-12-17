@@ -52,12 +52,15 @@ public class CarManager implements CarService {
         car.setPlate(addCarRequest.getPlate());
         // colorId ve modelId yapılacak*/
     }
+
     @Override
-    public void update(UpdateCarRequest carRequest, int id) {
-        // Id işlemi almalı Updatecarequesti güncelle id yi dahil et
+    public void update(UpdateCarRequest carRequest) {
         Car car = mapperService.forRequest().map(carRequest, Car.class);
         carRepository.save(car);
+
     }
+
+
     @Override
     public void delete(int id) {
         carRepository.deleteById(id);

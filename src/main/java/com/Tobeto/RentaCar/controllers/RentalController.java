@@ -30,11 +30,11 @@ public class RentalController {
         return rentalService.getById(id);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public void add(@RequestBody @Valid AddRentalRequest rentalRequest) {
         rentalService.add(rentalRequest);
     }
-    @PutMapping("{id}")
+    @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateRentalRequest rentalRequest){
         rentalService.update(rentalRequest);
     }

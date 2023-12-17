@@ -21,7 +21,7 @@ public class UpdateCarRequest {
     @NotBlank
     private String plate;
     //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
-    //private int colorId;
+    private int colorId;
     //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
-    //private int modelId;
+    private int modelId;
 }

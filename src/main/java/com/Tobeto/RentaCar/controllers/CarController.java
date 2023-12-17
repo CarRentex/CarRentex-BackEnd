@@ -34,13 +34,13 @@ public class CarController {
         return carService.getById(id);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public void add(@RequestBody @Valid AddCarRequest addCarRequest) {
         carService.add(addCarRequest);
     }
-    @PutMapping("{id}")
-    public void update(@RequestBody  @Valid UpdateCarRequest updateCarRequest, @PathVariable int id){
-        carService.update(updateCarRequest,id);
+    @PutMapping("/update")
+    public void update(@RequestBody  @Valid UpdateCarRequest updateCarRequest){
+        carService.update(updateCarRequest);
     }
     @DeleteMapping("{id}")
     public void delete(@PathVariable int id){

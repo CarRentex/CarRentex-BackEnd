@@ -8,5 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetModelListResponse {
     private String name;
+    private String brandName;
 
 }
