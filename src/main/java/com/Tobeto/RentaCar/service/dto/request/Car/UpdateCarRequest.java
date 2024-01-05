@@ -20,6 +20,10 @@ public class UpdateCarRequest {
     @Pattern(regexp = "^[0-9]{2} [A-Z]{1,3} [0-9]{2,5}$", message = "invalid format")
     @NotBlank
     private String plate;
+    private short minFindeksRate;
+
+    private String imagePath;
+
     //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
     private int colorId;
     //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")

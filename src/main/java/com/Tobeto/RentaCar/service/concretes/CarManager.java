@@ -1,8 +1,7 @@
 package com.Tobeto.RentaCar.service.concretes;
 
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
-import com.Tobeto.RentaCar.entities.Car;
-import com.Tobeto.RentaCar.entities.Color;
+import com.Tobeto.RentaCar.entities.concretes.Car;
 import com.Tobeto.RentaCar.repositories.CarRepository;
 import com.Tobeto.RentaCar.service.abstracts.CarService;
 import com.Tobeto.RentaCar.service.dto.request.Car.AddCarRequest;
@@ -52,6 +51,11 @@ public class CarManager implements CarService {
         car.setPlate(addCarRequest.getPlate());
         // colorId ve modelId yapılacak*/
     }
+     //ModelMapper modelmapper = new ModelMapper()
+    //modelMapper.getConfiguration().setAmbiguityIgnored(true)
+    //  .setMatchingStrategy(MatchingStrategies.STANDARD);
+    // Car car =modelMapper.map)request, Car.class)
+
 
     @Override
     public void update(UpdateCarRequest carRequest) {
@@ -65,4 +69,5 @@ public class CarManager implements CarService {
     public void delete(int id) {
         carRepository.deleteById(id);
     }
+
 }

@@ -9,4 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetBrandResponse {
     private String name;
+    private String logoPath;
 }

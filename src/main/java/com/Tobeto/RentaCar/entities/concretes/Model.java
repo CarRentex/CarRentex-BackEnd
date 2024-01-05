@@ -1,4 +1,7 @@
-package com.Tobeto.RentaCar.entities;
+package com.Tobeto.RentaCar.entities.concretes;
+import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
+import com.Tobeto.RentaCar.entities.concretes.Brand;
+import com.Tobeto.RentaCar.entities.concretes.Car;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,12 +14,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Model {
+public class Model extends BaseEntity {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
     @Column(name = "name", length = 20, nullable = false)
     private String name;

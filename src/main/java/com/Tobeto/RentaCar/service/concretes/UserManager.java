@@ -1,16 +1,11 @@
 package com.Tobeto.RentaCar.service.concretes;
 
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
-import com.Tobeto.RentaCar.entities.Rental;
-import com.Tobeto.RentaCar.entities.User;
+import com.Tobeto.RentaCar.entities.concretes.User;
 import com.Tobeto.RentaCar.repositories.UserRepository;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
-import com.Tobeto.RentaCar.service.dto.request.Rental.AddRentalRequest;
-import com.Tobeto.RentaCar.service.dto.request.Rental.UpdateRentalRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.AddUserRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.UpdateUserRequest;
-import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalListResponse;
-import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalResponse;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
 import lombok.AllArgsConstructor;

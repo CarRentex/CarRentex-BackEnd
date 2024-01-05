@@ -1,5 +1,4 @@
 package com.Tobeto.RentaCar.service.dto.request.Model;
-import com.Tobeto.RentaCar.entities.Brand;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

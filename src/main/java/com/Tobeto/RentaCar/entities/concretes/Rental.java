@@ -1,20 +1,23 @@
-package com.Tobeto.RentaCar.entities;
+package com.Tobeto.RentaCar.entities.concretes;
+import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
+import com.Tobeto.RentaCar.entities.concretes.Car;
+import com.Tobeto.RentaCar.entities.concretes.Customer;
+import com.Tobeto.RentaCar.entities.concretes.Employee;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "rentals")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rental {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Rental extends BaseEntity {
+
     @Column(name = "start_date", length =20, nullable = false)
     private LocalDate startDate;
     @Column(name = "end_date", length =20, nullable = false)
@@ -27,8 +30,6 @@ public class Rental {
     private int endKilometer;
     @Column(name = "total_price", length =30)
     private double totalPrice;
-    @Column(name = "discount", length =10)
-    private double discount;
 
 
     //foreignkey
@@ -40,7 +41,7 @@ public class Rental {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+    @OneToMany(mappedBy = "rental")
+    private List<Invoice> invoices;
+
 }

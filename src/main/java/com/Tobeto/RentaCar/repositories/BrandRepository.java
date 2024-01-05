@@ -1,6 +1,6 @@
 package com.Tobeto.RentaCar.repositories;
 
-import com.Tobeto.RentaCar.entities.Brand;
+import com.Tobeto.RentaCar.entities.concretes.Brand;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

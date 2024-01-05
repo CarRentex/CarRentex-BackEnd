@@ -1,12 +1,8 @@
 package com.Tobeto.RentaCar.controllers;
 
-import com.Tobeto.RentaCar.entities.Model;
 import com.Tobeto.RentaCar.service.abstracts.ModelService;
-import com.Tobeto.RentaCar.service.dto.request.Brand.AddBrandRequest;
-import com.Tobeto.RentaCar.service.dto.request.Brand.UpdateBrandRequest;
 import com.Tobeto.RentaCar.service.dto.request.Model.AddModelRequest;
 import com.Tobeto.RentaCar.service.dto.request.Model.UpdateModelRequest;
-import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandResponse;
 import com.Tobeto.RentaCar.service.dto.response.Model.GetModelListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Model.GetModelResponse;
 import jakarta.validation.Valid;
