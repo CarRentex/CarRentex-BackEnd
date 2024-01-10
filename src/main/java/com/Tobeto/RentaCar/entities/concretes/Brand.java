@@ -1,11 +1,11 @@
-package com.Tobeto.RentaCar.entities;
+package com.Tobeto.RentaCar.entities.concretes;
 
 
+import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
 
@@ -14,15 +14,14 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Brand {
+public class Brand extends BaseEntity {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
     @Column(name = "name", length = 20, nullable = false)
     private String name;
+
+    @Column(name = "logo_path")
+    private String Logopath;
 
     @OneToMany(mappedBy = "brand")
     private List<Model> models;

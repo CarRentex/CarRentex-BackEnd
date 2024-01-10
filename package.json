@@ -1,0 +1,16 @@
+{
+  "name": "tobeto-rentacar_pair1",
+
+  "description": "## Proje Ortakları Ahmet Kaya Büşra Yüksekel Zeynep Sevinç Burak Karlıdağ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Tobeto-RentAcar_Pair1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=21.4.0"
+  }
+
+}

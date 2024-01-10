@@ -1,0 +1,267 @@
+Index: src/main/java/com/Tobeto/RentaCar/entities/Brand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/Tobeto/RentaCar/entities/Brand.java b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Brand.java
+rename from src/main/java/com/Tobeto/RentaCar/entities/Brand.java
+rename to src/main/java/com/Tobeto/RentaCar/entities/concretes/Brand.java
+--- a/src/main/java/com/Tobeto/RentaCar/entities/Brand.java	
++++ b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Brand.java	
+@@ -1,11 +1,11 @@
+-package com.Tobeto.RentaCar.entities;
++package com.Tobeto.RentaCar.entities.concretes;
+ 
+ 
++import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Data;
+ import lombok.NoArgsConstructor;
+-import org.hibernate.validator.constraints.Length;
+ 
+ import java.util.List;
+ 
+@@ -14,16 +14,15 @@
+ @Data
+ @AllArgsConstructor
+ @NoArgsConstructor
+-public class Brand {
++public class Brand extends BaseEntity {
+ 
+-    @Id
+-    @Column(name = "id")
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    private int id;
+ 
+     @Column(name = "name", length = 20, nullable = false)
+     private String name;
+ 
++    @Column(name = "logo_path")
++    private String Logopath;
++
+     @OneToMany(mappedBy = "brand")
+     private List<Model> models;
+ }
+Index: src/main/java/com/Tobeto/RentaCar/entities/Car.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/Tobeto/RentaCar/entities/Car.java b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Car.java
+rename from src/main/java/com/Tobeto/RentaCar/entities/Car.java
+rename to src/main/java/com/Tobeto/RentaCar/entities/concretes/Car.java
+--- a/src/main/java/com/Tobeto/RentaCar/entities/Car.java	
++++ b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Car.java	
+@@ -1,9 +1,11 @@
+-package com.Tobeto.RentaCar.entities;
++package com.Tobeto.RentaCar.entities.concretes;
++import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Data;
+ import lombok.NoArgsConstructor;
+ 
++import java.time.LocalDate;
+ import java.util.List;
+ 
+ @Entity
+@@ -11,23 +13,20 @@
+ @Data
+ @AllArgsConstructor
+ @NoArgsConstructor
+-public class Car {
+-    @Id
+-    @Column(name = "id")
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    private int id;
++public class Car extends BaseEntity {
+ 
+     @Column(name = "kilometer", length = 30, nullable = false)
+     private int kilometer;
+-
+     @Column(name = "year" ,length = 6, nullable = false)
+     private int year;
+-
+     @Column(name = "daily_price",  length = 30, nullable = false)
+     private double dailyPrice;
+-
+     @Column(name = "plate",  length = 30, nullable = false, unique = true)
+     private String plate;
++    @Column(name = "min_findeks_rate")
++    private short minFindeksRate;
++    @Column(name = "image_path")
++    private String imagePath;
+ 
+     // foreignkey
+ 
+@@ -36,11 +35,11 @@
+ 
+     @ManyToOne
+     @JoinColumn(name = "color_id")
+-    private  Color color;
++    private Color color;
+ 
+     @ManyToOne
+     @JoinColumn(name = "model_id")
+-    private  Model model;
++    private Model model;
+ 
+ 
+ }
+Index: src/main/java/com/Tobeto/RentaCar/entities/Rental.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/Tobeto/RentaCar/entities/Rental.java b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Rental.java
+rename from src/main/java/com/Tobeto/RentaCar/entities/Rental.java
+rename to src/main/java/com/Tobeto/RentaCar/entities/concretes/Rental.java
+--- a/src/main/java/com/Tobeto/RentaCar/entities/Rental.java	
++++ b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Rental.java	
+@@ -1,20 +1,23 @@
+-package com.Tobeto.RentaCar.entities;
++package com.Tobeto.RentaCar.entities.concretes;
++import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
++import com.Tobeto.RentaCar.entities.concretes.Car;
++import com.Tobeto.RentaCar.entities.concretes.Customer;
++import com.Tobeto.RentaCar.entities.concretes.Employee;
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Data;
+ import lombok.NoArgsConstructor;
+ 
+ import java.time.LocalDate;
++import java.util.List;
+ 
+ @Entity
+ @Table(name = "rentals")
+ @Data
+ @AllArgsConstructor
+ @NoArgsConstructor
+-public class Rental {
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    private int id;
++public class Rental extends BaseEntity {
++
+     @Column(name = "start_date", length =20, nullable = false)
+     private LocalDate startDate;
+     @Column(name = "end_date", length =20, nullable = false)
+@@ -27,8 +30,6 @@
+     private int endKilometer;
+     @Column(name = "total_price", length =30)
+     private double totalPrice;
+-    @Column(name = "discount", length =10)
+-    private double discount;
+ 
+ 
+     //foreignkey
+@@ -40,7 +41,7 @@
+     @JoinColumn(name = "customer_id")
+     private Customer customer;
+ 
+-    @ManyToOne
+-    @JoinColumn(name = "employee_id")
+-    private Employee employee;
++    @OneToMany(mappedBy = "rental")
++    private List<Invoice> invoices;
++
+ }
+Index: src/main/java/com/Tobeto/RentaCar/entities/Color.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/Tobeto/RentaCar/entities/Color.java b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Color.java
+rename from src/main/java/com/Tobeto/RentaCar/entities/Color.java
+rename to src/main/java/com/Tobeto/RentaCar/entities/concretes/Color.java
+--- a/src/main/java/com/Tobeto/RentaCar/entities/Color.java	
++++ b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Color.java	
+@@ -1,5 +1,7 @@
+-package com.Tobeto.RentaCar.entities;
++package com.Tobeto.RentaCar.entities.concretes;
+ 
++import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
++import com.Tobeto.RentaCar.entities.concretes.Car;
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Data;
+@@ -12,14 +14,12 @@
+ @Data
+ @AllArgsConstructor
+ @NoArgsConstructor
+-public class Color {
+-    @Id
+-    @Column(name = "id")
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    private int id;
++public class Color extends BaseEntity {
+ 
+     @Column(name = "name", length = 20, nullable = false)
+     private String name;
++    @Column(name="code")
++    private String code;
+ 
+     @OneToMany(mappedBy = "color")
+     private List<Car> car;
+Index: src/main/java/com/Tobeto/RentaCar/entities/Model.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/Tobeto/RentaCar/entities/Model.java b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Model.java
+rename from src/main/java/com/Tobeto/RentaCar/entities/Model.java
+rename to src/main/java/com/Tobeto/RentaCar/entities/concretes/Model.java
+--- a/src/main/java/com/Tobeto/RentaCar/entities/Model.java	
++++ b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Model.java	
+@@ -1,4 +1,7 @@
+-package com.Tobeto.RentaCar.entities;
++package com.Tobeto.RentaCar.entities.concretes;
++import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
++import com.Tobeto.RentaCar.entities.concretes.Brand;
++import com.Tobeto.RentaCar.entities.concretes.Car;
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Data;
+@@ -11,12 +14,8 @@
+ @Data
+ @AllArgsConstructor
+ @NoArgsConstructor
+-public class Model {
++public class Model extends BaseEntity {
+ 
+-    @Id
+-    @Column(name = "id")
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    private int id;
+ 
+     @Column(name = "name", length = 20, nullable = false)
+     private String name;
+Index: src/main/java/com/Tobeto/RentaCar/entities/Employee.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/Tobeto/RentaCar/entities/Employee.java b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Employee.java
+rename from src/main/java/com/Tobeto/RentaCar/entities/Employee.java
+rename to src/main/java/com/Tobeto/RentaCar/entities/concretes/Employee.java
+--- a/src/main/java/com/Tobeto/RentaCar/entities/Employee.java	
++++ b/src/main/java/com/Tobeto/RentaCar/entities/concretes/Employee.java	
+@@ -1,4 +1,4 @@
+-package com.Tobeto.RentaCar.entities;
++package com.Tobeto.RentaCar.entities.concretes;
+ 
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+@@ -25,10 +25,5 @@
+ 
+ 
+     // foreignkey
+-    @ManyToOne
+-    @JoinColumn(name = "user_id")
+-    private User user;
+ 
+-    @OneToMany(mappedBy = "employee")
+-    private List<Rental> rentals;
+ }

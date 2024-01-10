@@ -1,19 +1,14 @@
 package com.Tobeto.RentaCar.service.concretes;
 
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
-import com.Tobeto.RentaCar.entities.Brand;
-import com.Tobeto.RentaCar.entities.Car;
-import com.Tobeto.RentaCar.entities.Model;
+import com.Tobeto.RentaCar.entities.concretes.Brand;
 import com.Tobeto.RentaCar.repositories.BrandRepository;
 import com.Tobeto.RentaCar.service.abstracts.BrandService;
 import com.Tobeto.RentaCar.service.dto.request.Brand.AddBrandRequest;
 import com.Tobeto.RentaCar.service.dto.request.Brand.UpdateBrandRequest;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandResponse;
-import com.Tobeto.RentaCar.service.dto.response.Model.GetModelListResponse;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

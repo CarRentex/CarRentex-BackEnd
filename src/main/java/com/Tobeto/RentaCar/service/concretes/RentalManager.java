@@ -1,7 +1,7 @@
 package com.Tobeto.RentaCar.service.concretes;
 
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
-import com.Tobeto.RentaCar.entities.Rental;
+import com.Tobeto.RentaCar.entities.concretes.Rental;
 import com.Tobeto.RentaCar.repositories.RentalRepository;
 import com.Tobeto.RentaCar.service.abstracts.CarService;
 import com.Tobeto.RentaCar.service.abstracts.RentalService;
@@ -11,7 +11,6 @@ import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
 import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalResponse;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

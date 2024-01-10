@@ -1,4 +1,4 @@
-package com.Tobeto.RentaCar.entities;
+package com.Tobeto.RentaCar.entities.concretes;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,10 +25,5 @@ public class Employee {
 
 
     // foreignkey
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
-    @OneToMany(mappedBy = "employee")
-    private List<Rental> rentals;
 }

@@ -1,0 +1,43 @@
+Index: package-lock.json
+===================================================================
+diff --git a/package-lock.json b/package-lock.json
+deleted file mode 100644
+--- a/package-lock.json	(revision e6587c9e1b3ad580829c5af5dfcb86bc4caba33f)
++++ /dev/null	(revision e6587c9e1b3ad580829c5af5dfcb86bc4caba33f)
+@@ -1,13 +0,0 @@
+-{
+-  "name": "tobeto-rentacar_pair1",
+-  "version": "1.0.0",
+-  "lockfileVersion": 3,
+-  "requires": true,
+-  "packages": {
+-    "": {
+-      "name": "tobeto-rentacar_pair1",
+-      "version": "1.0.0",
+-      "license": "ISC"
+-    }
+-  }
+-}
+Index: package.json
+===================================================================
+diff --git a/package.json b/package.json
+deleted file mode 100644
+--- a/package.json	(revision e6587c9e1b3ad580829c5af5dfcb86bc4caba33f)
++++ /dev/null	(revision e6587c9e1b3ad580829c5af5dfcb86bc4caba33f)
+@@ -1,16 +0,0 @@
+-{
+-  "name": "tobeto-rentacar_pair1",
+-
+-  "description": "## Proje Ortakları Ahmet Kaya Büşra Yüksekel Zeynep Sevinç Burak Karlıdağ",
+-  "main": "index.js",
+-  "scripts": {
+-    "start": "node Tobeto-RentAcar_Pair1"
+-  },
+-  "keywords": [],
+-  "author": "",
+-  "license": "ISC",
+-  "engines": {
+-    "node": ">=21.4.0"
+-  }
+-
+-}

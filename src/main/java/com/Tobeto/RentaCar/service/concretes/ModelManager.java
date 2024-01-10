@@ -1,6 +1,6 @@
 package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
-import com.Tobeto.RentaCar.entities.Model;
+import com.Tobeto.RentaCar.entities.concretes.Model;
 import com.Tobeto.RentaCar.repositories.ModelRepository;
 import com.Tobeto.RentaCar.service.abstracts.ModelService;
 import com.Tobeto.RentaCar.service.dto.request.Model.AddModelRequest;

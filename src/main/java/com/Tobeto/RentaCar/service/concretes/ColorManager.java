@@ -1,14 +1,11 @@
 package com.Tobeto.RentaCar.service.concretes;
 
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
-import com.Tobeto.RentaCar.entities.Car;
-import com.Tobeto.RentaCar.entities.Color;
+import com.Tobeto.RentaCar.entities.concretes.Color;
 import com.Tobeto.RentaCar.repositories.ColorRepository;
 import com.Tobeto.RentaCar.service.abstracts.ColorService;
 import com.Tobeto.RentaCar.service.dto.request.Color.AddColorRequest;
 import com.Tobeto.RentaCar.service.dto.request.Color.UpdateColorRequest;
-import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
-import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
 import com.Tobeto.RentaCar.service.dto.response.Color.GetColorListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Color.GetColorResponse;
 import lombok.AllArgsConstructor;
