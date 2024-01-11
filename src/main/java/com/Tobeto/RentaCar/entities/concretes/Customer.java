@@ -24,5 +24,7 @@ public class Customer extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-
+// coropartecustomer ve invoice için controller , service katmanları yazılıcak
+// business rullar eklenecek ve test edilecek
+// veritabanına markalar araçlar gibi default olarak veriler eklenecek
 }

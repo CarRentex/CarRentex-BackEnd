@@ -1,7 +1,5 @@
 package com.Tobeto.RentaCar.entities.concretes;
 import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
-import com.Tobeto.RentaCar.entities.concretes.Customer;
-import com.Tobeto.RentaCar.entities.concretes.Employee;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
