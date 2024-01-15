@@ -1,0 +1,23 @@
+Index: package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"name\": \"tobeto-rentacar_pair1\",\n  \"version\": \"1.0.0\",\n  \"lockfileVersion\": 3,\n  \"requires\": true,\n  \"packages\": {\n    \"\": {\n      \"name\": \"tobeto-rentacar_pair1\",\n      \"version\": \"1.0.0\",\n      \"license\": \"ISC\"\n    }\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package-lock.json b/package-lock.json
+--- a/package-lock.json	(revision 861bdddd4a49abff78192be05bbb65fadb0a70f0)
++++ b/package-lock.json	(date 1705315092126)
+@@ -6,8 +6,10 @@
+   "packages": {
+     "": {
+       "name": "tobeto-rentacar_pair1",
+-      "version": "1.0.0",
+-      "license": "ISC"
++      "license": "ISC",
++      "engines": {
++        "node": ">=21.4.0"
++      }
+     }
+   }
+ }
