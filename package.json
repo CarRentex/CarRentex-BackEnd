@@ -4,7 +4,7 @@
   "description": "## Proje Ortakları Ahmet Kaya Büşra Yüksekel Zeynep Sevinç Burak Karlıdağ",
   "main": "index.js",
   "scripts": {
-    "start": "node Tobeto-RentAcar_Pair1"
+    "start": "node CarRentex-BackEnd"
   },
   "keywords": [],
   "author": "",

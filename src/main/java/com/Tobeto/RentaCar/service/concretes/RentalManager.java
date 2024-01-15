@@ -43,26 +43,8 @@ public class RentalManager implements RentalService {
     }
 
     @Override
-    public void create (AddRentalRequest rentalRequest) {
-        // business rule
-        if (rentalRequest.getStartDate().isBefore(LocalDate.now())) {
-            throw new RuntimeException("The start date cannot be a date earlier than today.");
-        }
-        if (rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate())) {
-            throw new RuntimeException("The end date cannot be a date earlier than the start date.");
-        }
-        if (rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate())) {
-            throw new RuntimeException("The car can be rented for a maximum of 25 days.");
-        }
-        // dikkat düzeltilecek
-        rentalRequest.setEndKilometer(0);
+    public void create(AddRentalRequest rentalRequest) {
 
-        GetCarResponse carResponse = carService.getById(rentalRequest.getCarID());
-        rentalRequest.setStartKilometer(carResponse.getKilometer());
-        Rental rental = mapperService.forRequest().map(rentalRequest, Rental.class);
-        rental.setTotalPrice(rentalRequest.getStartDate().until(rentalRequest.getEndDate(), ChronoUnit.DAYS)
-                * carResponse.getDailyPrice() * (1.0 - rentalRequest.getDiscount() / 100));
-        rentalRepository.save(rental);
     }
 
     @Override

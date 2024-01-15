@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class ColorManager implements ColorService {
+
     private final ColorRepository colorRepository;
     private  ModelMapperService mapperService;
 
@@ -36,12 +37,10 @@ public class ColorManager implements ColorService {
     }
 
     @Override
-    public void create (AddColorRequest addColorRequest) {
-        if (colorRepository.existsByName(addColorRequest.getName()))
-            throw new RuntimeException("Color available in the system");
-        Color colors = mapperService.forRequest().map(addColorRequest, Color.class);
-        colorRepository.save(colors);
+    public void create(AddColorRequest addColorRequest) {
+
     }
+
 
     @Override
     public void update(UpdateColorRequest colorRequest) {

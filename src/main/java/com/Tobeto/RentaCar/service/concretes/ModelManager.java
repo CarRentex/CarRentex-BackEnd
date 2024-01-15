@@ -34,12 +34,7 @@ public class ModelManager implements ModelService {
     }
 
     @Override
-    public void create (AddModelRequest addModelRequest) {
-        if (modelRepository.existsByName(addModelRequest.getName()))
-            throw new RuntimeException("Model available in the system");
-
-        Model model = mapperService.forRequest().map(addModelRequest, Model.class);
-        modelRepository.save(model);
+    public void create(AddModelRequest addModelRequest) {
 
     }
 

@@ -38,19 +38,17 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public void create (AddCarRequest addCarRequest) { // Automapping Yapıldı
-        addCarRequest.setPlate(addCarRequest.getPlate().replaceAll("\\s", ""));
-        if (carRepository.existsByPlate(addCarRequest.getPlate()))
-                throw new RuntimeException("Plate registered in the system");
-        Car car = mapperService.forRequest().map(addCarRequest, Car.class);
-        carRepository.save(car);
+    public void create(AddCarRequest addCarRequest) {
+
+    }
+
 /*        //Color color = new Color();
         car.setKilometer(addCarRequest.getKilometer());
         car.setYear(addCarRequest.getYear());
         car.setDailyPrice(addCarRequest.getDailyPrice());
         car.setPlate(addCarRequest.getPlate());
         // colorId ve modelId yapılacak*/
-    }
+
      //ModelMapper modelmapper = new ModelMapper()
     //modelMapper.getConfiguration().setAmbiguityIgnored(true)
     //  .setMatchingStrategy(MatchingStrategies.STANDARD);
