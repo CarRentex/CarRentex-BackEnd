@@ -3,6 +3,7 @@ package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.Brand;
 import com.Tobeto.RentaCar.repositories.BrandRepository;
+import com.Tobeto.RentaCar.rules.brand.BrandBusinessRuleManager;
 import com.Tobeto.RentaCar.service.abstracts.BrandService;
 import com.Tobeto.RentaCar.service.dto.request.Brand.AddBrandRequest;
 import com.Tobeto.RentaCar.service.dto.request.Brand.UpdateBrandRequest;
@@ -20,12 +21,11 @@ public class BrandManager implements BrandService {
 
     private final BrandRepository brandRepository;
     private  ModelMapperService mapperService;
+    private final BrandBusinessRuleManager brandBusinessRuleManager;
     @Override
     public void create (AddBrandRequest addBrandRequest) {
-
-        if (brandRepository.existsByName(addBrandRequest.getName().trim()))
-            throw new RuntimeException("brand is available in the system");
-        // Auto mapping işlemi yapıldı
+        //business rules
+        brandBusinessRuleManager.checkIfBrandNameExists(addBrandRequest);
         Brand brand = this.mapperService.forRequest().map(addBrandRequest, Brand.class);
         this.brandRepository.save(brand);
     }
@@ -45,6 +45,7 @@ public class BrandManager implements BrandService {
 
     @Override
     public void update(UpdateBrandRequest updateBrandRequest) {
+        brandBusinessRuleManager.checkIfBrandNameExists(updateBrandRequest);
         Brand brand = mapperService.forRequest().map(updateBrandRequest, Brand.class);
         brandRepository.save(brand);
 
@@ -53,6 +54,6 @@ public class BrandManager implements BrandService {
 
     @Override
     public void delete(int id) {
-
+        brandRepository.deleteById(id);
     }
 }
