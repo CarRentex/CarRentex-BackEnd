@@ -20,6 +20,8 @@ public class User extends BaseEntity {
     @Column(name = "password")
     private String password;
 
+//    @Column(name = "gsm",length = 11, nullable = true)
+//    private String gsm;
     @OneToMany(mappedBy = "user")
     private List<Customer> customers;
 

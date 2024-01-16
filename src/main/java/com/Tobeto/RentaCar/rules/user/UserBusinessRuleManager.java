@@ -1,4 +1,9 @@
 package com.Tobeto.RentaCar.rules.user;
 
-public class UserBusinessRuleManager {
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class UserBusinessRuleManager implements UserBusinessRuleService{
 }
