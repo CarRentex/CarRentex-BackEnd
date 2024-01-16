@@ -8,5 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetCustomerResponse {
-    private String nationalityId;
+    private String FirstName;
+    private String LastName;
 }

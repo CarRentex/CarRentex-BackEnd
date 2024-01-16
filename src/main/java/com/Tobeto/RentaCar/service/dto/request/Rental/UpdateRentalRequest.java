@@ -20,6 +20,5 @@ public class UpdateRentalRequest {
     private int startKilometer;
     private int endKilometer;
     private double totalPrice;
-    private double discount;
     private int carID;
 }

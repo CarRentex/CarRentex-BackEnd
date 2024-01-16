@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddCustomerRequest {
-    private String nationalityId;
-
+    private String firstName;
+    private String lastName;
 }

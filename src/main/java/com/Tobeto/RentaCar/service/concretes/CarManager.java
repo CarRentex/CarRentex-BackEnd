@@ -3,6 +3,7 @@ package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.Car;
 import com.Tobeto.RentaCar.repositories.CarRepository;
+import com.Tobeto.RentaCar.rules.car.CarBusinessRuleManager;
 import com.Tobeto.RentaCar.service.abstracts.CarService;
 import com.Tobeto.RentaCar.service.dto.request.Car.AddCarRequest;
 import com.Tobeto.RentaCar.service.dto.request.Car.UpdateCarRequest;
@@ -18,7 +19,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class CarManager implements CarService {
     private final CarRepository carRepository;
-    private ModelMapperService mapperService;
+    private final ModelMapperService mapperService;
+    private final CarBusinessRuleManager carBusinessRuleManager;
 
     @Override
     public List<GetCarListResponse> getAll() {
@@ -40,34 +42,19 @@ public class CarManager implements CarService {
     @Override
     public void create (AddCarRequest addCarRequest) { // Automapping Yapıldı
         addCarRequest.setPlate(addCarRequest.getPlate().replaceAll("\\s", ""));
-        if (carRepository.existsByPlate(addCarRequest.getPlate()))
-                throw new RuntimeException("Plate registered in the system");
+        carBusinessRuleManager.checkPlate(addCarRequest);
         Car car = mapperService.forRequest().map(addCarRequest, Car.class);
         carRepository.save(car);
-/*        //Color color = new Color();
-        car.setKilometer(addCarRequest.getKilometer());
-        car.setYear(addCarRequest.getYear());
-        car.setDailyPrice(addCarRequest.getDailyPrice());
-        car.setPlate(addCarRequest.getPlate());
-        // colorId ve modelId yapılacak*/
     }
-     //ModelMapper modelmapper = new ModelMapper()
-    //modelMapper.getConfiguration().setAmbiguityIgnored(true)
-    //  .setMatchingStrategy(MatchingStrategies.STANDARD);
-    // Car car =modelMapper.map)request, Car.class)
-
-
     @Override
     public void update(UpdateCarRequest carRequest) {
+        carRequest.setPlate(carRequest.getPlate().replaceAll("\\s", ""));
+        carBusinessRuleManager.checkPlate(carRequest);
         Car car = mapperService.forRequest().map(carRequest, Car.class);
         carRepository.save(car);
-
     }
-
-
     @Override
     public void delete(int id) {
         carRepository.deleteById(id);
     }
-
 }

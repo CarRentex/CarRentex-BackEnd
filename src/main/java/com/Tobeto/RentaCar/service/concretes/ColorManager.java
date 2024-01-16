@@ -3,6 +3,7 @@ package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.Color;
 import com.Tobeto.RentaCar.repositories.ColorRepository;
+import com.Tobeto.RentaCar.rules.color.ColorBusinessRuleManager;
 import com.Tobeto.RentaCar.service.abstracts.ColorService;
 import com.Tobeto.RentaCar.service.dto.request.Color.AddColorRequest;
 import com.Tobeto.RentaCar.service.dto.request.Color.UpdateColorRequest;
@@ -17,7 +18,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class ColorManager implements ColorService {
     private final ColorRepository colorRepository;
-    private  ModelMapperService mapperService;
+    private final ModelMapperService mapperService;
+    private final ColorBusinessRuleManager colorBusinessRuleManager;
 
     @Override
     public List<GetColorListResponse> getAll() {
@@ -37,14 +39,14 @@ public class ColorManager implements ColorService {
 
     @Override
     public void create (AddColorRequest addColorRequest) {
-        if (colorRepository.existsByName(addColorRequest.getName()))
-            throw new RuntimeException("Color available in the system");
+        colorBusinessRuleManager.checkIfColorNameExists(addColorRequest);
         Color colors = mapperService.forRequest().map(addColorRequest, Color.class);
         colorRepository.save(colors);
     }
 
     @Override
     public void update(UpdateColorRequest colorRequest) {
+        colorBusinessRuleManager.checkIfColorNameExists(colorRequest);
         Color colors = mapperService.forRequest().map(colorRequest, Color.class);
         colorRepository.save(colors);
     }
