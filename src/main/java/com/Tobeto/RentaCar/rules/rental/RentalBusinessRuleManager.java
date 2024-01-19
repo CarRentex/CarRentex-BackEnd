@@ -14,41 +14,23 @@ public class RentalBusinessRuleManager implements  RentalBusinessRuleService{
     private final RentalRepository rentalRepository;
 
     @Override
-    public void checkStartDateThanToday(AddRentalRequest rentalRequest) {
-        if (rentalRequest.getStartDate().isBefore(LocalDate.now())) {
-            throw new RuntimeException("The start date cannot be a date earlier than today.");
-        }
-    }
-    @Override
-    public void checkStartDateThanToday(UpdateRentalRequest rentalRequest) {
-        if (rentalRequest.getStartDate().isBefore(LocalDate.now())) {
+    public void checkStartDateThanToday(boolean bool) {
+        if (bool) {
             throw new RuntimeException("The start date cannot be a date earlier than today.");
         }
     }
 
     @Override
-    public void checkEndDateThanStartDate(AddRentalRequest rentalRequest) {
-        if (rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate())) {
+    public void checkEndDateThanStartDate(boolean bool) {
+        if (bool) {
             throw new RuntimeException("The end date cannot be a date earlier than the start date.");
         }
     }
 
-    @Override
-    public void checkEndDateThanStartDate(UpdateRentalRequest rentalRequest) {
-        if (rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate())) {
-            throw new RuntimeException("The end date cannot be a date earlier than the start date.");
-        }
-    }
 
     @Override
-    public void checkMaxRentDay(AddRentalRequest rentalRequest) {
-        if (rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate())) {
-            throw new RuntimeException("The car can be rented for a maximum of 25 days.");
-        }
-    }
-    @Override
-    public void checkMaxRentDay(UpdateRentalRequest rentalRequest) {
-        if (rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate())) {
+    public void checkMaxRentDay(boolean bool) {
+        if (bool) {
             throw new RuntimeException("The car can be rented for a maximum of 25 days.");
         }
     }

@@ -42,7 +42,7 @@ public class CustomerManager implements CustomerService {
 
     @Override
     public void create(AddCustomerRequest addCustomerRequest) {
-        customerBusinessRuleManager.checkIfCustomerNameExists(addCustomerRequest);
+        customerBusinessRuleManager.checkIfCustomerNameExists(addCustomerRequest.getFirstName(),addCustomerRequest.getLastName());
         Customer customer = mapperService.forRequest().map(addCustomerRequest, Customer.class);
         customerRepository.save(customer);
 
@@ -50,14 +50,15 @@ public class CustomerManager implements CustomerService {
 
     @Override
     public void update(UpdateCustomerRequest customerRequest) {
-
+        customerBusinessRuleManager.checkIfCustomerNameExists(customerRequest.getFirstName(),customerRequest.getLastName());
+        Customer customer = mapperService.forRequest().map(customerRequest, Customer.class);
+        customerRepository.save(customer);
     }
 
     @Override
     public void delete(int id) {
-
+        customerRepository.deleteById(id);
     }
-    //private final CustomerBusinessRuleManager customerBusinessRuleManager;
 
 
 

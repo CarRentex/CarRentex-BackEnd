@@ -38,14 +38,14 @@ public class ModelManager implements ModelService {
     @Override
     public void create (AddModelRequest addModelRequest) {
 
-        modelBusinessRuleService.checkIfModelNameExists(addModelRequest);
+        modelBusinessRuleService.checkIfModelNameExists(addModelRequest.getName());
         Model model = mapperService.forRequest().map(addModelRequest, Model.class);
         modelRepository.save(model);
     }
 
     @Override
     public void update(UpdateModelRequest modelRequest) {
-            modelBusinessRuleService.checkIfModelNameExists(modelRequest);
+            modelBusinessRuleService.checkIfModelNameExists(modelRequest.getName());
             Model model = mapperService.forRequest().map(modelRequest, Model.class);
             modelRepository.save(model);
     }

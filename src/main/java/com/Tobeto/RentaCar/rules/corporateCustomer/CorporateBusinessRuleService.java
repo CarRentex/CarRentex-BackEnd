@@ -4,8 +4,6 @@ import com.Tobeto.RentaCar.service.dto.request.CorporateCustomer.AddCorporateReq
 import com.Tobeto.RentaCar.service.dto.request.CorporateCustomer.UpdateCorporateRequest;
 
 public interface CorporateBusinessRuleService {
-    void checkIfCompanyNameExists(AddCorporateRequest addCorporateRequest);
-
-    void checkIfCompanyNameExists(UpdateCorporateRequest updateCorporateRequest);
+    void checkIfCompanyNameExists(String name);
 
 }

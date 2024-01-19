@@ -11,14 +11,8 @@ import org.springframework.stereotype.Service;
 public class CorporateBusinessRuleManager implements CorporateBusinessRuleService{
     private final CorporateCustomerRepository corporateCustomerRepository;
     @Override
-    public void checkIfCompanyNameExists(AddCorporateRequest addCorporateRequest) {
-        if (corporateCustomerRepository.existsByCompanyName(addCorporateRequest.getCompanyName()))
-            throw new RuntimeException("CompanyName available in the system");
-    }
-
-    @Override
-    public void checkIfCompanyNameExists(UpdateCorporateRequest updateCorporateRequest) {
-        if (corporateCustomerRepository.existsByCompanyName(updateCorporateRequest.getCompanyName()))
+    public void checkIfCompanyNameExists(String name) {
+        if (corporateCustomerRepository.existsByCompanyName(name))
             throw new RuntimeException("CompanyName available in the system");
     }
 }

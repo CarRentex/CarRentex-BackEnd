@@ -13,15 +13,8 @@ public class ModelBusinessRuleManager implements ModelBusinessRuleService{
     private final ModelRepository modelRepository;
 
     @Override
-    public void checkIfModelNameExists(AddModelRequest addModelRequest) {
-        if (modelRepository.existsByName(addModelRequest.getName())) {
-            throw new IllegalArgumentException("Model name already exists");
-        }
-    }
-
-    @Override
-    public void checkIfModelNameExists(UpdateModelRequest updateModelRequest) {
-        if (modelRepository.existsByName(updateModelRequest.getName())) {
+    public void checkIfModelNameExists(String name) {
+        if (modelRepository.existsByName(name)) {
             throw new IllegalArgumentException("Model name already exists");
         }
     }

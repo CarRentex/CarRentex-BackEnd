@@ -42,14 +42,14 @@ public class CorporateCustomerManager implements CorporateCustomerService {
 
     @Override
     public void create(AddCorporateRequest addCorporateRequest) {
-        corporateBusinessRuleService.checkIfCompanyNameExists(addCorporateRequest);
+        corporateBusinessRuleService.checkIfCompanyNameExists(addCorporateRequest.getCompanyName());
         CorporateCustomer corporateCustomer = mapperService.forRequest().map(addCorporateRequest, CorporateCustomer.class);
         corporateCustomerRepository.save(corporateCustomer);
     }
 
     @Override
     public void update(UpdateCorporateRequest corporateRequest) {
-        corporateBusinessRuleService.checkIfCompanyNameExists(corporateRequest);
+        corporateBusinessRuleService.checkIfCompanyNameExists(corporateRequest.getCompanyName());
         CorporateCustomer corporateCustomer = mapperService.forRequest().map(corporateRequest, CorporateCustomer.class);
         corporateCustomerRepository.save(corporateCustomer);
     }

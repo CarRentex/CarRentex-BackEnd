@@ -11,14 +11,8 @@ import org.springframework.stereotype.Service;
 public class ColorBusinessRuleManager implements ColorBusinessRuleService{
     private final ColorRepository colorRepository;
     @Override
-    public void checkIfColorNameExists(AddColorRequest addColorRequest) {
-        if (colorRepository.existsByName(addColorRequest.getName()))
-            throw new RuntimeException("Color available in the system");
-    }
-
-    @Override
-    public void checkIfColorNameExists(UpdateColorRequest updateColorRequest) {
-        if (colorRepository.existsByName(updateColorRequest.getName()))
+    public void checkIfColorNameExists(String name) {
+        if (colorRepository.existsByName(name))
             throw new RuntimeException("Color available in the system");
     }
 }

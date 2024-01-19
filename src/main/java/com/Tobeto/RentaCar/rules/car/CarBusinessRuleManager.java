@@ -12,14 +12,8 @@ public class CarBusinessRuleManager implements CarBusinessRuleService {
     private final CarRepository carRepository;
 
     @Override
-    public void checkPlate(AddCarRequest addCarRequest) {
-        if (carRepository.existsByPlate(addCarRequest.getPlate()))
-            throw new RuntimeException("Plate registered in the system");
-    }
-
-    @Override
-    public void checkPlate(UpdateCarRequest updateCarRequest) {
-        if (carRepository.existsByPlate(updateCarRequest.getPlate()))
+    public void checkPlate(String plate) {
+        if (carRepository.existsByPlate(plate.trim()))
             throw new RuntimeException("Plate registered in the system");
     }
 }

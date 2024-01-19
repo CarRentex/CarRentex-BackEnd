@@ -39,14 +39,14 @@ public class ColorManager implements ColorService {
 
     @Override
     public void create (AddColorRequest addColorRequest) {
-        colorBusinessRuleManager.checkIfColorNameExists(addColorRequest);
+        colorBusinessRuleManager.checkIfColorNameExists(addColorRequest.getName());
         Color colors = mapperService.forRequest().map(addColorRequest, Color.class);
         colorRepository.save(colors);
     }
 
     @Override
     public void update(UpdateColorRequest colorRequest) {
-        colorBusinessRuleManager.checkIfColorNameExists(colorRequest);
+        colorBusinessRuleManager.checkIfColorNameExists(colorRequest.getName());
         Color colors = mapperService.forRequest().map(colorRequest, Color.class);
         colorRepository.save(colors);
     }

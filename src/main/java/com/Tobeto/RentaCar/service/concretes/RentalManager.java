@@ -47,9 +47,9 @@ public class RentalManager implements RentalService {
     @Override
     public void create (AddRentalRequest rentalRequest) {
         // business rule
-        rentalBusinessRuleManager.checkStartDateThanToday(rentalRequest);
-        rentalBusinessRuleManager.checkEndDateThanStartDate(rentalRequest);
-        rentalBusinessRuleManager.checkMaxRentDay(rentalRequest);
+        rentalBusinessRuleManager.checkStartDateThanToday(rentalRequest.getStartDate().isBefore(LocalDate.now()));
+        rentalBusinessRuleManager.checkEndDateThanStartDate(rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate()));
+        rentalBusinessRuleManager.checkMaxRentDay(rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate()));
         // dikkat düzeltilecek
         rentalRequest.setEndKilometer(0);
 
@@ -63,9 +63,9 @@ public class RentalManager implements RentalService {
     }
     @Override
     public void update(UpdateRentalRequest rentalRequest) {
-        rentalBusinessRuleManager.checkStartDateThanToday(rentalRequest);
-        rentalBusinessRuleManager.checkEndDateThanStartDate(rentalRequest);
-        rentalBusinessRuleManager.checkMaxRentDay(rentalRequest);
+        rentalBusinessRuleManager.checkStartDateThanToday(rentalRequest.getStartDate().isBefore(LocalDate.now()));
+        rentalBusinessRuleManager.checkEndDateThanStartDate(rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate()));
+        rentalBusinessRuleManager.checkMaxRentDay(rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate()));
         Rental rental = mapperService.forRequest().map(rentalRequest, Rental.class);
         rentalRepository.save(rental);
     }

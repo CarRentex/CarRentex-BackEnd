@@ -4,13 +4,10 @@ import com.Tobeto.RentaCar.service.dto.request.Rental.AddRentalRequest;
 import com.Tobeto.RentaCar.service.dto.request.Rental.UpdateRentalRequest;
 
 public interface RentalBusinessRuleService {
-    void checkStartDateThanToday(AddRentalRequest rentalRequest);
-    void checkStartDateThanToday(UpdateRentalRequest rentalRequest);
-    void checkEndDateThanStartDate(AddRentalRequest rentalRequest);
-    void checkEndDateThanStartDate(UpdateRentalRequest rentalRequest);
+    void checkStartDateThanToday(boolean bool);
+    void checkEndDateThanStartDate(boolean bool);
 
-    void checkMaxRentDay(AddRentalRequest rentalRequest);
-    void checkMaxRentDay(UpdateRentalRequest rentalRequest);
+    void checkMaxRentDay(boolean bool);
 
 }
 

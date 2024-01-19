@@ -25,7 +25,7 @@ public class BrandManager implements BrandService {
     @Override
     public void create (AddBrandRequest addBrandRequest) {
         //business rules
-        brandBusinessRuleManager.checkIfBrandNameExists(addBrandRequest);
+        brandBusinessRuleManager.checkIfBrandNameExists(addBrandRequest.getName());
         Brand brand = this.mapperService.forRequest().map(addBrandRequest, Brand.class);
         this.brandRepository.save(brand);
     }
@@ -45,7 +45,7 @@ public class BrandManager implements BrandService {
 
     @Override
     public void update(UpdateBrandRequest updateBrandRequest) {
-        brandBusinessRuleManager.checkIfBrandNameExists(updateBrandRequest);
+        brandBusinessRuleManager.checkIfBrandNameExists(updateBrandRequest.getName());
         Brand brand = mapperService.forRequest().map(updateBrandRequest, Brand.class);
         brandRepository.save(brand);
 

@@ -11,14 +11,9 @@ import org.springframework.stereotype.Service;
 public class BrandBusinessRuleManager implements BrandBusinessRuleService{
     private final BrandRepository brandRepository;
     @Override
-    public void checkIfBrandNameExists(AddBrandRequest addBrandRequest) {
-        if (brandRepository.existsByName(addBrandRequest.getName().trim()))
+    public void checkIfBrandNameExists(String name) {
+        if (brandRepository.existsByName(name.trim()))
             throw new RuntimeException("brand is available in the system");
     }
 
-    @Override
-    public void checkIfBrandNameExists(UpdateBrandRequest updateBrandRequest) {
-        if (brandRepository.existsByName(updateBrandRequest.getName().trim()))
-            throw new RuntimeException("brand is available in the system");
-    }
 }

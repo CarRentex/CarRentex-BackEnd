@@ -42,14 +42,14 @@ public class CarManager implements CarService {
     @Override
     public void create (AddCarRequest addCarRequest) { // Automapping Yapıldı
         addCarRequest.setPlate(addCarRequest.getPlate().replaceAll("\\s", ""));
-        carBusinessRuleManager.checkPlate(addCarRequest);
+        carBusinessRuleManager.checkPlate(addCarRequest.getPlate());
         Car car = mapperService.forRequest().map(addCarRequest, Car.class);
         carRepository.save(car);
     }
     @Override
     public void update(UpdateCarRequest carRequest) {
         carRequest.setPlate(carRequest.getPlate().replaceAll("\\s", ""));
-        carBusinessRuleManager.checkPlate(carRequest);
+        carBusinessRuleManager.checkPlate(carRequest.getPlate());
         Car car = mapperService.forRequest().map(carRequest, Car.class);
         carRepository.save(car);
     }
