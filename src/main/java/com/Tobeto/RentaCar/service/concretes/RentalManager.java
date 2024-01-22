@@ -62,6 +62,7 @@ public class RentalManager implements RentalService {
 //                * carResponse.getDailyPrice() * (1.0 - rentalRequest.getDiscount() / 100));
         rentalRepository.save(rental);
 
+
     }
     @Override
     public void update(UpdateRentalRequest rentalRequest) {

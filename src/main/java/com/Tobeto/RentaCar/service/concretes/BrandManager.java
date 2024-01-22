@@ -21,6 +21,7 @@ public class BrandManager implements BrandService {
     private final BrandRepository brandRepository;
     private  ModelMapperService mapperService;
 
+
     private final BrandBusinessRuleManager brandBusinessRuleManager;
     @Override
     public void create (AddBrandRequest addBrandRequest) {
