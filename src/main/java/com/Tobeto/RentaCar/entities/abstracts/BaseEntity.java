@@ -13,8 +13,8 @@ public abstract class BaseEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
+
     @Column(name = "created_date")
     private LocalDate createdDate;
 

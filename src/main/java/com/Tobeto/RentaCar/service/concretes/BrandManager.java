@@ -20,12 +20,14 @@ import java.util.stream.Collectors;
 public class BrandManager implements BrandService {
     private final BrandRepository brandRepository;
     private  ModelMapperService mapperService;
-    private BrandBusinessRuleManager brandBusinessRuleManager;
 
-
+    private final BrandBusinessRuleManager brandBusinessRuleManager;
     @Override
-    public void create(AddBrandRequest addBrandRequest) {
-
+    public void create (AddBrandRequest addBrandRequest) {
+        //business rules
+        brandBusinessRuleManager.checkIfBrandNameExists(addBrandRequest.getName());
+        Brand brand = this.mapperService.forRequest().map(addBrandRequest, Brand.class);
+        this.brandRepository.save(brand);
     }
 
     @Override
@@ -44,6 +46,7 @@ public class BrandManager implements BrandService {
 
     @Override
     public void update(UpdateBrandRequest updateBrandRequest) {
+        brandBusinessRuleManager.checkIfBrandNameExists(updateBrandRequest.getName());
         Brand brand = mapperService.forRequest().map(updateBrandRequest, Brand.class);
         brandRepository.save(brand);
 
@@ -52,6 +55,6 @@ public class BrandManager implements BrandService {
 
     @Override
     public void delete(int id) {
-
+        brandRepository.deleteById(id);
     }
 }

@@ -8,5 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateCustomerRequest {
-    private String nationalityId;
+    private String firstName;
+    private String lastName;
 }

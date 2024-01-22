@@ -3,6 +3,7 @@ package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.User;
 import com.Tobeto.RentaCar.repositories.UserRepository;
+import com.Tobeto.RentaCar.rules.user.UserBusinessRuleService;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
 import com.Tobeto.RentaCar.service.dto.request.User.AddUserRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.UpdateUserRequest;
@@ -17,9 +18,9 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class UserManager implements UserService {
-
     private final UserRepository userRepository;
     private final ModelMapperService mapperService;
+    private final UserBusinessRuleService userBusinessRuleService;
     @Override
     public List<GetUserListResponse> getAll() {
         List<User> users =  userRepository.findAll();
@@ -38,15 +39,16 @@ public class UserManager implements UserService {
 
     @Override
     public void create(AddUserRequest userRequest) {
-        //if (rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate())) {
-          //  throw new RuntimeException("The car can be rented for a maximum of 25 days.");
-        //}
+        // business codes
+
         User user = mapperService.forRequest().map(userRequest, User.class);
         userRepository.save(user);
     }
 
     @Override
     public void update(UpdateUserRequest userRequest) {
+        // business codes
+
         User user = mapperService.forRequest().map(userRequest, User.class);
         userRepository.save(user);
     }

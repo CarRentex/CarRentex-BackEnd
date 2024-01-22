@@ -2,6 +2,7 @@ package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.Model;
 import com.Tobeto.RentaCar.repositories.ModelRepository;
+import com.Tobeto.RentaCar.rules.model.ModelBusinessRuleService;
 import com.Tobeto.RentaCar.service.abstracts.ModelService;
 import com.Tobeto.RentaCar.service.dto.request.Model.AddModelRequest;
 import com.Tobeto.RentaCar.service.dto.request.Model.UpdateModelRequest;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 public class ModelManager implements ModelService {
     private final ModelRepository modelRepository;
     private ModelMapperService mapperService;
+    private final ModelBusinessRuleService modelBusinessRuleService;
 
     @Override
     public List<GetModelListResponse> getAll() {
@@ -34,12 +36,16 @@ public class ModelManager implements ModelService {
     }
 
     @Override
-    public void create(AddModelRequest addModelRequest) {
+    public void create (AddModelRequest addModelRequest) {
 
+        modelBusinessRuleService.checkIfModelNameExists(addModelRequest.getName());
+        Model model = mapperService.forRequest().map(addModelRequest, Model.class);
+        modelRepository.save(model);
     }
 
     @Override
     public void update(UpdateModelRequest modelRequest) {
+            modelBusinessRuleService.checkIfModelNameExists(modelRequest.getName());
             Model model = mapperService.forRequest().map(modelRequest, Model.class);
             modelRepository.save(model);
     }

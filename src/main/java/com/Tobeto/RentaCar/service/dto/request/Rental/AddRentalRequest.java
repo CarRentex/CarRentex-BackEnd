@@ -22,7 +22,5 @@ public class AddRentalRequest {
     private int startKilometer;
     //@Null
     private int endKilometer;
-    //private double totalPrice;
-    private double discount;
     private int carID;
 }

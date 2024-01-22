@@ -15,5 +15,4 @@ public class GetRentalListResponse {
     private int startKilometer;
     private int endKilometer;
     private double totalPrice;
-    private double discount;
 }
