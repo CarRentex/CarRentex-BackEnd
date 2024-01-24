@@ -1,48 +1,40 @@
 package com.Tobeto.RentaCar.controllers;
 
+import com.Tobeto.RentaCar.core.services.JwtService;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
-import com.Tobeto.RentaCar.service.dto.request.Rental.AddRentalRequest;
-import com.Tobeto.RentaCar.service.dto.request.Rental.UpdateRentalRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.AddUserRequest;
-import com.Tobeto.RentaCar.service.dto.request.User.UpdateUserRequest;
-import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalListResponse;
-import com.Tobeto.RentaCar.service.dto.response.Rental.GetRentalResponse;
-import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
-import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
-@RestController
-@RequestMapping("api/users")
 @AllArgsConstructor
+@RestController
+@RequestMapping("/api/users")
 public class UserController {
+
     private final UserService userService;
+    private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
-    @GetMapping
-    public List<GetUserListResponse> getAll() {
-        return userService.getAll();
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    private void register(@RequestBody AddUserRequest request){
+        userService.register(request);
     }
 
-    @GetMapping("{id}")
-    public GetUserResponse getById(@PathVariable int id) {
-        return userService.getById(id);
+    @PostMapping("login")
+    @ResponseStatus(HttpStatus.OK)
+    public String login(@RequestBody AddUserRequest loginRequest){
+        //Aut Service taşınmalı
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
+        if(authentication.isAuthenticated()){
+            return jwtService.generateToken(loginRequest.getUsername());
+            //username eklenebilir
+        }
+        throw new RuntimeException("Kullanıcı adı yada şifra hatalı");
     }
-
-    @PostMapping("/create")
-    public void create(@RequestBody @Valid AddUserRequest userRequest) {
-        userService.create(userRequest);
-    }
-    @PutMapping("/update")
-    public void update(@RequestBody  @Valid UpdateUserRequest userRequest){
-        userService.update(userRequest);
-    }
-    @DeleteMapping("{id}")
-    public void delete(@PathVariable int id){
-        userService.delete(id);
-    }
-
-
 }

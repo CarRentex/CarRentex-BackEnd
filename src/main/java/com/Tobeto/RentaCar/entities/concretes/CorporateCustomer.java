@@ -18,9 +18,6 @@ public class CorporateCustomer extends BaseEntity {
     @Column(name="tax_no")
     private String taxNo;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 }
 
 

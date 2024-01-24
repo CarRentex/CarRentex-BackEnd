@@ -20,9 +20,7 @@ public class Customer extends BaseEntity {
     private String lastName;
 
     // foreignkey
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+
 
 // coropartecustomer ve invoice için controller , service katmanları yazılıcak
 // business rullar eklenecek ve test edilecek
