@@ -10,10 +10,15 @@
         <module name="RentaCar" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="RentaCar (1)" target="1.5" />
+      <module name="RentaCar (2)" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="RentaCar" options="-parameters" />
+      <module name="RentaCar (2)" options="-parameters" />
       <module name="Tobeto-RentAcar_Pair1" options="-parameters" />
     </option>
   </component>
