@@ -22,7 +22,9 @@ public class JwtService {
     private long EXPIRATION;
 
     public String generateToken(String userName) {
-        Map<String, Object> claims = new HashMap<>();
+        //User yolla maple
+        Map<String, Object> claims = new HashMap<>(new HashMap<>(Map.of(
+                "emailAddress", userName)));
         return createToken(claims, userName);
     }
 

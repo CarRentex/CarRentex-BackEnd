@@ -20,7 +20,7 @@ public class UserController {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
 
-    @PostMapping
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     private void register(@RequestBody AddUserRequest request){
         userService.register(request);
@@ -30,9 +30,10 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     public String login(@RequestBody AddUserRequest loginRequest){
         //Aut Service taşınmalı
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
+        Authentication authentication = authenticationManager.
+                authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),loginRequest.getPassword()));
         if(authentication.isAuthenticated()){
-            return jwtService.generateToken(loginRequest.getUsername());
+            return jwtService.generateToken(loginRequest.getEmail());
             //username eklenebilir
         }
         throw new RuntimeException("Kullanıcı adı yada şifra hatalı");

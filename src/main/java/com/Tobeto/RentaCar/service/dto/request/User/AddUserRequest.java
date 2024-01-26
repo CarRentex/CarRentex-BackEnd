@@ -13,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 public class AddUserRequest {
 
-    private String username;
 
     @Email(message = "The string has to be a well-formed email address")
     @NotBlank(message = "This field cannot be left blank")

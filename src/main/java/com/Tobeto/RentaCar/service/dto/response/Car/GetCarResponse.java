@@ -16,4 +16,5 @@ public class GetCarResponse {
     private String colorName;
     private String  modelName;
     private String brandName;
+    private String imagePath;
 }

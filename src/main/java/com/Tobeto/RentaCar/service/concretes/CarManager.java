@@ -1,5 +1,6 @@
 package com.Tobeto.RentaCar.service.concretes;
 
+import com.Tobeto.RentaCar.core.services.CloudinaryService;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.Car;
 import com.Tobeto.RentaCar.repositories.CarRepository;
@@ -11,7 +12,9 @@ import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +24,7 @@ public class CarManager implements CarService {
     private final CarRepository carRepository;
     private final ModelMapperService mapperService;
     private final CarBusinessRuleManager carBusinessRuleManager;
+    private final CloudinaryService cloudinaryService;
 
     @Override
     public List<GetCarListResponse> getAll() {
@@ -40,10 +44,13 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public void create (AddCarRequest addCarRequest) { // Automapping Yapıldı
+    public void create (AddCarRequest addCarRequest, MultipartFile file) throws IOException { // Automapping Yapıldı
+       // arabanın resmide eklenecek
+        String imagePath = cloudinaryService.uploadImage(file);
         addCarRequest.setPlate(addCarRequest.getPlate().replaceAll("\\s", ""));
         carBusinessRuleManager.checkPlate(addCarRequest.getPlate());
         Car car = mapperService.forRequest().map(addCarRequest, Car.class);
+        car.setImagePath(imagePath);
         carRepository.save(car);
     }
     @Override

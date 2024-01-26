@@ -3,22 +3,14 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||16397|c|G
-1||16397|C|G
-1||16397|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G
-16384||10|c|G
+      <Grants>16384||10|c|G
 16384||16394|c|G
 16384||10|C|G
 16384||10|T|G
 16384||16394|T|G
 16396||-9223372036854775808|C|G
 16396||16386|C|G</Grants>
-      <IntrospectionStateNumber>1510</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1987</IntrospectionStateNumber>
       <ServerVersion>15.3</ServerVersion>
       <StartupTime>1705953245</StartupTime>
       <TimeZones>true ACDT
@@ -816,7 +808,7 @@ false Zulu
 14146||10|C|G
 14146||-9223372036854775808|U|G
 14146||10|U|G</Grants>
-      <IntrospectionStateNumber>1510</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1987</IntrospectionStateNumber>
       <ObjectId>16399</ObjectId>
       <OwnerName>rentacars</OwnerName>
     </database>
@@ -4319,768 +4311,764 @@ idle_session_timeout=0</Config>
     <schema id="273" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1510</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-01-25.00:37:09</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1987</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-01-25.23:54:39</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="274" parent="273" name="brands_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16410</ObjectId>
+      <ObjectId>16959</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>851</StateNumber>
+      <StateNumber>1967</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <sequence id="275" parent="273" name="cars_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16417</ObjectId>
+      <ObjectId>16966</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>852</StateNumber>
+      <StateNumber>1968</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <sequence id="276" parent="273" name="colors_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16424</ObjectId>
+      <ObjectId>16975</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>853</StateNumber>
+      <StateNumber>1969</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <sequence id="277" parent="273" name="corporate_customers_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16431</ObjectId>
+      <ObjectId>16982</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>854</StateNumber>
+      <StateNumber>1970</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <sequence id="278" parent="273" name="customers_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16440</ObjectId>
+      <ObjectId>16991</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>855</StateNumber>
+      <StateNumber>1971</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <sequence id="279" parent="273" name="invoices_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16447</ObjectId>
+      <ObjectId>16998</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>856</StateNumber>
+      <StateNumber>1972</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <sequence id="280" parent="273" name="models_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16454</ObjectId>
+      <ObjectId>17005</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>857</StateNumber>
+      <StateNumber>1973</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <sequence id="281" parent="273" name="rentals_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16461</ObjectId>
+      <ObjectId>17012</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>858</StateNumber>
+      <StateNumber>1974</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <sequence id="282" parent="273" name="users_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>16468</ObjectId>
+      <ObjectId>17023</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>859</StateNumber>
+      <StateNumber>1976</StateNumber>
       <OwnerName>rentacars</OwnerName>
     </sequence>
     <table id="283" parent="273" name="brands">
-      <ObjectId>16411</ObjectId>
-      <StateNumber>866</StateNumber>
+      <ObjectId>16960</ObjectId>
+      <StateNumber>1980</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
     <table id="284" parent="273" name="cars">
-      <ObjectId>16418</ObjectId>
-      <StateNumber>861</StateNumber>
+      <ObjectId>16967</ObjectId>
+      <StateNumber>1977</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
     <table id="285" parent="273" name="colors">
-      <ObjectId>16425</ObjectId>
-      <StateNumber>861</StateNumber>
+      <ObjectId>16976</ObjectId>
+      <StateNumber>1977</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
     <table id="286" parent="273" name="corporate_customers">
-      <ObjectId>16432</ObjectId>
-      <StateNumber>863</StateNumber>
+      <ObjectId>16983</ObjectId>
+      <StateNumber>1970</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
     <table id="287" parent="273" name="customers">
-      <ObjectId>16441</ObjectId>
-      <StateNumber>864</StateNumber>
+      <ObjectId>16992</ObjectId>
+      <StateNumber>1982</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
     <table id="288" parent="273" name="invoices">
-      <ObjectId>16448</ObjectId>
-      <StateNumber>865</StateNumber>
+      <ObjectId>16999</ObjectId>
+      <StateNumber>1979</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
     <table id="289" parent="273" name="models">
-      <ObjectId>16455</ObjectId>
-      <StateNumber>862</StateNumber>
+      <ObjectId>17006</ObjectId>
+      <StateNumber>1978</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
     <table id="290" parent="273" name="rentals">
-      <ObjectId>16462</ObjectId>
-      <StateNumber>865</StateNumber>
+      <ObjectId>17013</ObjectId>
+      <StateNumber>1979</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
-    <table id="291" parent="273" name="users">
-      <ObjectId>16469</ObjectId>
-      <StateNumber>1462</StateNumber>
+    <table id="291" parent="273" name="user_authorities">
+      <ObjectId>17019</ObjectId>
+      <StateNumber>1983</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>rentacars</OwnerName>
     </table>
-    <column id="292" parent="283" name="id">
+    <table id="292" parent="273" name="users">
+      <ObjectId>17024</ObjectId>
+      <StateNumber>1983</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>rentacars</OwnerName>
+    </table>
+    <column id="293" parent="283" name="created_date">
+      <DasType>date|0s</DasType>
+      <Position>1</Position>
+      <StateNumber>1967</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="294" parent="283" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;brands_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>851</StateNumber>
-      <SequenceId>16410</SequenceId>
+      <Position>2</Position>
+      <StateNumber>1967</StateNumber>
+      <SequenceId>16959</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="293" parent="283" name="created_date">
-      <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>851</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="294" parent="283" name="updated_date">
+    <column id="295" parent="283" name="updated_date">
       <DasType>date|0s</DasType>
       <Position>3</Position>
-      <StateNumber>851</StateNumber>
+      <StateNumber>1967</StateNumber>
       <TypeId>1082</TypeId>
-    </column>
-    <column id="295" parent="283" name="logo_path">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>851</StateNumber>
-      <TypeId>1043</TypeId>
     </column>
     <column id="296" parent="283" name="name">
       <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>851</StateNumber>
+      <Position>4</Position>
+      <StateNumber>1967</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="297" parent="283" name="brands_pkey">
+    <column id="297" parent="283" name="logo_path">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>1967</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="298" parent="283" name="brands_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16415</ObjectId>
+      <ObjectId>16964</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>851</StateNumber>
+      <StateNumber>1967</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="298" parent="283" name="brands_pkey">
+    <key id="299" parent="283" name="brands_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16416</ObjectId>
+      <ObjectId>16965</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>851</StateNumber>
-      <UnderlyingIndexId>16415</UnderlyingIndexId>
+      <StateNumber>1967</StateNumber>
+      <UnderlyingIndexId>16964</UnderlyingIndexId>
     </key>
-    <column id="299" parent="284" name="id">
+    <column id="300" parent="284" name="color_id">
       <DasType>integer|0s</DasType>
-      <DefaultExpression>nextval(&apos;cars_id_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>852</StateNumber>
-      <SequenceId>16417</SequenceId>
+      <StateNumber>1968</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="300" parent="284" name="created_date">
+    <column id="301" parent="284" name="created_date">
       <DasType>date|0s</DasType>
       <Position>2</Position>
-      <StateNumber>852</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="301" parent="284" name="updated_date">
-      <DasType>date|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>852</StateNumber>
+      <StateNumber>1968</StateNumber>
       <TypeId>1082</TypeId>
     </column>
     <column id="302" parent="284" name="daily_price">
       <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>852</StateNumber>
+      <Position>3</Position>
+      <StateNumber>1968</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="303" parent="284" name="image_path">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>5</Position>
-      <StateNumber>852</StateNumber>
-      <TypeId>1043</TypeId>
+    <column id="303" parent="284" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;cars_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>1968</StateNumber>
+      <SequenceId>16966</SequenceId>
+      <TypeId>23</TypeId>
     </column>
     <column id="304" parent="284" name="kilometer">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>6</Position>
-      <StateNumber>852</StateNumber>
+      <Position>5</Position>
+      <StateNumber>1968</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="305" parent="284" name="min_findeks_rate">
       <DasType>smallint|0s</DasType>
-      <Position>7</Position>
-      <StateNumber>852</StateNumber>
+      <Position>6</Position>
+      <StateNumber>1968</StateNumber>
       <TypeId>21</TypeId>
     </column>
-    <column id="306" parent="284" name="plate">
-      <DasType>varchar(30)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-      <StateNumber>852</StateNumber>
-      <TypeId>1043</TypeId>
+    <column id="306" parent="284" name="model_id">
+      <DasType>integer|0s</DasType>
+      <Position>7</Position>
+      <StateNumber>1968</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <column id="307" parent="284" name="year">
+    <column id="307" parent="284" name="updated_date">
+      <DasType>date|0s</DasType>
+      <Position>8</Position>
+      <StateNumber>1968</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="308" parent="284" name="year">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
-      <StateNumber>852</StateNumber>
+      <StateNumber>1968</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="308" parent="284" name="color_id">
-      <DasType>integer|0s</DasType>
+    <column id="309" parent="284" name="plate">
+      <DasType>varchar(30)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>10</Position>
-      <StateNumber>852</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>1968</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="309" parent="284" name="model_id">
-      <DasType>integer|0s</DasType>
+    <column id="310" parent="284" name="image_path">
+      <DasType>varchar(255)|0s</DasType>
       <Position>11</Position>
-      <StateNumber>852</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>1968</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="310" parent="284" name="fkpq7j9o208dp4iox1ydwkw65tk">
+    <foreign-key id="311" parent="284" name="fkpq7j9o208dp4iox1ydwkw65tk">
       <ColNames>color_id</ColNames>
-      <ObjectId>16477</ObjectId>
-      <StateNumber>861</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16425</RefTableId>
+      <ObjectId>17030</ObjectId>
+      <StateNumber>1977</StateNumber>
+      <RefKeyColPositions>2</RefKeyColPositions>
+      <RefTableId>16976</RefTableId>
     </foreign-key>
-    <foreign-key id="311" parent="284" name="fkrwe6b2vd08hb4gnst223xsna4">
+    <foreign-key id="312" parent="284" name="fkrwe6b2vd08hb4gnst223xsna4">
       <ColNames>model_id</ColNames>
-      <ObjectId>16482</ObjectId>
-      <StateNumber>862</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16455</RefTableId>
+      <ObjectId>17035</ObjectId>
+      <StateNumber>1978</StateNumber>
+      <RefKeyColPositions>3</RefKeyColPositions>
+      <RefTableId>17006</RefTableId>
     </foreign-key>
-    <index id="312" parent="284" name="cars_pkey">
+    <index id="313" parent="284" name="cars_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16422</ObjectId>
+      <ObjectId>16971</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>852</StateNumber>
+      <StateNumber>1968</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="313" parent="284" name="uk_h47vv10sihuuf1d7ea6ehgvh9">
+    <index id="314" parent="284" name="cars_plate_key">
       <ColNames>plate</ColNames>
-      <ObjectId>16475</ObjectId>
-      <StateNumber>860</StateNumber>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16973</ObjectId>
+      <StateNumber>1968</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="314" parent="284" name="cars_pkey">
+    <key id="315" parent="284" name="cars_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16423</ObjectId>
+      <ObjectId>16972</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>852</StateNumber>
-      <UnderlyingIndexId>16422</UnderlyingIndexId>
+      <StateNumber>1968</StateNumber>
+      <UnderlyingIndexId>16971</UnderlyingIndexId>
     </key>
-    <key id="315" parent="284" name="uk_h47vv10sihuuf1d7ea6ehgvh9">
-      <ObjectId>16476</ObjectId>
-      <StateNumber>860</StateNumber>
-      <UnderlyingIndexId>16475</UnderlyingIndexId>
+    <key id="316" parent="284" name="cars_plate_key">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16974</ObjectId>
+      <StateNumber>1968</StateNumber>
+      <UnderlyingIndexId>16973</UnderlyingIndexId>
     </key>
-    <column id="316" parent="285" name="id">
+    <column id="317" parent="285" name="created_date">
+      <DasType>date|0s</DasType>
+      <Position>1</Position>
+      <StateNumber>1969</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="318" parent="285" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;colors_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>853</StateNumber>
-      <SequenceId>16424</SequenceId>
+      <Position>2</Position>
+      <StateNumber>1969</StateNumber>
+      <SequenceId>16975</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="317" parent="285" name="created_date">
-      <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>853</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="318" parent="285" name="updated_date">
+    <column id="319" parent="285" name="updated_date">
       <DasType>date|0s</DasType>
       <Position>3</Position>
-      <StateNumber>853</StateNumber>
+      <StateNumber>1969</StateNumber>
       <TypeId>1082</TypeId>
-    </column>
-    <column id="319" parent="285" name="code">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>853</StateNumber>
-      <TypeId>1043</TypeId>
     </column>
     <column id="320" parent="285" name="name">
       <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>853</StateNumber>
+      <Position>4</Position>
+      <StateNumber>1969</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="321" parent="285" name="colors_pkey">
+    <column id="321" parent="285" name="code">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>1969</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="322" parent="285" name="colors_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16429</ObjectId>
+      <ObjectId>16980</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>853</StateNumber>
+      <StateNumber>1969</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="322" parent="285" name="colors_pkey">
+    <key id="323" parent="285" name="colors_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16430</ObjectId>
+      <ObjectId>16981</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>853</StateNumber>
-      <UnderlyingIndexId>16429</UnderlyingIndexId>
+      <StateNumber>1969</StateNumber>
+      <UnderlyingIndexId>16980</UnderlyingIndexId>
     </key>
-    <column id="323" parent="286" name="id">
+    <column id="324" parent="286" name="created_date">
+      <DasType>date|0s</DasType>
+      <Position>1</Position>
+      <StateNumber>1970</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="325" parent="286" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;corporate_customers_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>854</StateNumber>
-      <SequenceId>16431</SequenceId>
+      <Position>2</Position>
+      <StateNumber>1970</StateNumber>
+      <SequenceId>16982</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="324" parent="286" name="created_date">
-      <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>854</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="325" parent="286" name="updated_date">
+    <column id="326" parent="286" name="updated_date">
       <DasType>date|0s</DasType>
       <Position>3</Position>
-      <StateNumber>854</StateNumber>
+      <StateNumber>1970</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="326" parent="286" name="company_name">
+    <column id="327" parent="286" name="company_name">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>854</StateNumber>
+      <StateNumber>1970</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="327" parent="286" name="tax_no">
+    <column id="328" parent="286" name="tax_no">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
-      <StateNumber>854</StateNumber>
+      <StateNumber>1970</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="328" parent="286" name="user_id">
-      <DasType>integer|0s</DasType>
-      <Position>6</Position>
-      <StateNumber>854</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <foreign-key id="329" parent="286" name="fkft1cd78gdtmh4r23wayjyqt5q">
-      <ColNames>user_id</ColNames>
-      <ObjectId>16487</ObjectId>
-      <StateNumber>863</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16469</RefTableId>
-    </foreign-key>
-    <index id="330" parent="286" name="corporate_customers_pkey">
+    <index id="329" parent="286" name="corporate_customers_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16438</ObjectId>
+      <ObjectId>16989</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>854</StateNumber>
+      <StateNumber>1970</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="331" parent="286" name="corporate_customers_pkey">
+    <key id="330" parent="286" name="corporate_customers_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16439</ObjectId>
+      <ObjectId>16990</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>854</StateNumber>
-      <UnderlyingIndexId>16438</UnderlyingIndexId>
+      <StateNumber>1970</StateNumber>
+      <UnderlyingIndexId>16989</UnderlyingIndexId>
     </key>
+    <column id="331" parent="287" name="created_date">
+      <DasType>date|0s</DasType>
+      <Position>1</Position>
+      <StateNumber>1971</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
     <column id="332" parent="287" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;customers_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>855</StateNumber>
-      <SequenceId>16440</SequenceId>
+      <Position>2</Position>
+      <StateNumber>1971</StateNumber>
+      <SequenceId>16991</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="333" parent="287" name="created_date">
-      <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>855</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="334" parent="287" name="updated_date">
+    <column id="333" parent="287" name="updated_date">
       <DasType>date|0s</DasType>
       <Position>3</Position>
-      <StateNumber>855</StateNumber>
+      <StateNumber>1971</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="335" parent="287" name="first_name">
+    <column id="334" parent="287" name="first_name">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>855</StateNumber>
+      <StateNumber>1971</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="336" parent="287" name="last_name">
+    <column id="335" parent="287" name="last_name">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>855</StateNumber>
+      <StateNumber>1971</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="337" parent="287" name="user_id">
-      <DasType>integer|0s</DasType>
-      <Position>6</Position>
-      <StateNumber>855</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <foreign-key id="338" parent="287" name="fkrh1g1a20omjmn6kurd35o3eit">
-      <ColNames>user_id</ColNames>
-      <ObjectId>16492</ObjectId>
-      <StateNumber>864</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16469</RefTableId>
-    </foreign-key>
-    <index id="339" parent="287" name="customers_pkey">
+    <index id="336" parent="287" name="customers_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16445</ObjectId>
+      <ObjectId>16996</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>855</StateNumber>
+      <StateNumber>1971</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="340" parent="287" name="customers_pkey">
+    <key id="337" parent="287" name="customers_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16446</ObjectId>
+      <ObjectId>16997</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>855</StateNumber>
-      <UnderlyingIndexId>16445</UnderlyingIndexId>
+      <StateNumber>1971</StateNumber>
+      <UnderlyingIndexId>16996</UnderlyingIndexId>
     </key>
-    <column id="341" parent="288" name="id">
+    <column id="338" parent="288" name="created_date">
+      <DasType>date|0s</DasType>
+      <Position>1</Position>
+      <StateNumber>1972</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="339" parent="288" name="discount_rate">
+      <DasType>real|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>1972</StateNumber>
+      <TypeId>700</TypeId>
+    </column>
+    <column id="340" parent="288" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;invoices_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>856</StateNumber>
-      <SequenceId>16447</SequenceId>
+      <Position>3</Position>
+      <StateNumber>1972</StateNumber>
+      <SequenceId>16998</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="342" parent="288" name="created_date">
-      <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>856</StateNumber>
-      <TypeId>1082</TypeId>
+    <column id="341" parent="288" name="rental_id">
+      <DasType>integer|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>1972</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="342" parent="288" name="tax_rate">
+      <DasType>real|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>1972</StateNumber>
+      <TypeId>700</TypeId>
     </column>
     <column id="343" parent="288" name="updated_date">
       <DasType>date|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>856</StateNumber>
+      <Position>6</Position>
+      <StateNumber>1972</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="344" parent="288" name="discount_rate">
-      <DasType>real|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>856</StateNumber>
-      <TypeId>700</TypeId>
-    </column>
-    <column id="345" parent="288" name="invoice_no">
+    <column id="344" parent="288" name="invoice_no">
       <DasType>varchar(255)|0s</DasType>
-      <Position>5</Position>
-      <StateNumber>856</StateNumber>
+      <Position>7</Position>
+      <StateNumber>1972</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="346" parent="288" name="tax_rate">
-      <DasType>real|0s</DasType>
-      <Position>6</Position>
-      <StateNumber>856</StateNumber>
-      <TypeId>700</TypeId>
-    </column>
-    <column id="347" parent="288" name="rental_id">
-      <DasType>integer|0s</DasType>
-      <Position>7</Position>
-      <StateNumber>856</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <foreign-key id="348" parent="288" name="fkbg8e8as4satfujkbm2qr0kotm">
+    <foreign-key id="345" parent="288" name="fkbg8e8as4satfujkbm2qr0kotm">
       <ColNames>rental_id</ColNames>
-      <ObjectId>16497</ObjectId>
-      <StateNumber>865</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16462</RefTableId>
+      <ObjectId>17040</ObjectId>
+      <StateNumber>1979</StateNumber>
+      <RefKeyColPositions>6</RefKeyColPositions>
+      <RefTableId>17013</RefTableId>
     </foreign-key>
-    <index id="349" parent="288" name="invoices_pkey">
+    <index id="346" parent="288" name="invoices_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16452</ObjectId>
+      <ObjectId>17003</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>856</StateNumber>
+      <StateNumber>1972</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="350" parent="288" name="invoices_pkey">
+    <key id="347" parent="288" name="invoices_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16453</ObjectId>
+      <ObjectId>17004</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>856</StateNumber>
-      <UnderlyingIndexId>16452</UnderlyingIndexId>
+      <StateNumber>1972</StateNumber>
+      <UnderlyingIndexId>17003</UnderlyingIndexId>
     </key>
-    <column id="351" parent="289" name="id">
+    <column id="348" parent="289" name="brand_id">
+      <DasType>integer|0s</DasType>
+      <Position>1</Position>
+      <StateNumber>1973</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="349" parent="289" name="created_date">
+      <DasType>date|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>1973</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="350" parent="289" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;models_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>857</StateNumber>
-      <SequenceId>16454</SequenceId>
+      <Position>3</Position>
+      <StateNumber>1973</StateNumber>
+      <SequenceId>17005</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="352" parent="289" name="created_date">
+    <column id="351" parent="289" name="updated_date">
       <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>857</StateNumber>
+      <Position>4</Position>
+      <StateNumber>1973</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="353" parent="289" name="updated_date">
-      <DasType>date|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>857</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="354" parent="289" name="name">
+    <column id="352" parent="289" name="name">
       <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>857</StateNumber>
+      <Position>5</Position>
+      <StateNumber>1973</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="355" parent="289" name="brand_id">
-      <DasType>integer|0s</DasType>
-      <Position>5</Position>
-      <StateNumber>857</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <foreign-key id="356" parent="289" name="fk95s72g5hnsl3o0bqeuhnokdxu">
+    <foreign-key id="353" parent="289" name="fk95s72g5hnsl3o0bqeuhnokdxu">
       <ColNames>brand_id</ColNames>
-      <ObjectId>16502</ObjectId>
-      <StateNumber>866</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16411</RefTableId>
+      <ObjectId>17045</ObjectId>
+      <StateNumber>1980</StateNumber>
+      <RefKeyColPositions>2</RefKeyColPositions>
+      <RefTableId>16960</RefTableId>
     </foreign-key>
-    <index id="357" parent="289" name="models_pkey">
+    <index id="354" parent="289" name="models_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16459</ObjectId>
+      <ObjectId>17010</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>857</StateNumber>
+      <StateNumber>1973</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="358" parent="289" name="models_pkey">
+    <key id="355" parent="289" name="models_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16460</ObjectId>
+      <ObjectId>17011</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>857</StateNumber>
-      <UnderlyingIndexId>16459</UnderlyingIndexId>
+      <StateNumber>1973</StateNumber>
+      <UnderlyingIndexId>17010</UnderlyingIndexId>
     </key>
-    <column id="359" parent="290" name="id">
+    <column id="356" parent="290" name="car_id">
+      <DasType>integer|0s</DasType>
+      <Position>1</Position>
+      <StateNumber>1974</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="357" parent="290" name="created_date">
+      <DasType>date|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>1974</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="358" parent="290" name="customer_id">
+      <DasType>integer|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>1974</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="359" parent="290" name="end_date">
+      <DasType>date|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>1974</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="360" parent="290" name="end_kilometer">
+      <DasType>integer|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>1974</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="361" parent="290" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;rentals_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>858</StateNumber>
-      <SequenceId>16461</SequenceId>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="360" parent="290" name="created_date">
-      <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>858</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="361" parent="290" name="updated_date">
-      <DasType>date|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>858</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="362" parent="290" name="end_date">
-      <DasType>date|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>858</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="363" parent="290" name="end_kilometer">
-      <DasType>integer|0s</DasType>
-      <Position>5</Position>
-      <StateNumber>858</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="364" parent="290" name="return_date">
-      <DasType>date|0s</DasType>
       <Position>6</Position>
-      <StateNumber>858</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="365" parent="290" name="start_date">
-      <DasType>date|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-      <StateNumber>858</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="366" parent="290" name="start_kilometer">
-      <DasType>integer|0s</DasType>
-      <Position>8</Position>
-      <StateNumber>858</StateNumber>
+      <StateNumber>1974</StateNumber>
+      <SequenceId>17012</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="367" parent="290" name="total_price">
-      <DasType>double precision|0s</DasType>
+    <column id="362" parent="290" name="return_date">
+      <DasType>date|0s</DasType>
+      <Position>7</Position>
+      <StateNumber>1974</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="363" parent="290" name="start_date">
+      <DasType>date|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StateNumber>1974</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="364" parent="290" name="start_kilometer">
+      <DasType>integer|0s</DasType>
       <Position>9</Position>
-      <StateNumber>858</StateNumber>
+      <StateNumber>1974</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="365" parent="290" name="total_price">
+      <DasType>double precision|0s</DasType>
+      <Position>10</Position>
+      <StateNumber>1974</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="368" parent="290" name="car_id">
-      <DasType>integer|0s</DasType>
-      <Position>10</Position>
-      <StateNumber>858</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="369" parent="290" name="customer_id">
-      <DasType>integer|0s</DasType>
+    <column id="366" parent="290" name="updated_date">
+      <DasType>date|0s</DasType>
       <Position>11</Position>
-      <StateNumber>858</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>1974</StateNumber>
+      <TypeId>1082</TypeId>
     </column>
-    <foreign-key id="370" parent="290" name="fkb3vpbdnk78p1epicm7a7urvfh">
+    <foreign-key id="367" parent="290" name="fkb3vpbdnk78p1epicm7a7urvfh">
       <ColNames>car_id</ColNames>
-      <ObjectId>16507</ObjectId>
-      <StateNumber>867</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16418</RefTableId>
+      <ObjectId>17050</ObjectId>
+      <StateNumber>1981</StateNumber>
+      <RefKeyColPositions>4</RefKeyColPositions>
+      <RefTableId>16967</RefTableId>
     </foreign-key>
-    <foreign-key id="371" parent="290" name="fkcxn0lr4sjtxi7u4nxshbaj83u">
+    <foreign-key id="368" parent="290" name="fkcxn0lr4sjtxi7u4nxshbaj83u">
       <ColNames>customer_id</ColNames>
-      <ObjectId>16512</ObjectId>
-      <StateNumber>868</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16441</RefTableId>
+      <ObjectId>17055</ObjectId>
+      <StateNumber>1982</StateNumber>
+      <RefKeyColPositions>2</RefKeyColPositions>
+      <RefTableId>16992</RefTableId>
     </foreign-key>
-    <index id="372" parent="290" name="rentals_pkey">
+    <index id="369" parent="290" name="rentals_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16466</ObjectId>
+      <ObjectId>17017</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>858</StateNumber>
+      <StateNumber>1974</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="373" parent="290" name="rentals_pkey">
+    <key id="370" parent="290" name="rentals_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16467</ObjectId>
+      <ObjectId>17018</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>858</StateNumber>
-      <UnderlyingIndexId>16466</UnderlyingIndexId>
+      <StateNumber>1974</StateNumber>
+      <UnderlyingIndexId>17017</UnderlyingIndexId>
     </key>
-    <column id="374" parent="291" name="id">
+    <check id="371" parent="291" name="user_authorities_authorities_check">
+      <ColNames>authorities</ColNames>
+      <ObjectId>17022</ObjectId>
+      <Predicate>(authorities)::text = ANY ((ARRAY[&apos;USER&apos;::character varying, &apos;ADMIN&apos;::character varying, &apos;Moderator&apos;::character varying, &apos;Customer&apos;::character varying])::text[])</Predicate>
+      <StateNumber>1975</StateNumber>
+    </check>
+    <column id="372" parent="291" name="user_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1975</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="373" parent="291" name="authorities">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>1975</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="374" parent="291" name="fkhiiib540jf74gksgb87oofni">
+      <ColNames>user_id</ColNames>
+      <ObjectId>17060</ObjectId>
+      <StateNumber>1983</StateNumber>
+      <RefKeyColPositions>2</RefKeyColPositions>
+      <RefTableId>17024</RefTableId>
+    </foreign-key>
+    <column id="375" parent="292" name="created_date">
+      <DasType>date|0s</DasType>
+      <Position>1</Position>
+      <StateNumber>1976</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="376" parent="292" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>859</StateNumber>
-      <SequenceId>16468</SequenceId>
+      <Position>2</Position>
+      <StateNumber>1976</StateNumber>
+      <SequenceId>17023</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="375" parent="291" name="created_date">
-      <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>859</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="376" parent="291" name="updated_date">
+    <column id="377" parent="292" name="updated_date">
       <DasType>date|0s</DasType>
       <Position>3</Position>
-      <StateNumber>859</StateNumber>
+      <StateNumber>1976</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="377" parent="291" name="email">
+    <column id="378" parent="292" name="email">
       <DasType>varchar(50)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>859</StateNumber>
+      <StateNumber>1976</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="378" parent="291" name="password">
+    <column id="379" parent="292" name="password">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
-      <StateNumber>859</StateNumber>
+      <StateNumber>1976</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="379" parent="291" name="role">
-      <DasType>varchar(255) []|0s</DasType>
-      <Position>6</Position>
-      <StateNumber>1459</StateNumber>
-      <TypeId>1015</TypeId>
-    </column>
-    <column id="380" parent="291" name="username">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>7</Position>
-      <StateNumber>1462</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="381" parent="291" name="users_pkey">
+    <index id="380" parent="292" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16473</ObjectId>
+      <ObjectId>17028</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>859</StateNumber>
+      <StateNumber>1976</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="382" parent="291" name="users_pkey">
+    <key id="381" parent="292" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16474</ObjectId>
+      <ObjectId>17029</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>859</StateNumber>
-      <UnderlyingIndexId>16473</UnderlyingIndexId>
+      <StateNumber>1976</StateNumber>
+      <UnderlyingIndexId>17028</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

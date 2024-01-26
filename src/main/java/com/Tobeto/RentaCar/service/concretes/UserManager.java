@@ -31,7 +31,6 @@ public class UserManager implements UserService {
             throw new RuntimeException("User already saved");
         }
         User user = User.builder()
-                .username(createUserRequest.getUsername())
                 .email(createUserRequest.getEmail())
                 .authorities(createUserRequest.getRoles())
                 .password(passwordEncoder.encode(createUserRequest.getPassword()))
@@ -47,7 +46,7 @@ public class UserManager implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No user found"));
+        return userRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("No user found"));
     }
 
     private boolean existEmail(String email){

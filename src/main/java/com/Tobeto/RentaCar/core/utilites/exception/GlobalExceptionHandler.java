@@ -29,10 +29,10 @@ public class GlobalExceptionHandler {
         return exception.getMessage();
     }
 
-    @ExceptionHandler({Exception.class})
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public String handleUnkownErrors(){
-        return "Bilinmedik hata";
-    }
+//    @ExceptionHandler({Exception.class})
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public String handleUnkownErrors(){
+//        return "Bilinmedik hata";
+//    }
 
 }
