@@ -32,9 +32,9 @@ public class CarController {
         return carService.getById(id);
     }
 
-    @PostMapping(value = "/create", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public void create(@RequestPart AddCarRequest addCarRequest, @RequestPart("file") MultipartFile file) throws IOException {
-        carService.create(addCarRequest, file);
+    @PostMapping("/create")
+    public void create(@RequestPart AddCarRequest addCarRequest) throws IOException {
+        carService.create(addCarRequest);
     }
 
     @PutMapping("/update")

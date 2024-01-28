@@ -12,7 +12,7 @@ import java.util.List;
 public interface CarService {
     List<GetCarListResponse> getAll();
     GetCarResponse getById(int id);
-    void create (AddCarRequest addCarRequest  , MultipartFile file) throws IOException;
+    void create (AddCarRequest addCarRequest) throws IOException;
     void update(UpdateCarRequest carRequest);
     void delete(int id);
 }

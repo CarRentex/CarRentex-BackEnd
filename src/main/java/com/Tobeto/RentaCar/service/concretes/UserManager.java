@@ -1,5 +1,6 @@
 package com.Tobeto.RentaCar.service.concretes;
 
+import com.Tobeto.RentaCar.core.services.JwtService;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.User;
 import com.Tobeto.RentaCar.repositories.UserRepository;
@@ -10,6 +11,9 @@ import com.Tobeto.RentaCar.service.dto.request.User.UpdateUserRequest;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
 import lombok.AllArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +27,7 @@ import java.util.stream.Collectors;
 public class UserManager implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
+
 
 
     @Override
@@ -40,17 +45,18 @@ public class UserManager implements UserService {
 
     @Override
     public String login(AddUserRequest loginRequest) {
-        return "";
+            return "";
     }
-
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("No user found"));
     }
-
     private boolean existEmail(String email){
         return userRepository.existsUserByEmail(email);
     }
-
 }
+
+
+
+

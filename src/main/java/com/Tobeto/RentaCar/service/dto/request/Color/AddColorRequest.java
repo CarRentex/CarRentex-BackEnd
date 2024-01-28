@@ -13,5 +13,6 @@ public class AddColorRequest {
     @Size(min = 2,  message = "Minimum 2 characters can be entered")
     @NotBlank(message = "This field cannot be left blank")
     private String name;
+    private String code;
 
 }

@@ -28,7 +28,7 @@ public class UserController {
 
     @PostMapping("login")
     @ResponseStatus(HttpStatus.OK)
-    public String login(@RequestBody AddUserRequest loginRequest){
+    public String login(@RequestBody AddUserRequest loginRequest) {
         //Aut Service taşınmalı
         Authentication authentication = authenticationManager.
                 authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),loginRequest.getPassword()));

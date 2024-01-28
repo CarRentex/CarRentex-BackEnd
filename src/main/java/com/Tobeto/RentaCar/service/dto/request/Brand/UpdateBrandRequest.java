@@ -14,5 +14,4 @@ public class UpdateBrandRequest {
     @NotBlank(message = "This field cannot be left blank")
     private String name;
     private int id;
-    private String logoPath;
 }

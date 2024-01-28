@@ -44,13 +44,11 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public void create (AddCarRequest addCarRequest, MultipartFile file) throws IOException { // Automapping Yapıldı
+    public void create (AddCarRequest addCarRequest) throws IOException { // Automapping Yapıldı
        // arabanın resmide eklenecek
-        String imagePath = cloudinaryService.uploadImage(file);
         addCarRequest.setPlate(addCarRequest.getPlate().replaceAll("\\s", ""));
         carBusinessRuleManager.checkPlate(addCarRequest.getPlate());
         Car car = mapperService.forRequest().map(addCarRequest, Car.class);
-        car.setImagePath(imagePath);
         carRepository.save(car);
     }
     @Override

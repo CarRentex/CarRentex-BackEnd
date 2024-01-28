@@ -20,8 +20,8 @@ public class Brand extends BaseEntity {
     @Column(name = "name", length = 20, nullable = false)
     private String name;
 
-    @Column(name = "logo_path")
-    private String Logopath;
+/*    @Column(name = "logo_path")
+    private String Logopath;*/
 
     @OneToMany(mappedBy = "brand")
     private List<Model> models;

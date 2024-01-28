@@ -25,8 +25,7 @@ public class ImageDataManager implements ImageDataService {
 
     @Override
     public String uploadImage(MultipartFile file) throws IOException {
-        ImageData imageData;
-         imageData= ImageData.builder()
+        ImageData imageData = ImageData.builder()
                 .name(file.getOriginalFilename())
                 .type(file.getContentType())
                 .imageData(ImageUtils.compressImage(file.getBytes())).build();
@@ -44,7 +43,7 @@ public class ImageDataManager implements ImageDataService {
         if (imageData != null) {
             return "file uploaded successfully : " + file.getOriginalFilename();
         }
-        return null;
+        return "file uploaded Fail ";
 
     }
 
