@@ -19,10 +19,5 @@ public class Customer extends BaseEntity {
     @Column(name = "last_name",length = 30, nullable = false)
     private String lastName;
 
-    // foreignkey
 
-
-// coropartecustomer ve invoice için controller , service katmanları yazılıcak
-// business rullar eklenecek ve test edilecek
-// veritabanına markalar araçlar gibi default olarak veriler eklenecek
 }

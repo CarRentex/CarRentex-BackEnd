@@ -33,7 +33,7 @@ public class CarController {
     }
 
     @PostMapping("/create")
-    public void create(@RequestPart AddCarRequest addCarRequest) throws IOException {
+    public void create(@RequestBody AddCarRequest addCarRequest) throws IOException {
         carService.create(addCarRequest);
     }
 

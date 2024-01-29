@@ -20,6 +20,7 @@ public class UserController {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
 
+
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     private void register(@RequestBody AddUserRequest request){

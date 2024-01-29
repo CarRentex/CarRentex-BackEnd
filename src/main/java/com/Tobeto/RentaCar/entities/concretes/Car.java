@@ -30,8 +30,20 @@ public class Car extends BaseEntity {
 
     // foreignkey
 
-    @OneToMany(mappedBy = "car")
-    private List<Rental> rentals;
+    @Enumerated(EnumType.STRING)
+    @Column(name ="category")
+    private Category category;
+
+    @Column(name = "passenger_capacity")
+    private short passengerCapacity;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="transmission_type")
+    private TransmissionType transmissionType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="fuel_type")
+    private FuelType fuelType;
 
     @ManyToOne
     @JoinColumn(name = "color_id")
@@ -40,6 +52,10 @@ public class Car extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "model_id")
     private Model model;
+
+    @OneToMany(mappedBy = "car")
+    private List<Rental> rentals;
+
 
 
 }
