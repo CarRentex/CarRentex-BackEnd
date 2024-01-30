@@ -21,10 +21,15 @@ public class JwtService {
     @Value("${jwt.expiration}")
     private long EXPIRATION;
 
-    public String generateToken(String userName) {
+/*    public String generateToken(String userName) {
         //User yolla maple
         Map<String, Object> claims = new HashMap<>(new HashMap<>(Map.of(
                 "emailAddress", userName)));
+        return createToken(claims, userName);
+    }*/
+
+    public String generateToken(String userName) {
+        Map<String, Object> claims = new HashMap<>();
         return createToken(claims, userName);
     }
 

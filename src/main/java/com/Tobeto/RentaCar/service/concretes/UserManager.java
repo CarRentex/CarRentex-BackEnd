@@ -1,19 +1,14 @@
 package com.Tobeto.RentaCar.service.concretes;
 
-import com.Tobeto.RentaCar.core.services.JwtService;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.User;
 import com.Tobeto.RentaCar.repositories.UserRepository;
-import com.Tobeto.RentaCar.rules.user.UserBusinessRuleService;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
-import com.Tobeto.RentaCar.service.dto.request.User.AddUserRequest;
+import com.Tobeto.RentaCar.service.dto.request.User.CreateUserRequest;
+import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.UpdateUserRequest;
-import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
-import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,35 +20,53 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class UserManager implements UserService {
-    private final PasswordEncoder passwordEncoder;
+    private final ModelMapperService modelMapperService;
     private final UserRepository userRepository;
-
+    //private final UserBusinessRulesService userBusinessRulesService;
+    private final PasswordEncoder passwordEncoder;
 
 
     @Override
-    public void register(AddUserRequest createUserRequest) {
-        if(existEmail(createUserRequest.getEmail())){
-            throw new RuntimeException("User already saved");
-        }
-        User user = User.builder()
-                .email(createUserRequest.getEmail())
-                .authorities(createUserRequest.getRoles())
-                .password(passwordEncoder.encode(createUserRequest.getPassword()))
-                .build();
+    public void add(User user) {
         userRepository.save(user);
     }
 
     @Override
-    public String login(AddUserRequest loginRequest) {
-            return "";
+    public void update(UpdateUserRequest updateUserRequest) {
+       // userBusinessRulesService.emailCheck(updateUserRequest.getEmail());
+        //userBusinessRulesService.truePassword(updateUserRequest.getPassword(),
+          //      updateUserRequest.getConfirmPassword());
+        User userUpdate = userRepository.findById(updateUserRequest.getId()).orElseThrow();
+
+        userUpdate.setUsername(updateUserRequest.getUsername());
+        userUpdate.setAuthorities(updateUserRequest.getRoles());
+        userUpdate.setPassword(passwordEncoder.encode(updateUserRequest.getPassword()));
+
+
+        userRepository.saveAndFlush(userUpdate);
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("No user found"));
+    public void delete(DeleteUserRequest deleteUserRequest) {
+        User userDelete = userRepository.findById(deleteUserRequest.getId()).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
+        userRepository.delete(userDelete);
+
     }
-    private boolean existEmail(String email){
-        return userRepository.existsUserByEmail(email);
+
+
+/*    @Override
+    public List<GetListUserResponse> getAll() {
+        List<User> users = userRepository.findAll();
+        List<GetListUserResponse> userResponses = users.stream()
+                .map(user -> this.modelMapperService.forResponse()
+                        .map(user, GetListUserResponse.class))
+                .collect(Collectors.toList());
+        return userResponses;
+    }*/
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No user found!"));
     }
 }
 

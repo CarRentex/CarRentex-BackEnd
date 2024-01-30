@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/brands")
 @AllArgsConstructor
+@CrossOrigin
 public class BrandController {
 
     private final BrandService brandService;

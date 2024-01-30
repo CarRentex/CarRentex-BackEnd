@@ -17,24 +17,27 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 
 @Configuration
 @AllArgsConstructor
 public class SecurityConfiguration {
-
     private final PasswordEncoder passwordEncoder;
-    private final UserDetailsService userService;
     private final JwtAuthFilter jwtAuthFilter;
-
+    private final UserDetailsService userService;
 
     private static final String[] WHITE_LIST_URLS = {
             "/swagger-ui/**",
             "/v2/api-docs",
             "/v3/api-docs",
-            "/v3/api-docs/",
-            "/api/users/**",
+            "/v3/api-docs/**",
+            "/api/auth/**",
             "/api/cars/**",
-            "**" // tüm endpointlere erişim izni verir
+            "**"
     };
 
     @Bean
@@ -43,18 +46,20 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(x -> x
                         .requestMatchers(WHITE_LIST_URLS).permitAll()
-                        //.requestMatchers(HttpMethod.GET, "/api/brands/").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/api/brands/").hasAnyAuthority(Role.ADMIN.name())
+                        //.requestMatchers(HttpMethod.GET, "/api/brands/**").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/api/brands/**").hasAnyAuthority(Role.ADMIN.name())
                         .anyRequest().authenticated()
                 )
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                //.cors(cors->cors.disable())
 
         return http.build();
     }
+    // 11.25
     @Bean
-    public AuthenticationProvider authenticationProvider(){
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setPasswordEncoder(passwordEncoder);
         authenticationProvider.setUserDetailsService(userService);
@@ -62,7 +67,18 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager (AuthenticationConfiguration configuration) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://tobeto.com"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

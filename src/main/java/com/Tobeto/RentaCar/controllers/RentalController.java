@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/rentals")
 @AllArgsConstructor
+@CrossOrigin
 public class RentalController {
     private final RentalService rentalService;
     @GetMapping

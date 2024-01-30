@@ -18,6 +18,9 @@ import java.util.List;
 @Builder
 public class User extends BaseEntity implements UserDetails{
 
+
+    @Column(name = "username")
+    private String username;
     @Column(name = "email",length = 50, nullable = true)
     private String email;
     @Column(name = "password")
@@ -35,7 +38,7 @@ public class User extends BaseEntity implements UserDetails{
 
     @Override
     public String getUsername() {
-        return this.email;
+        return this.username;
     }
 
     @Override

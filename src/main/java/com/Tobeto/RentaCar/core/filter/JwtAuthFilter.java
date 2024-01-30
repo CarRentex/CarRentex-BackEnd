@@ -17,41 +17,43 @@ import java.io.IOException;
 
 @Component
 @AllArgsConstructor
-public class JwtAuthFilter extends OncePerRequestFilter {
-
+public class JwtAuthFilter extends OncePerRequestFilter
+{
     private final JwtService jwtService;
+
     private final UserService userService;
+
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
-                                    @NonNull FilterChain filterChain) throws ServletException, IOException {
-
-        //jwt okuma
-        //jwt dogrula
-        //security giriş yapıldığını haber vericez
-        //chain i ilerleticez
-
+                                    @NonNull FilterChain filterChain) throws ServletException, IOException
+    {
+        // ..... jwt'yi oku
+        // jwt doğrula
+        // security'e giriş yaptırıcaz.
+        // chaini ilerleticez
         String jwtHeader = request.getHeader("Authorization");
-        if(jwtHeader != null && jwtHeader.startsWith("Bearer ")){
 
-            String jwt = jwtHeader.substring(7);
+        if(jwtHeader != null && jwtHeader.startsWith("Bearer "))
+        {
+            // ..
+            String jwt = jwtHeader.substring(7); // eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5nLmNvbSIsImlhdCI6MTcwNTQ5NTk5NiwiZXhwIjoxNzA1NDk2NTk2fQ.dKpaT7SgmT7gO_wEqUzdXb1LKqQe4aZAq-8TMqOMyuA
             String username = jwtService.extractUser(jwt);
 
-            if(username!= null){
+            if(username!=null)
+            {
                 UserDetails user = userService.loadUserByUsername(username);
-                if(jwtService.validateToken(jwt,user)){
-                    //Herşey başarılı, Giriş sağlanabilir.
-
-                    UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
-                            null,
-                            user.getAuthorities());
+                if(jwtService.validateToken(jwt, user))
+                {
+                    //her şey başarılı
+                    UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-
-
                 }
             }
         }
+
+
         filterChain.doFilter(request,response);
     }
 }

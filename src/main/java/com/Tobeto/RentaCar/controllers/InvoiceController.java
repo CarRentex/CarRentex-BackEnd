@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/invoice")
 @AllArgsConstructor
+@CrossOrigin
 public class InvoiceController {
     private final InvoiceService invoiceService;
 
