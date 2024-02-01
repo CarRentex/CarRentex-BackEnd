@@ -1,7 +1,7 @@
 package com.Tobeto.RentaCar.service.dto.request.Car;
 import com.Tobeto.RentaCar.entities.concretes.Category;
 import com.Tobeto.RentaCar.entities.concretes.FuelType;
-import com.Tobeto.RentaCar.entities.concretes.TransmissionType;
+import com.Tobeto.RentaCar.entities.concretes.GearType;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,8 +34,8 @@ public class UpdateCarRequest {
     @NotNull(message = "Category type must be specified")
     private Category category;
 
-    @NotNull(message = "TransmissionType type must be specified.")
-    private TransmissionType transmissionType;
+    @NotNull(message = "GearType type must be specified.")
+    private GearType gearType;
 
     @NotNull(message = "FuelType type must be specified.")
     private FuelType fuelType;

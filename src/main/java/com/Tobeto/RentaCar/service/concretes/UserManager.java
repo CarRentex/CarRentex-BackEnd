@@ -27,8 +27,8 @@ public class UserManager implements UserService {
 
 
     @Override
-    public void add(User user) {
-        userRepository.save(user);
+    public User add(User user) {
+        return userRepository.save(user);
     }
 
     @Override
@@ -39,7 +39,8 @@ public class UserManager implements UserService {
         User userUpdate = userRepository.findById(updateUserRequest.getId()).orElseThrow();
 
         userUpdate.setUsername(updateUserRequest.getUsername());
-        userUpdate.setAuthorities(updateUserRequest.getRoles());
+        //userUpdate.setRole(updateUserRequest.getRoles());
+        // update request düzenlenecek
         userUpdate.setPassword(passwordEncoder.encode(updateUserRequest.getPassword()));
 
 

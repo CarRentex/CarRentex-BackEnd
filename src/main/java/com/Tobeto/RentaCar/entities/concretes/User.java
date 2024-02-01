@@ -1,11 +1,14 @@
 package com.Tobeto.RentaCar.entities.concretes;
 import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,6 +18,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+//@Inheritance(strategy = InheritanceType.JOINED)
 @Builder
 public class User extends BaseEntity implements UserDetails{
 
@@ -26,14 +30,19 @@ public class User extends BaseEntity implements UserDetails{
     @Column(name = "password")
     private String password;
 
-    @ElementCollection(targetClass = Role.class)
-    @CollectionTable(name = "user_authorities", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "phone_number", nullable = false)
+    private String phoneNumber;
+
+    @Column(name = "address")
+    private String address;
+
     @Enumerated(EnumType.STRING)
-    private List<Role> authorities;
+    @Column(name = "role", nullable = false)
+    private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return List.of(new SimpleGrantedAuthority(this.role.getAuthority()));
     }
 
     @Override

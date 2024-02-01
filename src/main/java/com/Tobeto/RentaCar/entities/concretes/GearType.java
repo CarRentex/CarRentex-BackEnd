@@ -1,6 +1,6 @@
 package com.Tobeto.RentaCar.entities.concretes;
 
-public enum TransmissionType {
+public enum GearType {
     MANUAL,
     AUTOMATIC
 }

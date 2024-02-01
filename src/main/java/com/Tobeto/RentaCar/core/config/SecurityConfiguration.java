@@ -48,6 +48,7 @@ public class SecurityConfiguration {
                         .requestMatchers(WHITE_LIST_URLS).permitAll()
                         //.requestMatchers(HttpMethod.GET, "/api/brands/**").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/brands/**").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers("**").hasAnyAuthority(Role.CUSTOMER.name()) // kaldırılacak
                         .anyRequest().authenticated()
                 )
                 .httpBasic(AbstractHttpConfigurer::disable)

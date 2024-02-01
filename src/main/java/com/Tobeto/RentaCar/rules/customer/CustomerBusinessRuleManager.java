@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class CustomerBusinessRuleManager implements CustomerBusinessRuleService{
+public class CustomerBusinessRuleManager{
     private final CustomerRepository customerRepository;
 
-    @Override
+/*    @Override
     public void checkIfCustomerNameExists(String firstName, String lastName) {
         if (customerRepository.existsByFirstName(firstName))
             throw new RuntimeException("Customer available in the system");
         if (customerRepository.existsByLastName(lastName))
             throw new RuntimeException("Customer available in the system");
-    }
+    }*/
 
 }

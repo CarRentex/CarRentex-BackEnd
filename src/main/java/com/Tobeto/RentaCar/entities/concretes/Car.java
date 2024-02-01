@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -38,8 +37,8 @@ public class Car extends BaseEntity {
     private short passengerCapacity;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="transmission_type")
-    private TransmissionType transmissionType;
+    @Column(name="gear_type")
+    private GearType gearType;
 
     @Enumerated(EnumType.STRING)
     @Column(name="fuel_type")

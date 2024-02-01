@@ -31,10 +31,10 @@ public class CorporateCustomerController {
     public GetCorporateResponse getById(@PathVariable int id){
         return this.customerService.getById(id);
     }
-    @PostMapping("/create")
+/*    @PostMapping("/create")
     public void create (@RequestBody @Valid AddCorporateRequest addCorporateRequest){
         this.customerService.create(addCorporateRequest);
-    }
+    }*/
     @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateCorporateRequest updateCorporateRequest){
         this.customerService.update(updateCorporateRequest);

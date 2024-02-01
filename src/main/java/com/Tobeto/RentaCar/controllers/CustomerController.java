@@ -30,10 +30,10 @@ public class CustomerController {
     public GetCustomerResponse getById(@PathVariable int id){
         return this.customerService.getById(id);
     }
-    @PostMapping("/create")
+/*    @PostMapping("/create")
     public void create (@RequestBody @Valid AddCustomerRequest addCustomerRequest){
         this.customerService.create(addCustomerRequest);
-    }
+    }*/
     @PutMapping("/update")
     public void update(@RequestBody  @Valid UpdateCustomerRequest updateCustomerRequest){
         this.customerService.update(updateCustomerRequest);

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private final AuthService authService;
@@ -20,9 +20,10 @@ public class AuthController {
         return authService.login(loginRequest);
     }
 
-    @PostMapping
+    @PostMapping("register")
     @ResponseStatus(HttpStatus.CREATED)
     public void register(@RequestBody CreateUserRequest request) {
         authService.register(request);
     }
+
 }

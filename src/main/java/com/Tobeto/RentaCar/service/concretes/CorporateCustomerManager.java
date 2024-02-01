@@ -3,15 +3,20 @@ package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.Color;
 import com.Tobeto.RentaCar.entities.concretes.CorporateCustomer;
+import com.Tobeto.RentaCar.entities.concretes.Customer;
+import com.Tobeto.RentaCar.entities.concretes.User;
 import com.Tobeto.RentaCar.repositories.CorporateCustomerRepository;
 import com.Tobeto.RentaCar.rules.corporateCustomer.CorporateBusinessRuleService;
 import com.Tobeto.RentaCar.service.abstracts.CorporateCustomerService;
+import com.Tobeto.RentaCar.service.abstracts.UserService;
 import com.Tobeto.RentaCar.service.dto.request.CorporateCustomer.AddCorporateRequest;
 import com.Tobeto.RentaCar.service.dto.request.CorporateCustomer.UpdateCorporateRequest;
+import com.Tobeto.RentaCar.service.dto.request.User.CreateUserRequest;
 import com.Tobeto.RentaCar.service.dto.response.Color.GetColorListResponse;
 import com.Tobeto.RentaCar.service.dto.response.CorporateCustomer.GetCorporateListResponse;
 import com.Tobeto.RentaCar.service.dto.response.CorporateCustomer.GetCorporateResponse;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +28,8 @@ public class CorporateCustomerManager implements CorporateCustomerService {
         private final CorporateCustomerRepository corporateCustomerRepository;
         private final ModelMapperService mapperService;
         private final CorporateBusinessRuleService corporateBusinessRuleService;
+        private final PasswordEncoder passwordEncoder;
+        private final UserService userService;
 
     @Override
     public List<GetCorporateListResponse> getAll() {
@@ -41,9 +48,20 @@ public class CorporateCustomerManager implements CorporateCustomerService {
     }
 
     @Override
-    public void create(AddCorporateRequest addCorporateRequest) {
-        corporateBusinessRuleService.checkIfCompanyNameExists(addCorporateRequest.getCompanyName());
-        CorporateCustomer corporateCustomer = mapperService.forRequest().map(addCorporateRequest, CorporateCustomer.class);
+    public void create(CreateUserRequest createUserRequest) {
+        CorporateCustomer corporateCustomer = CorporateCustomer.builder()
+                .companyName(createUserRequest.getCompanyName())
+                .taxNo(createUserRequest.getTaxNo())
+                .build();
+
+        User userAuth = User.builder()
+                .username(createUserRequest.getUsername())
+                .email(createUserRequest.getEmail())
+                .phoneNumber(createUserRequest.getPhoneNumber())
+                .password(passwordEncoder.encode(createUserRequest.getPassword()))
+                .role(createUserRequest.getRoles())
+                .build();
+        corporateCustomer.setUser(userService.add(userAuth));
         corporateCustomerRepository.save(corporateCustomer);
     }
 
