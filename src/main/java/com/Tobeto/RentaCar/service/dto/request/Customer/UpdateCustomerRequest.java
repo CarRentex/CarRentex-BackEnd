@@ -1,9 +1,7 @@
 package com.Tobeto.RentaCar.service.dto.request.Customer;
 
 import com.Tobeto.RentaCar.entities.concretes.Role;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,24 +10,32 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateCustomerRequest {
+
+    @NotNull(message = "Id cannot be blank")
     private int id;
-    @NotNull(message = "Ad boş olamaz")
-    @NotBlank(message = "Ad boş olamaz")
-    String name;
 
-    String surname;
+    @NotBlank(message = "Name cannot be blank")
+    @Pattern(regexp = "^[a-zA-ZğüşıöçĞÜŞİÖÇ\\s]+$", message = "Name must consist of letters only.")
+    @Size(min = 2, max = 20)
+    private String name;
 
-    String nationalityId;
+    @NotBlank(message = "Surname cannot be blank")
+    @Size(min = 2, max = 20)
+    @Pattern(regexp = "^[a-zA-ZğüşıöçĞÜŞİÖÇ\\s]+$", message = "Surname must consist of letters only.")
+    private String surname;
 
-    String address;
-
-    String phoneNumber;
-
-    @Email(message = "Geçersiz e-posta adresi formatı")
-    @NotBlank(message = "E-posta boş olamaz")
+    @Email(message = "Invalid email address format. It must be in the format")
+    @NotBlank(message = "Email cannot be blank")
     private String email;
 
+    @Pattern(regexp = "^[0-9]{11}$", message = "Invalid NationalityId No format")
+    private String nationalityId;
 
-    @NotNull()
-    private Role roles = Role.CUSTOMER; // list<Role > idi düzelttim dikkat
+    @NotBlank(message = "PhoneNumber cannot be blank")
+    @Pattern(regexp = "05[0-9]{9}", message = "Invalid phone number format. It must be in the format 05xxxxxxxxx.")
+    private String phoneNumber;
+
+    @NotBlank(message = "Address cannot be blank")
+    private String address;
+
 }

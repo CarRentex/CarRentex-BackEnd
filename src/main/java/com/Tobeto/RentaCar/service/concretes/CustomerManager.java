@@ -58,10 +58,12 @@ public class CustomerManager implements CustomerService {
 
     @Override
     public void update(UpdateCustomerRequest customerRequest) {
-        Customer existingCustomer =mapperService.forRequest().map(
+        Customer extisingCustomer = customerRepository.findById(customerRequest.getId()).orElseThrow();
+        Customer customer =mapperService.forRequest().map(
                 customerRequest, Customer.class);
-        existingCustomer.setRole(Role.CUSTOMER);
-        customerRepository.save(existingCustomer);
+        customer.setPassword(extisingCustomer.getPassword());
+        customer.setRole(Role.CUSTOMER);
+        customerRepository.save(customer);
     }
 
     @Override

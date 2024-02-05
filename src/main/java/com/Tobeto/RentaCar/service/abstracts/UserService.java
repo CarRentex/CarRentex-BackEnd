@@ -1,6 +1,7 @@
 package com.Tobeto.RentaCar.service.abstracts;
 
 import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
+import com.Tobeto.RentaCar.service.dto.request.User.UpdatePasswordRequest;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,6 +16,8 @@ public interface UserService extends UserDetailsService {
     List<GetUserListResponse> getAll();
 
     GetUserResponse getById(int id);
+
+    void updatePassword(UpdatePasswordRequest updatePasswordRequest);
 
 
 }

@@ -11,6 +11,7 @@ import com.Tobeto.RentaCar.service.dto.response.Customer.GetCustomerListResponse
 import com.Tobeto.RentaCar.service.dto.response.Customer.GetCustomerResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,22 +24,27 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<GetCustomerListResponse> getAll() {
         return this.customerService.getAll();
     }
     @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
     public GetCustomerResponse getById(@PathVariable int id){
         return this.customerService.getById(id);
     }
-/*    @PostMapping("/create")
+    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
     public void create (@RequestBody @Valid AddCustomerRequest addCustomerRequest){
         this.customerService.create(addCustomerRequest);
-    }*/
+    }
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody  @Valid UpdateCustomerRequest updateCustomerRequest){
         this.customerService.update(updateCustomerRequest);
     }
     @DeleteMapping("{id}")
+    //@ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id){
         this.customerService.delete(id);
     }

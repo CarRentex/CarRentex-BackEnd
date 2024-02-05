@@ -2,6 +2,7 @@ package com.Tobeto.RentaCar.controllers;
 
 import com.Tobeto.RentaCar.service.abstracts.UserService;
 import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
+import com.Tobeto.RentaCar.service.dto.request.User.UpdatePasswordRequest;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
 import jakarta.validation.Valid;
@@ -19,6 +20,12 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+
+    @PutMapping("/updatePassword")
+    @ResponseStatus(code = HttpStatus.OK)
+    public void updatePassword(@RequestBody @Valid UpdatePasswordRequest updatePasswordRequest){
+        userService.updatePassword(updatePasswordRequest);
+    }
 
     @GetMapping("/getAll")
     @ResponseStatus(code = HttpStatus.OK)

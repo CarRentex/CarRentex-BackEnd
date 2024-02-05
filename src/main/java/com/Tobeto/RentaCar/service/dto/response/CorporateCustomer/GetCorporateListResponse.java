@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GetCorporateListResponse {
+    private int id;
     private String companyName;
     private String taxNo;
     private String email;

@@ -5,6 +5,7 @@ import com.Tobeto.RentaCar.entities.concretes.User;
 import com.Tobeto.RentaCar.repositories.UserRepository;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
 import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
+import com.Tobeto.RentaCar.service.dto.request.User.UpdatePasswordRequest;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
 import jakarta.persistence.EntityNotFoundException;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 public class UserManager implements UserService {
     private final ModelMapperService modelMapperService;
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void delete(int id) {
@@ -44,6 +46,13 @@ public class UserManager implements UserService {
     public GetUserResponse getById(int id) {
         User user = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
         return this.modelMapperService.forResponse().map(user, GetUserResponse.class);
+    }
+
+    @Override
+    public void updatePassword(UpdatePasswordRequest updatePasswordRequest) {
+        User user = userRepository.findById(updatePasswordRequest.getId()).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
+        user.setPassword(passwordEncoder.encode(updatePasswordRequest.getPassword()));
+        userRepository.save(user);
     }
 
     @Override

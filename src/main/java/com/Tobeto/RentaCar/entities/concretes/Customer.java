@@ -20,7 +20,7 @@ public class  Customer extends User {
     @Column(name = "surname", length = 50)
     private String surname;
 
-    @Column(name = "nationality_id", nullable = false)
+    @Column(name = "nationality_id")
     private String nationalityId;
 
 }

@@ -28,7 +28,7 @@ public class AuthManager implements AuthService {
     public void register(CreateUserRequest createUserRequest) {
         //authRulesService.checkIfEmailExists(createUserRequest.getEmail());
 
-        switch (createUserRequest.getRoles()){
+        switch (createUserRequest.getRole()){
             case ADMIN:
                 this.adminService.create(this.modelMapperService.forRequest().map(createUserRequest, CreateAdminRequest.class));
                 break;
@@ -42,12 +42,12 @@ public class AuthManager implements AuthService {
     }
     @Override
     public String login(LoginUserRequest loginRequest) {
-        System.out.println(loginRequest.getUsername() + " " + loginRequest.getPassword());
+        System.out.println(loginRequest.getEmail() + " " + loginRequest.getPassword());
         Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+                .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
         if(authentication.isAuthenticated())
         {
-            return jwtService.generateToken(loginRequest.getUsername());
+            return jwtService.generateToken(loginRequest.getEmail());
         }
 
         throw new RuntimeException("Kullanıcı adı ya da şifre yanlış");

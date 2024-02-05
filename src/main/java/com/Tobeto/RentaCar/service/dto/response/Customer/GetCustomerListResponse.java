@@ -17,6 +17,4 @@ public class GetCustomerListResponse {
     private String address;
     private String phoneNumber;
     private String email;
-    private Role role;
-
 }
