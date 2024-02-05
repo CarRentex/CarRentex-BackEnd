@@ -15,17 +15,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CorporateCustomer extends User { //extends User
+public class CorporateCustomer extends User {
 
     @Column(name="company_name")
     private String companyName;
     @Column(name="tax_no")
     private String taxNo;
-
-
-/*    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    private User user;*/
 
 }
 

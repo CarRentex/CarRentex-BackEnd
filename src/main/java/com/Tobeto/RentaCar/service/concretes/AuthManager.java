@@ -5,6 +5,7 @@ import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.rules.auth.AuthRulesService;
 import com.Tobeto.RentaCar.service.abstracts.*;
 import com.Tobeto.RentaCar.service.dto.request.Admin.CreateAdminRequest;
+import com.Tobeto.RentaCar.service.dto.request.CorporateCustomer.AddCorporateRequest;
 import com.Tobeto.RentaCar.service.dto.request.Customer.AddCustomerRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.CreateUserRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.LoginUserRequest;
@@ -36,7 +37,7 @@ public class AuthManager implements AuthService {
                 this.customerService.create(this.modelMapperService.forRequest().map(createUserRequest, AddCustomerRequest.class));
                 break;
             case CORPORATE_CUSTOMER:
-                this.corporateCustomerService.create(createUserRequest);
+                this.corporateCustomerService.create(this.modelMapperService.forRequest().map(createUserRequest, AddCorporateRequest.class));
                 break;
         }
     }

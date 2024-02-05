@@ -1,10 +1,7 @@
 package com.Tobeto.RentaCar.service.concretes;
 
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
-import com.Tobeto.RentaCar.entities.concretes.Color;
-import com.Tobeto.RentaCar.entities.concretes.CorporateCustomer;
-import com.Tobeto.RentaCar.entities.concretes.Customer;
-import com.Tobeto.RentaCar.entities.concretes.User;
+import com.Tobeto.RentaCar.entities.concretes.*;
 import com.Tobeto.RentaCar.repositories.CorporateCustomerRepository;
 import com.Tobeto.RentaCar.rules.corporateCustomer.CorporateBusinessRuleService;
 import com.Tobeto.RentaCar.service.abstracts.CorporateCustomerService;
@@ -29,7 +26,6 @@ public class CorporateCustomerManager implements CorporateCustomerService {
         private final ModelMapperService mapperService;
         private final CorporateBusinessRuleService corporateBusinessRuleService;
         private final PasswordEncoder passwordEncoder;
-        private final UserService userService;
 
     @Override
     public List<GetCorporateListResponse> getAll() {
@@ -48,30 +44,23 @@ public class CorporateCustomerManager implements CorporateCustomerService {
     }
 
     @Override
-    public void create(CreateUserRequest createUserRequest) {
-/*        CorporateCustomer corporateCustomer = CorporateCustomer.builder()
-                .companyName(createUserRequest.getCompanyName())
-                .taxNo(createUserRequest.getTaxNo())
-                .build();
-
-        User userAuth = User.builder()
-                .username(createUserRequest.getUsername())
-                .email(createUserRequest.getEmail())
-                .phoneNumber(createUserRequest.getPhoneNumber())
-                .password(passwordEncoder.encode(createUserRequest.getPassword()))
-                .address(createUserRequest.getAddress())
-                .role(createUserRequest.getRoles())
-                .build();
-        corporateCustomer.setUser(userService.add(userAuth));
-        corporateCustomerRepository.save(corporateCustomer);*/
+    public void create(AddCorporateRequest createUserRequest) {
+        CorporateCustomer corporateCustomer = mapperService.forRequest().map(createUserRequest, CorporateCustomer.class);
+        corporateCustomer.setPassword(passwordEncoder.encode(createUserRequest.getPassword()));
+        corporateCustomer.setRole(Role.CUSTOMER);
+        corporateCustomerRepository.save(corporateCustomer);
     }
 
     @Override
     public void update(UpdateCorporateRequest corporateRequest) {
 
         corporateBusinessRuleService.checkIfCompanyNameExists(corporateRequest.getCompanyName());
-        CorporateCustomer corporateCustomer = mapperService.forRequest().map(corporateRequest, CorporateCustomer.class);
-        corporateCustomerRepository.save(corporateCustomer);
+        CorporateCustomer corporateCustom = corporateCustomerRepository.findById(corporateRequest.getId()).orElseThrow();
+        CorporateCustomer corporate =mapperService.forRequest().map(
+                corporateRequest, CorporateCustomer.class);
+        corporate.setPassword(corporateCustom.getPassword());
+        corporate.setRole(Role.CUSTOMER);
+        corporateCustomerRepository.save(corporate);
     }
 
     @Override

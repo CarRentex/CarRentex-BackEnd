@@ -12,36 +12,42 @@ import com.Tobeto.RentaCar.service.dto.response.CorporateCustomer.GetCorporateLi
 import com.Tobeto.RentaCar.service.dto.response.CorporateCustomer.GetCorporateResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/corporatecustomers")
+@RequestMapping("api/corporate")
 @AllArgsConstructor
 @CrossOrigin
 public class CorporateCustomerController {
-    private final CorporateCustomerService customerService;
+    private final CorporateCustomerService corporateCustomerService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<GetCorporateListResponse> getAll() {
-        return this.customerService.getAll();
+        return this.corporateCustomerService.getAll();
     }
     @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
     public GetCorporateResponse getById(@PathVariable int id){
-        return this.customerService.getById(id);
+        return this.corporateCustomerService.getById(id);
     }
-/*    @PostMapping("/create")
+    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
     public void create (@RequestBody @Valid AddCorporateRequest addCorporateRequest){
-        this.customerService.create(addCorporateRequest);
-    }*/
+        this.corporateCustomerService.create(addCorporateRequest);
+    }
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody  @Valid UpdateCorporateRequest updateCorporateRequest){
-        this.customerService.update(updateCorporateRequest);
+        this.corporateCustomerService.update(updateCorporateRequest);
     }
     @DeleteMapping("{id}")
+    // burayı araştır
     public void delete(@PathVariable int id){
-        this.customerService.delete(id);
+        this.corporateCustomerService.delete(id);
     }
 
 }

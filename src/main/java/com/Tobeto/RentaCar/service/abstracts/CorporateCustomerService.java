@@ -11,7 +11,7 @@ import java.util.List;
 public interface CorporateCustomerService {
     List<GetCorporateListResponse> getAll();
     GetCorporateResponse getById(int id);
-    void create (CreateUserRequest createUserRequest);
+    void create (AddCorporateRequest corporateRequest);
     void update(UpdateCorporateRequest corporateRequest);
     void delete(int id);
 }

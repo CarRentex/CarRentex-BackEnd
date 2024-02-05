@@ -9,4 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GetCorporateResponse {
     private String companyName;
+    private String taxNo;
+    private String email;
+    private String phoneNumber;
+    private String address;
 }
