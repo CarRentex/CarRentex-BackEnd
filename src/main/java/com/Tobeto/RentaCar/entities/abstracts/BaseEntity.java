@@ -18,7 +18,7 @@ public abstract class BaseEntity {
     @Column(name = "created_date")
     private LocalDate createdDate;
 
-    @Column(name = "updated_date", nullable = true)
+    @Column(name = "updated_date")
     private LocalDate updatedDate;
 
     @PrePersist
