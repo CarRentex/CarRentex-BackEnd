@@ -37,6 +37,7 @@ public class SecurityConfiguration {
             "/v3/api-docs/**",
             "/api/auth/**",
             "/api/cars/**",
+            "/api/payments/**",
             "**"
     };
 
@@ -47,7 +48,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(x -> x
                         .requestMatchers(WHITE_LIST_URLS).permitAll()
                         //.requestMatchers(HttpMethod.GET, "/api/brands/**").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/api/brands/**").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers(HttpMethod.POST,"/api/brands/**", "/api/payments/**").hasAnyAuthority(Role.ADMIN.name())
                         .requestMatchers("**").hasAnyAuthority(Role.CUSTOMER.name()) // kaldırılacak
                         .anyRequest().authenticated()
                 )
