@@ -1,16 +1,15 @@
 package com.Tobeto.RentaCar.controllers;
 
-import com.Tobeto.RentaCar.core.services.JwtService;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
 import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
-import com.Tobeto.RentaCar.service.dto.request.User.UpdateUserRequest;
+import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
+import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -21,16 +20,22 @@ public class UserController {
 
     private final UserService userService;
 
-    @PutMapping("/update")
+    @GetMapping("/getAll")
     @ResponseStatus(code = HttpStatus.OK)
-    public void update(@RequestBody @Valid UpdateUserRequest updateUserRequest){
-        userService.update(updateUserRequest);
+    public List<GetUserListResponse> getAll(){
+        return userService.getAll();
     }
 
-    @DeleteMapping("/delete")
+    @GetMapping("/getById")
     @ResponseStatus(code = HttpStatus.OK)
-    public void delete(@RequestBody @Valid DeleteUserRequest deleteUserRequest){
-        userService.delete(deleteUserRequest);
+    public GetUserResponse getById(@RequestParam int id){
+        return  userService.getById(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public void delete(@PathVariable int id){
+        userService.delete(id);
     }
 
 }

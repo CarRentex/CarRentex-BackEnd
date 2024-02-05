@@ -1,6 +1,5 @@
-package com.Tobeto.RentaCar.service.dto.response.Customer;
+package com.Tobeto.RentaCar.service.dto.response.Admin;
 
-import com.Tobeto.RentaCar.entities.concretes.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,12 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetCustomerResponse {
+public class GetAdminResponse {
     private String name;
     private String surname;
-    private String nationalityId;
-    private String address;
     private String phoneNumber;
+    private String address;
     private String email;
-    private Role role;
 }

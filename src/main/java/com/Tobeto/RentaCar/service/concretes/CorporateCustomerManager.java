@@ -49,7 +49,7 @@ public class CorporateCustomerManager implements CorporateCustomerService {
 
     @Override
     public void create(CreateUserRequest createUserRequest) {
-        CorporateCustomer corporateCustomer = CorporateCustomer.builder()
+/*        CorporateCustomer corporateCustomer = CorporateCustomer.builder()
                 .companyName(createUserRequest.getCompanyName())
                 .taxNo(createUserRequest.getTaxNo())
                 .build();
@@ -59,14 +59,16 @@ public class CorporateCustomerManager implements CorporateCustomerService {
                 .email(createUserRequest.getEmail())
                 .phoneNumber(createUserRequest.getPhoneNumber())
                 .password(passwordEncoder.encode(createUserRequest.getPassword()))
+                .address(createUserRequest.getAddress())
                 .role(createUserRequest.getRoles())
                 .build();
         corporateCustomer.setUser(userService.add(userAuth));
-        corporateCustomerRepository.save(corporateCustomer);
+        corporateCustomerRepository.save(corporateCustomer);*/
     }
 
     @Override
     public void update(UpdateCorporateRequest corporateRequest) {
+
         corporateBusinessRuleService.checkIfCompanyNameExists(corporateRequest.getCompanyName());
         CorporateCustomer corporateCustomer = mapperService.forRequest().map(corporateRequest, CorporateCustomer.class);
         corporateCustomerRepository.save(corporateCustomer);

@@ -2,36 +2,25 @@ package com.Tobeto.RentaCar.entities.concretes;
 import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "customers")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class  Customer extends BaseEntity{ //extends User
+public class  Customer extends User {
 
-    @Column(name = "first_name", length = 50)
-    private String firstName;
+    @Column(name = "name", length = 50)
+    private String name;
 
-    @Column(name = "last_name", length = 50)
-    private String lastName;
+    @Column(name = "surname", length = 50)
+    private String surname;
 
-    @Column(name = "nationality_id", nullable = false, unique = true)
+    @Column(name = "nationality_id", nullable = false)
     private String nationalityId;
-    @Column(name = "address", nullable = false)
-    private String address;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    private User user;
-
 
 }

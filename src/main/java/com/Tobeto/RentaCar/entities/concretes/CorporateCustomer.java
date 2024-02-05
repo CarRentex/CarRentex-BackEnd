@@ -15,8 +15,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class CorporateCustomer extends BaseEntity { //extends User
+public class CorporateCustomer extends User { //extends User
 
     @Column(name="company_name")
     private String companyName;
@@ -24,9 +23,9 @@ public class CorporateCustomer extends BaseEntity { //extends User
     private String taxNo;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+/*    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
-    private User user;
+    private User user;*/
 
 }
 

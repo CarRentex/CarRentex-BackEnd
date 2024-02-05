@@ -8,5 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateCorporateRequest {
+    private int id;
     private String companyName;
+    private String taxNo;
+    private String address;
+    private String phoneNumber;
+    private String email;
+
 }

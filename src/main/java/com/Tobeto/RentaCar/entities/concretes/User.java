@@ -18,13 +18,10 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-//@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 @Builder
 public class User extends BaseEntity implements UserDetails{
 
-
-    @Column(name = "username")
-    private String username;
     @Column(name = "email",length = 50, nullable = true)
     private String email;
     @Column(name = "password")
@@ -42,12 +39,12 @@ public class User extends BaseEntity implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(this.role.getAuthority()));
+        return List.of(role);
     }
 
     @Override
     public String getUsername() {
-        return this.username;
+        return this.email;
     }
 
     @Override

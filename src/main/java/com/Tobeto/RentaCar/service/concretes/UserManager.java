@@ -4,9 +4,9 @@ import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.User;
 import com.Tobeto.RentaCar.repositories.UserRepository;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
-import com.Tobeto.RentaCar.service.dto.request.User.CreateUserRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
-import com.Tobeto.RentaCar.service.dto.request.User.UpdateUserRequest;
+import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
+import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,52 +22,33 @@ import java.util.stream.Collectors;
 public class UserManager implements UserService {
     private final ModelMapperService modelMapperService;
     private final UserRepository userRepository;
-    //private final UserBusinessRulesService userBusinessRulesService;
-    private final PasswordEncoder passwordEncoder;
-
 
     @Override
-    public User add(User user) {
-        return userRepository.save(user);
-    }
-
-    @Override
-    public void update(UpdateUserRequest updateUserRequest) {
-       // userBusinessRulesService.emailCheck(updateUserRequest.getEmail());
-        //userBusinessRulesService.truePassword(updateUserRequest.getPassword(),
-          //      updateUserRequest.getConfirmPassword());
-        User userUpdate = userRepository.findById(updateUserRequest.getId()).orElseThrow();
-
-        userUpdate.setUsername(updateUserRequest.getUsername());
-        //userUpdate.setRole(updateUserRequest.getRoles());
-        // update request düzenlenecek
-        userUpdate.setPassword(passwordEncoder.encode(updateUserRequest.getPassword()));
-
-
-        userRepository.saveAndFlush(userUpdate);
-    }
-
-    @Override
-    public void delete(DeleteUserRequest deleteUserRequest) {
-        User userDelete = userRepository.findById(deleteUserRequest.getId()).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
+    public void delete(int id) {
+        User userDelete = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
         userRepository.delete(userDelete);
-
     }
 
 
-/*    @Override
-    public List<GetListUserResponse> getAll() {
+    @Override
+    public List<GetUserListResponse> getAll() {
         List<User> users = userRepository.findAll();
-        List<GetListUserResponse> userResponses = users.stream()
+        List<GetUserListResponse> userResponses = users.stream()
                 .map(user -> this.modelMapperService.forResponse()
-                        .map(user, GetListUserResponse.class))
+                        .map(user, GetUserListResponse.class))
                 .collect(Collectors.toList());
         return userResponses;
-    }*/
+    }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No user found!"));
+    public GetUserResponse getById(int id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
+        return this.modelMapperService.forResponse().map(user, GetUserResponse.class);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("No user found!"));
     }
 }
 
