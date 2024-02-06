@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UpdateAdminRequest {
 
-    @NotBlank(message = "Id cannot be blank")
     private int id;
 
     @NotBlank(message = "Name cannot be blank")
@@ -30,6 +29,9 @@ public class UpdateAdminRequest {
     @Email(message = "Invalid email address format. It must be in the format")
     @NotBlank(message = "Email cannot be blank")
     private String email;
+
+    @Pattern(regexp = "[0-9]{11}", message = "Invalid national id format. It must be 11 digits.")
+    private String nationality;
 
     @NotBlank(message = "PhoneNumber cannot be blank")
     @Pattern(regexp = "05[0-9]{9}", message = "Invalid phone number format. It must be in the format 05xxxxxxxxx.")

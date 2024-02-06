@@ -24,6 +24,10 @@ public class CreateAdminRequest {
     @NotBlank(message = "Email cannot be blank")
     private String email;
 
+    @NotBlank(message = "NationalId cannot be blank")
+    @Pattern(regexp = "[0-9]{11}", message = "Invalid national id format. It must be 11 digits.")
+    private String nationality;
+
     @NotBlank(message = "Password cannot be blank")
     @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.*])(?=\\S+$).{8,}",
             message = "At least 8 characters\n" +

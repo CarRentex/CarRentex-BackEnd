@@ -53,8 +53,10 @@ public class AdminManager implements AdminService {
 
     @Override
     public void update(UpdateAdminRequest adminRequest) {
+        Admin exsitingAdmin = adminRepository.findById(adminRequest.getId()).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
         Admin admin =mapperService.forRequest().map(
                 adminRequest, Admin.class);
+        admin.setPassword(exsitingAdmin.getPassword());
         admin.setRole(Role.ADMIN);
         adminRepository.save(admin);
     }

@@ -16,6 +16,7 @@ import com.Tobeto.RentaCar.service.dto.request.User.CreateUserRequest;
 import com.Tobeto.RentaCar.service.dto.response.Color.GetColorListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Customer.GetCustomerListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Customer.GetCustomerResponse;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -58,7 +59,7 @@ public class CustomerManager implements CustomerService {
 
     @Override
     public void update(UpdateCustomerRequest customerRequest) {
-        Customer extisingCustomer = customerRepository.findById(customerRequest.getId()).orElseThrow();
+        Customer extisingCustomer = customerRepository.findById(customerRequest.getId()).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
         Customer customer =mapperService.forRequest().map(
                 customerRequest, Customer.class);
         customer.setPassword(extisingCustomer.getPassword());

@@ -22,4 +22,7 @@ public class Admin extends User {
     @Column(name = "surname", length = 50)
     private String surname;
 
+    @Column(name = "national_id", length = 11)
+    private String nationality;
+
 }

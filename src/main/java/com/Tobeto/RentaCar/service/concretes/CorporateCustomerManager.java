@@ -12,6 +12,7 @@ import com.Tobeto.RentaCar.service.dto.request.User.CreateUserRequest;
 import com.Tobeto.RentaCar.service.dto.response.Color.GetColorListResponse;
 import com.Tobeto.RentaCar.service.dto.response.CorporateCustomer.GetCorporateListResponse;
 import com.Tobeto.RentaCar.service.dto.response.CorporateCustomer.GetCorporateResponse;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class CorporateCustomerManager implements CorporateCustomerService {
     public void create(AddCorporateRequest createUserRequest) {
         CorporateCustomer corporateCustomer = mapperService.forRequest().map(createUserRequest, CorporateCustomer.class);
         corporateCustomer.setPassword(passwordEncoder.encode(createUserRequest.getPassword()));
-        corporateCustomer.setRole(Role.CUSTOMER);
+        corporateCustomer.setRole(Role.CORPORATE_CUSTOMER);
         corporateCustomerRepository.save(corporateCustomer);
     }
 
@@ -55,11 +56,11 @@ public class CorporateCustomerManager implements CorporateCustomerService {
     public void update(UpdateCorporateRequest corporateRequest) {
 
         corporateBusinessRuleService.checkIfCompanyNameExists(corporateRequest.getCompanyName());
-        CorporateCustomer corporateCustom = corporateCustomerRepository.findById(corporateRequest.getId()).orElseThrow();
+        CorporateCustomer corporateCustom = corporateCustomerRepository.findById(corporateRequest.getId()).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
         CorporateCustomer corporate =mapperService.forRequest().map(
                 corporateRequest, CorporateCustomer.class);
         corporate.setPassword(corporateCustom.getPassword());
-        corporate.setRole(Role.CUSTOMER);
+        corporate.setRole(Role.CORPORATE_CUSTOMER);
         corporateCustomerRepository.save(corporate);
     }
 
