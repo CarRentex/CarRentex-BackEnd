@@ -30,14 +30,14 @@ public class AuthManager implements AuthService {
         //authRulesService.checkIfEmailExists(createUserRequest.getEmail());
 
         switch (createUserRequest.getRole()){
-            case ADMIN:
-                this.adminService.create(this.modelMapperService.forRequest().map(createUserRequest, CreateAdminRequest.class));
-                break;
-            case CUSTOMER:
-                this.customerService.create(this.modelMapperService.forRequest().map(createUserRequest, AddCustomerRequest.class));
-                break;
-            case CORPORATE_CUSTOMER:
-                this.corporateCustomerService.create(this.modelMapperService.forRequest().map(createUserRequest, AddCorporateRequest.class));
+                case ADMIN:
+                    this.adminService.create(this.modelMapperService.forRequest().map(createUserRequest, CreateAdminRequest.class));
+                    break;
+                case CUSTOMER:
+                    this.customerService.create(this.modelMapperService.forRequest().map(createUserRequest, AddCustomerRequest.class));
+                    break;
+                case CORPORATE_CUSTOMER:
+                    this.corporateCustomerService.create(this.modelMapperService.forRequest().map(createUserRequest, AddCorporateRequest.class));
                 break;
         }
     }
