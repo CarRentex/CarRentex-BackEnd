@@ -1,4 +1,5 @@
 package com.Tobeto.RentaCar.core.services;
+import com.Tobeto.RentaCar.entities.concretes.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -21,17 +22,23 @@ public class JwtService {
     @Value("${jwt.expiration}")
     private long EXPIRATION;
 
-/*    public String generateToken(String userName) {
-        //User yolla maple
-        Map<String, Object> claims = new HashMap<>(new HashMap<>(Map.of(
-                "emailAddress", userName)));
-        return createToken(claims, userName);
-    }*/
 
-    public String generateToken(String userEmail) {
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("email", userEmail);
-        return createToken(claims, userEmail);
+    public String generateToken(User user) {
+        Map<String, Object> claims = new HashMap<>(Map.of(
+                "id", user.getId(),
+                "emailAddress", user.getEmail(),
+                "role", user.getRole()
+        ));
+        return createToken(claims, user);
+    }
+    private String createToken(Map<String, Object> claims, User user) {
+        return Jwts.builder()
+                .setClaims(claims)
+                .setSubject(user.getEmail())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
+                .signWith(this.getSigningKey(), SignatureAlgorithm.HS256)
+                .compact();
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
@@ -59,15 +66,6 @@ public class JwtService {
         return claims.getSubject();
     }
 
-    private String createToken(Map<String, Object> claims, String userName) {
-        return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(userName)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
-                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
-                .compact();
-    }
     private Key getSigningKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(keyBytes);

@@ -28,10 +28,6 @@ public class JwtAuthFilter extends OncePerRequestFilter
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain) throws ServletException, IOException
     {
-        // ..... jwt'yi oku
-        // jwt doğrula
-        // security'e giriş yaptırıcaz.
-        // chaini ilerleticez
         String jwtHeader = request.getHeader("Authorization");
 
         if(jwtHeader != null && jwtHeader.startsWith("Bearer "))

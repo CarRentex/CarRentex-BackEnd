@@ -3,6 +3,7 @@ package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.User;
 import com.Tobeto.RentaCar.repositories.UserRepository;
+import com.Tobeto.RentaCar.rules.auth.AuthRulesService;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
 import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.UpdatePasswordRequest;
@@ -24,6 +25,7 @@ public class UserManager implements UserService {
     private final ModelMapperService modelMapperService;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final AuthRulesService authRulesService;
 
     @Override
     public void delete(int id) {
@@ -51,7 +53,10 @@ public class UserManager implements UserService {
     @Override
     public void updatePassword(UpdatePasswordRequest updatePasswordRequest) {
         User user = userRepository.findById(updatePasswordRequest.getId()).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
-        user.setPassword(passwordEncoder.encode(updatePasswordRequest.getPassword()));
+        authRulesService.oldPasswordCheck(user.getPassword(),updatePasswordRequest.getOldPassword());
+        authRulesService.newPasswordNotSameAsOldPassword(user.getPassword(),updatePasswordRequest.getNewPassword());
+        authRulesService.checkIfPasswordMatch(updatePasswordRequest.getNewPassword(), updatePasswordRequest.getConfirmPassword());
+        user.setPassword(passwordEncoder.encode(updatePasswordRequest.getNewPassword()));
         userRepository.save(user);
     }
 
