@@ -1,6 +1,7 @@
 package com.Tobeto.RentaCar.service.abstracts;
 
 import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
+import com.Tobeto.RentaCar.service.dto.request.User.ResetPasswordRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.UpdatePasswordRequest;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
@@ -18,6 +19,8 @@ public interface UserService extends UserDetailsService {
     GetUserResponse getById(int id);
 
     void updatePassword(UpdatePasswordRequest updatePasswordRequest);
+
+    void resetPassword(ResetPasswordRequest resetPasswordRequest);
 
 
 }

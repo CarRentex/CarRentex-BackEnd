@@ -825,14 +825,14 @@ false Zulu
       <ObjectId>16518</ObjectId>
       <OwnerName>rentacars</OwnerName>
     </database>
-    <role id="6" parent="1" name="pg_checkpoint">
-      <ObjectId>4544</ObjectId>
-    </role>
-    <role id="7" parent="1" name="pg_database_owner">
+    <role id="6" parent="1" name="pg_database_owner">
       <ObjectId>6171</ObjectId>
     </role>
-    <role id="8" parent="1" name="pg_execute_server_program">
-      <ObjectId>4571</ObjectId>
+    <role id="7" parent="1" name="pg_read_all_data">
+      <ObjectId>6181</ObjectId>
+    </role>
+    <role id="8" parent="1" name="pg_write_all_data">
+      <ObjectId>6182</ObjectId>
     </role>
     <role id="9" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
@@ -840,43 +840,31 @@ false Zulu
 3375
 3377</RoleGrants>
     </role>
-    <role id="10" parent="1" name="pg_read_all_data">
-      <ObjectId>6181</ObjectId>
-    </role>
-    <role id="11" parent="1" name="pg_read_all_settings">
+    <role id="10" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
     </role>
-    <role id="12" parent="1" name="pg_read_all_stats">
+    <role id="11" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
+    </role>
+    <role id="12" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
     </role>
     <role id="13" parent="1" name="pg_read_server_files">
       <ObjectId>4569</ObjectId>
     </role>
-    <role id="14" parent="1" name="pg_signal_backend">
-      <ObjectId>4200</ObjectId>
-    </role>
-    <role id="15" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
-    </role>
-    <role id="16" parent="1" name="pg_write_all_data">
-      <ObjectId>6182</ObjectId>
-    </role>
-    <role id="17" parent="1" name="pg_write_server_files">
+    <role id="14" parent="1" name="pg_write_server_files">
       <ObjectId>4570</ObjectId>
     </role>
-    <role id="18" parent="1" name="rds_ad">
-      <ObjectId>16393</ObjectId>
+    <role id="15" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
     </role>
-    <role id="19" parent="1" name="rds_iam">
-      <ObjectId>16388</ObjectId>
+    <role id="16" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
     </role>
-    <role id="20" parent="1" name="rds_password">
-      <ObjectId>16389</ObjectId>
+    <role id="17" parent="1" name="pg_checkpoint">
+      <ObjectId>4544</ObjectId>
     </role>
-    <role id="21" parent="1" name="rds_replication">
-      <ObjectId>16387</ObjectId>
-    </role>
-    <role id="22" parent="1" name="rds_superuser">
+    <role id="18" parent="1" name="rds_superuser">
       <ObjectId>16386</ObjectId>
       <RoleGrants>16387!
 16389!
@@ -886,30 +874,24 @@ false Zulu
 6181!
 6182!</RoleGrants>
     </role>
-    <role id="23" parent="1" name="rdsadmin">
-      <BypassRls>1</BypassRls>
+    <role id="19" parent="1" name="rds_replication">
+      <ObjectId>16387</ObjectId>
+    </role>
+    <role id="20" parent="1" name="rds_iam">
+      <ObjectId>16388</ObjectId>
+    </role>
+    <role id="21" parent="1" name="rds_password">
+      <ObjectId>16389</ObjectId>
+    </role>
+    <role id="22" parent="1" name="rds_ad">
+      <ObjectId>16393</ObjectId>
+    </role>
+    <role id="23" parent="1" name="rentacars">
       <CanLogin>1</CanLogin>
-      <Config>TimeZone=utc
-log_statement=all
-log_min_error_statement=debug5
-log_min_messages=panic
-exit_on_error=0
-statement_timeout=0
-role=rdsadmin
-auto_explain.log_min_duration=-1
-temp_file_limit=-1
-search_path=pg_catalog, public
-synchronous_commit=local
-default_tablespace=
-stats_fetch_consistency=snapshot
-idle_session_timeout=0
-pg_hint_plan.enable_hint=off
-default_transaction_read_only=off</Config>
       <CreateDb>1</CreateDb>
       <CreateRole>1</CreateRole>
-      <ObjectId>10</ObjectId>
-      <Replication>1</Replication>
-      <SuperRole>1</SuperRole>
+      <ObjectId>16397</ObjectId>
+      <RoleGrants>16386</RoleGrants>
       <ValidUntil>infinity</ValidUntil>
     </role>
     <role id="24" parent="1" name="rdsrepladmin">
@@ -936,12 +918,30 @@ idle_session_timeout=0</Config>
       <RoleGrants>3373
 4544</RoleGrants>
     </role>
-    <role id="26" parent="1" name="rentacars">
+    <role id="26" parent="1" name="rdsadmin">
+      <BypassRls>1</BypassRls>
       <CanLogin>1</CanLogin>
+      <Config>TimeZone=utc
+log_statement=all
+log_min_error_statement=debug5
+log_min_messages=panic
+exit_on_error=0
+statement_timeout=0
+role=rdsadmin
+auto_explain.log_min_duration=-1
+temp_file_limit=-1
+search_path=pg_catalog, public
+synchronous_commit=local
+default_tablespace=
+stats_fetch_consistency=snapshot
+idle_session_timeout=0
+pg_hint_plan.enable_hint=off
+default_transaction_read_only=off</Config>
       <CreateDb>1</CreateDb>
       <CreateRole>1</CreateRole>
-      <ObjectId>16397</ObjectId>
-      <RoleGrants>16386</RoleGrants>
+      <ObjectId>10</ObjectId>
+      <Replication>1</Replication>
+      <SuperRole>1</SuperRole>
       <ValidUntil>infinity</ValidUntil>
     </role>
     <tablespace id="27" parent="1" name="pg_default">

@@ -6,6 +6,7 @@ import com.Tobeto.RentaCar.repositories.UserRepository;
 import com.Tobeto.RentaCar.rules.auth.AuthRulesService;
 import com.Tobeto.RentaCar.service.abstracts.UserService;
 import com.Tobeto.RentaCar.service.dto.request.User.DeleteUserRequest;
+import com.Tobeto.RentaCar.service.dto.request.User.ResetPasswordRequest;
 import com.Tobeto.RentaCar.service.dto.request.User.UpdatePasswordRequest;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserListResponse;
 import com.Tobeto.RentaCar.service.dto.response.User.GetUserResponse;
@@ -57,6 +58,17 @@ public class UserManager implements UserService {
         authRulesService.newPasswordNotSameAsOldPassword(user.getPassword(),updatePasswordRequest.getNewPassword());
         authRulesService.checkIfPasswordMatch(updatePasswordRequest.getNewPassword(), updatePasswordRequest.getConfirmPassword());
         user.setPassword(passwordEncoder.encode(updatePasswordRequest.getNewPassword()));
+        userRepository.save(user);
+    }
+
+    @Override
+    public void resetPassword(ResetPasswordRequest resetPasswordRequest) {
+        User user = userRepository.findByEmail(resetPasswordRequest.getEmail()).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
+        // sorular sorulacak
+
+        authRulesService.newPasswordNotSameAsOldPassword(user.getPassword(),resetPasswordRequest.getNewPassword());
+        authRulesService.checkIfPasswordMatch(resetPasswordRequest.getNewPassword(), resetPasswordRequest.getConfirmPassword());
+        user.setPassword(passwordEncoder.encode(resetPasswordRequest.getNewPassword()));
         userRepository.save(user);
     }
 

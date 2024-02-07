@@ -9,6 +9,5 @@ import lombok.NoArgsConstructor;
 
 @Data
 public class DeleteUserRequest {
-    @NotBlank(message = "Id cannot be blank")
     private int id;
 }
