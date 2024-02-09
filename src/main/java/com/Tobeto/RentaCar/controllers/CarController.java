@@ -22,6 +22,12 @@ public class CarController {
 
     private final CarService carService;
 
+
+  /*  @GetMapping("search")
+    public List<GetCarListResponse> search(@RequestParam String name){
+        return carService.search(name);
+    }*/
+
     @GetMapping
     public List<GetCarListResponse> getAll() {
         return carService.getAll();

@@ -28,15 +28,21 @@ public class Rental extends BaseEntity {
     @Column(name = "total_price", length =30)
     private double totalPrice;
 
-
     //foreignkey
+
     @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "corporate_id")
+    private CorporateCustomer corporate;
+
+
 
 
     @OneToMany(mappedBy = "rental")

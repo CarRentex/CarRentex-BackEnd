@@ -5,6 +5,7 @@ import com.Tobeto.RentaCar.service.dto.request.Brand.AddBrandRequest;
 import com.Tobeto.RentaCar.service.dto.request.Brand.UpdateBrandRequest;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandResponse;
+import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandSearchListResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,11 @@ import java.util.List;
 public class BrandController {
 
     private final BrandService brandService;
+
+/*    @GetMapping("search")
+    public List<GetBrandSearchListResponse> search(@RequestParam String name){
+        return this.brandService.search(name);
+    }*/
 
     @GetMapping
     public List<GetBrandListResponse> getAll() {

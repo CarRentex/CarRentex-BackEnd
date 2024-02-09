@@ -5,6 +5,7 @@ import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.Car;
 import com.Tobeto.RentaCar.repositories.CarRepository;
 import com.Tobeto.RentaCar.rules.car.CarBusinessRuleManager;
+import com.Tobeto.RentaCar.service.abstracts.BrandService;
 import com.Tobeto.RentaCar.service.abstracts.CarService;
 import com.Tobeto.RentaCar.service.dto.request.Car.AddCarRequest;
 import com.Tobeto.RentaCar.service.dto.request.Car.UpdateCarRequest;
@@ -24,7 +25,7 @@ public class CarManager implements CarService {
     private final CarRepository carRepository;
     private final ModelMapperService mapperService;
     private final CarBusinessRuleManager carBusinessRuleManager;
-    private final CloudinaryService cloudinaryService;
+    private final BrandService brandService;
 
     @Override
     public List<GetCarListResponse> getAll() {
@@ -34,6 +35,15 @@ public class CarManager implements CarService {
                         .map(car, GetCarListResponse.class)).collect(Collectors.toList());
         return getCarListResponses;
     }
+
+/*    @Override
+    public List<GetCarListResponse> search(String name) {
+        List<Car> cars = carRepository.findByBrandIdIn(brandService.search(name));
+        List<GetCarListResponse> getCarListResponses = cars.stream()
+                .map(car->this.mapperService.forResponse()
+                        .map(car, GetCarListResponse.class)).collect(Collectors.toList());
+        return getCarListResponses;
+    }*/
 
     @Override
     public GetCarResponse getById(int id) {

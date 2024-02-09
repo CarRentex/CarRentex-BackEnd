@@ -11,6 +11,9 @@ import java.util.List;
 
 public interface CarService {
     List<GetCarListResponse> getAll();
+
+    //List<GetCarListResponse> search(String name);
+
     GetCarResponse getById(int id);
     void create (AddCarRequest addCarRequest) throws IOException;
     void update(UpdateCarRequest carRequest);

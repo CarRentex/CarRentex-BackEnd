@@ -26,15 +26,13 @@ public class Car extends BaseEntity {
     private short minFindeksRate;
     @Column(name = "image_path")
     private String imagePath;
+    @Column(name = "passenger_capacity")
+    private short passengerCapacity;
 
-    // foreignkey
 
     @Enumerated(EnumType.STRING)
     @Column(name ="category")
     private Category category;
-
-    @Column(name = "passenger_capacity")
-    private short passengerCapacity;
 
     @Enumerated(EnumType.STRING)
     @Column(name="gear_type")

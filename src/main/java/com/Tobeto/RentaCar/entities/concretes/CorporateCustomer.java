@@ -22,6 +22,11 @@ public class CorporateCustomer extends User {
     @Column(name="tax_no")
     private String taxNo;
 
+
+    @OneToMany(mappedBy = "corporate")
+    @JsonIgnore
+    private List<Rental> rentals;
+
 }
 
 

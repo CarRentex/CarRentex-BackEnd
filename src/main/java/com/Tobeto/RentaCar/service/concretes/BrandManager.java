@@ -9,6 +9,7 @@ import com.Tobeto.RentaCar.service.dto.request.Brand.AddBrandRequest;
 import com.Tobeto.RentaCar.service.dto.request.Brand.UpdateBrandRequest;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandResponse;
+import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandSearchListResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,9 @@ public class BrandManager implements BrandService {
     private final BrandRepository brandRepository;
     private  ModelMapperService mapperService;
     private final BrandBusinessRuleManager brandBusinessRuleManager;
+
+
+
     @Override
     public void create (AddBrandRequest addBrandRequest) {
         //business rules
@@ -55,5 +59,14 @@ public class BrandManager implements BrandService {
     @Override
     public void delete(int id) {
         brandRepository.deleteById(id);
+    }
+
+    @Override
+    public List<GetBrandSearchListResponse> search(String name) {
+        List<Brand> brands = brandRepository.findByNameIgnoreCaseContains(name);
+        List<GetBrandSearchListResponse> getBrandListResponses = brands.stream()
+                .map(brand->this.mapperService.forResponse()
+                        .map(brand, GetBrandSearchListResponse.class)).collect(Collectors.toList());
+        return getBrandListResponses;
     }
 }

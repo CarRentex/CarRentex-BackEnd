@@ -14,7 +14,6 @@ public abstract class BaseEntity {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column(name = "created_date",  updatable = false)
     private LocalDate createdDate;
 
