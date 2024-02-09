@@ -1,5 +1,6 @@
 package com.Tobeto.RentaCar.entities.concretes;
 
+import com.Tobeto.RentaCar.entities.abstracts.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,11 +14,14 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ImageData {
-    @Id
+public class ImageData  extends BaseEntity {
+
+
+/*    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id;*/
+
     @Column(name = "name")
     private String name;
     @Column(name = "type")

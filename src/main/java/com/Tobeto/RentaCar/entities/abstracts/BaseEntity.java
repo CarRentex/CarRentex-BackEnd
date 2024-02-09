@@ -20,6 +20,9 @@ public abstract class BaseEntity {
     @Column(name = "updated_date")
     private LocalDate updatedDate;
 
+    @Column(name = "deleted_date")
+    protected LocalDate deletedDate;
+
     @PrePersist
     private void beforeAdd() {
         createdDate = LocalDate.now();
@@ -28,5 +31,9 @@ public abstract class BaseEntity {
     @PreUpdate
     private void beforeUpdate() {
         updatedDate = LocalDate.now();
+    }
+    @PreRemove
+    public void preRemove() {
+        this.deletedDate = LocalDate.now();
     }
 }
