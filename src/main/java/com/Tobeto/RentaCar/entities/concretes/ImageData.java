@@ -14,13 +14,13 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ImageData  extends BaseEntity {
+public class ImageData{
 
 
-/*    @Id
+    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;*/
+    private int id;
 
     @Column(name = "name")
     private String name;
