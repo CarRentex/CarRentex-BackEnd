@@ -40,10 +40,7 @@ public class ImageDataManager implements ImageDataService {
                  .get("url")
                  .toString());
          dataRepository.save(imageData);
-        if (imageData != null) {
-            return "file uploaded successfully : " + file.getOriginalFilename();
-        }
-        return "file uploaded Fail ";
+            return imageData.getImageUrl();
 
     }
 
