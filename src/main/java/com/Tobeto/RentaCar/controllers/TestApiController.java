@@ -31,14 +31,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @CrossOrigin
 public class TestApiController {
+private final DistrictService districtService;
 
 
                 // APİ TEST İÇİN YAZILMIŞTIR
 
 
         //CİTY VE DİSTRİCT APİSİNİN TEST EDİLMESİ
-/*
-    @GetMapping("refreshApi")
+/*    @GetMapping("refreshApi")
     public void refreshApi() {
         districtService.create(null);
     }*/

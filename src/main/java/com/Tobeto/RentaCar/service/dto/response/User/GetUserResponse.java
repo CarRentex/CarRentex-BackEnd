@@ -14,6 +14,9 @@ public class GetUserResponse {
     private String role;
     private String createdAt;
     private String updatedAt;
+    private boolean isActive;
+    private String cityName;
+    private String districtName;
 
 }
 

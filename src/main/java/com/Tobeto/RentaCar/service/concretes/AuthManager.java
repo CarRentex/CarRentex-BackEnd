@@ -56,6 +56,8 @@ public class AuthManager implements AuthService {
                 .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
         if(authentication.isAuthenticated())
         {
+            user.setActive(true);
+            userRepository.save(user);
             return jwtService.generateToken(user);
         }
         throw new RuntimeException("hata oluştu");

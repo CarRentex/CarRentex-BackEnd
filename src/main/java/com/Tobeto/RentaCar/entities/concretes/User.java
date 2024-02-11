@@ -37,6 +37,17 @@ public class User extends BaseEntity implements UserDetails{
     @Column(name = "role", nullable = false)
     private Role role;
 
+    @Column(name = "is_active", columnDefinition = "boolean default false")
+    private boolean isActive;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id", nullable = false)
+    private City city;
+
+    @ManyToOne
+    @JoinColumn(name = "district_id", nullable = false)
+    private District district;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(role);

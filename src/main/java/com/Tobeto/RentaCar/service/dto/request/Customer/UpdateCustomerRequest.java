@@ -35,7 +35,15 @@ public class UpdateCustomerRequest {
     @Pattern(regexp = "05[0-9]{9}", message = "Invalid phone number format. It must be in the format 05xxxxxxxxx.")
     private String phoneNumber;
 
+    @NotNull(message = "City cannot be blank")
+    private int cityId;
+
+    @NotNull(message = "District cannot be blank")
+    private int districtId;
+
     @NotBlank(message = "Address cannot be blank")
     private String address;
+
+    private boolean status;
 
 }

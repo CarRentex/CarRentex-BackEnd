@@ -44,4 +44,6 @@ public class UpdateCarRequest {
     private int colorId;
     //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
     private int modelId;
+
+    private boolean status;
 }

@@ -26,7 +26,7 @@ public class DistrictManager implements DistrictService {
     private final ModelMapperService mapperService;
     private final CityRepository cityRepository;
 
-    @Override
+    @Override // TEST APİ
     public void create(CreateDistrictRequest createDistrictRequest) {
         Mono<List<GetListCityResponse>> cityDataMono = webClientService.CityAllRequest();
 

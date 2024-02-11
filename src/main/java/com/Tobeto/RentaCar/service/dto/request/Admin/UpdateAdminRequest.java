@@ -1,10 +1,7 @@
 package com.Tobeto.RentaCar.service.dto.request.Admin;
 
 import com.Tobeto.RentaCar.entities.concretes.Role;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,7 +34,16 @@ public class UpdateAdminRequest {
     @Pattern(regexp = "05[0-9]{9}", message = "Invalid phone number format. It must be in the format 05xxxxxxxxx.")
     private String phoneNumber;
 
+    @NotNull(message = "City cannot be blank")
+    private int cityId;
+
+    @NotNull(message = "District cannot be blank")
+    private int districtId;
+
     @NotBlank(message = "Address cannot be blank")
     private String address;
+
+
+    private boolean status;
 
 }

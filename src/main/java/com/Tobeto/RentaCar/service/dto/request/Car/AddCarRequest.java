@@ -48,4 +48,5 @@ public class AddCarRequest {
     //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
     private int modelId;
 
+
 }

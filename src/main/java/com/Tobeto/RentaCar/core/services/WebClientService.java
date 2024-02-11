@@ -33,7 +33,7 @@ public class WebClientService {
                             String cityName = (String) cityData.get("name");
                             List<Map<String, Object>> districtDataList = (List<Map<String, Object>>) cityData.get("districts");
                             List<GetListDistrictResponse> districts = districtDataList.stream()
-                                    .limit(5) // Her il için sadece belirtilen limit kadar ilçe al
+                                    //.limit(5) // Her il için sadece belirtilen limit kadar ilçe al
                                     .map(districtData -> modelMapper.forResponse().map(districtData, GetListDistrictResponse.class))
                                     .collect(Collectors.toList());
 
