@@ -26,4 +26,11 @@ public class AuthController {
         authService.register(request);
     }
 
+    @PostMapping("logout")
+    @ResponseStatus(HttpStatus.OK)
+    public void logout(@RequestParam int id) {
+        authService.logout(id);
+    }
+
+
 }

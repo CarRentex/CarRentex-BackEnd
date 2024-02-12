@@ -62,4 +62,11 @@ public class AuthManager implements AuthService {
         }
         throw new RuntimeException("hata oluştu");
     }
+
+    @Override
+    public void logout(int id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("Kullanıcı bulunamadı"));
+        user.setActive(false);
+        userRepository.save(user);
+    }
 }

@@ -31,6 +31,8 @@ public class AddCarRequest {
     @Min(value = 50,message = "Your credit score cannot be lower than 50.")
     private short minFindeksRate;
 
+    private String imagePath;
+
     @NotNull(message = "Category type must be specified.")
     private Category category;
 

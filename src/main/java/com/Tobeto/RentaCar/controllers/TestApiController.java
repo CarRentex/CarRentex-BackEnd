@@ -1,6 +1,7 @@
 package com.Tobeto.RentaCar.controllers;
 
 
+import com.Tobeto.RentaCar.core.config.SeedDataConfig;
 import com.Tobeto.RentaCar.entities.concretes.City;
 import com.Tobeto.RentaCar.repositories.CityRepository;
 import com.Tobeto.RentaCar.service.abstracts.CityService;
@@ -31,13 +32,22 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @CrossOrigin
 public class TestApiController {
-private final DistrictService districtService;
+            // APİ TEST İÇİN YAZILMIŞTIR
+
+    private final DistrictService districtService;
+    private final SeedDataConfig seedDataConfig;
+
+    // CAR COLOR MODEL BRAND APİSİNE VERİLERİN EKLENMESİ İÇİN YAZILMIŞTIR SADECE 1 KEZ ÇALIŞTIRILMALIDIR
+/*
+    @GetMapping("seedData")
+    public void seedData() {
+        seedDataConfig.run();
+    }
+*/
 
 
-                // APİ TEST İÇİN YAZILMIŞTIR
 
-
-        //CİTY VE DİSTRİCT APİSİNİN TEST EDİLMESİ
+        //CİTY VE DİSTRİCT APİSİNİN TEST EDİLMESİ BİR KERE ÇALIŞTIRILMALIDIR
 /*    @GetMapping("refreshApi")
     public void refreshApi() {
         districtService.create(null);
@@ -45,19 +55,5 @@ private final DistrictService districtService;
 
 
 
-/*public class TestApiController {
-
-    private final WebClient webClient;
-
-    @GetMapping("/test")
-    public Mono<List<Object>> test() {
-        String publicApiUrl = "https://turkiyeapi.dev/api/v1/provinces?fields=name,districts";
-        return webClient.get()
-                .uri(publicApiUrl)
-                .retrieve()
-                .bodyToFlux(Object.class)
-                .collectList(); // Mono<List<Object>> olarak dönecek
-    }
-}*/
 
 }
