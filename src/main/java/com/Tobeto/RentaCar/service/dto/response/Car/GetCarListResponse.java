@@ -17,14 +17,13 @@ public class GetCarListResponse {
     private int kilometer;
     private int year;
     private double dailyPrice;
-    private double deposit;
     private short minFindeksRate;
     private String plate;
     private GearType gearType;
     private FuelType fuelType;
     private Category category;
-    private GetColorResponse color;
     private short passengerCapacity;
-    private GetModelListResponse model;
     private String imagePath;
+    private GetModelListResponse model;
+    private GetColorResponse color;
 }

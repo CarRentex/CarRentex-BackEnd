@@ -3,6 +3,7 @@ package com.Tobeto.RentaCar.service.concretes;
 import com.Tobeto.RentaCar.core.services.CloudinaryService;
 import com.Tobeto.RentaCar.core.utilites.mappers.ModelMapperService;
 import com.Tobeto.RentaCar.entities.concretes.Car;
+import com.Tobeto.RentaCar.entities.concretes.Category;
 import com.Tobeto.RentaCar.repositories.CarRepository;
 import com.Tobeto.RentaCar.rules.car.CarBusinessRuleManager;
 import com.Tobeto.RentaCar.service.abstracts.BrandService;
@@ -11,11 +12,13 @@ import com.Tobeto.RentaCar.service.dto.request.Car.AddCarRequest;
 import com.Tobeto.RentaCar.service.dto.request.Car.UpdateCarRequest;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
+import jakarta.persistence.Tuple;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -71,5 +74,15 @@ public class CarManager implements CarService {
     @Override
     public void delete(int id) {
         carRepository.deleteById(id);
+    }
+
+    @Override
+    public List<GetCarListResponse> getAvailableCars(LocalDate startDate, LocalDate endDate) {
+        return carRepository.findAvailableCars(startDate, endDate);
+    }
+
+    @Override
+    public List<GetCarListResponse> getCategorizeCars(Category category) {
+        return carRepository.findByCategory(category);
     }
 }
