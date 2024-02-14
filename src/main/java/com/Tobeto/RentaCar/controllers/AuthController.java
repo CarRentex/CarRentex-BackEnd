@@ -14,7 +14,7 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @PostMapping("login")
+    @PostMapping("signIn")
     @ResponseStatus(HttpStatus.OK)
     public String login(@RequestBody LoginUserRequest loginRequest) {
         return authService.login(loginRequest);
@@ -26,7 +26,7 @@ public class AuthController {
         authService.register(request);
     }
 
-    @PostMapping("logout")
+    @PostMapping("signOut")
     @ResponseStatus(HttpStatus.OK)
     public void logout(@RequestParam int id) {
         authService.logout(id);
