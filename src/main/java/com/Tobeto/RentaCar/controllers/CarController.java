@@ -35,6 +35,14 @@ public class CarController {
 
     }*/
 
+    @GetMapping("/filter")
+    public List<GetCarListResponse> filterCars(
+            @RequestParam(required = false) Double minPrice,
+            @RequestParam(required = false) Double maxPrice,
+            @RequestParam(required = false) Integer modelId) {
+        return carService.filterCars(minPrice, maxPrice, modelId);
+    }
+
     @GetMapping("/category")
     public List<GetCarListResponse> getCategorizeCars(@RequestParam Category  category) {
         return carService.getCategorizeCars(category);

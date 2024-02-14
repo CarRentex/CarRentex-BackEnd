@@ -26,4 +26,6 @@ public interface CarService {
     List<GetCarListResponse> getAvailableCars(LocalDate startDate, LocalDate endDate);
 
     List<GetCarListResponse> getCategorizeCars(Category category);
+
+    List<GetCarListResponse> filterCars(Double minPrice, Double maxPrice, Integer model);
 }
