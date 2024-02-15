@@ -17,9 +17,16 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Location extends BaseEntity {
-    @Column(name = "location")
-    private String location;
+    @Column(name = "name")
+    private String name;
 
-    @OneToMany(mappedBy = "location")
-    private List<Car> cars;
+    @OneToMany(mappedBy = "startLocation")
+    private List<Rental> startRentals;
+
+    @OneToMany(mappedBy = "endLocation")
+    private List<Rental> endRentals;
+
+
+
+
 }

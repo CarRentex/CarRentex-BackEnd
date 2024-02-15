@@ -1,12 +1,11 @@
 package com.Tobeto.RentaCar.service.dto.request.Location;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateLocationRequest {
-    private String location;
+    private String name;
 }

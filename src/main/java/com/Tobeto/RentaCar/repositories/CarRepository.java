@@ -52,11 +52,14 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
             "WHERE " +
             "(:minPrice IS NULL OR c.dailyPrice >= :minPrice) AND " +
             "(:maxPrice IS NULL OR c.dailyPrice <= :maxPrice) AND " +
-            "(:modelId IS NULL OR c.model.id = :modelId OR :modelId IS NULL)")
+            "(:modelId IS NULL OR c.model.id = :modelId OR :modelId IS NULL) AND " +
+            "(:brandId IS NULL OR c.model.brand.id = :brandId OR :brandId IS NULL)")
     List<GetCarListResponse> findCarsByFilter(
             @Param("minPrice") Double minPrice,
             @Param("maxPrice") Double maxPrice,
+            @Param("brandId") Integer brandId,
             @Param("modelId") Integer modelId);
+
 
 
 

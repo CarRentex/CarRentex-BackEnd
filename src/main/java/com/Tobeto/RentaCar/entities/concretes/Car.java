@@ -56,8 +56,4 @@ public class Car extends BaseEntity {
     @OneToMany(mappedBy = "car")
     private List<Rental> rentals;
 
-    @ManyToOne
-    @JoinColumn(name = "location_id") // location_id, gerçek bir sütun adı olmalı
-    private Location location;
-
 }

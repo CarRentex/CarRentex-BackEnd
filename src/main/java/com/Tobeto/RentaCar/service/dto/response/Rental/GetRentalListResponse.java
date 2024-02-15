@@ -1,11 +1,12 @@
 package com.Tobeto.RentaCar.service.dto.response.Rental;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.Tobeto.RentaCar.entities.concretes.Location;
+import com.Tobeto.RentaCar.service.dto.response.Location.GetListLocationResponse;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetRentalListResponse {
@@ -15,4 +16,6 @@ public class GetRentalListResponse {
     private int startKilometer;
     private int endKilometer;
     private double totalPrice;
+    private GetListLocationResponse startLocation;
+    private GetListLocationResponse endLocation;
 }

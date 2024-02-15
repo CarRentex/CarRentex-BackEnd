@@ -28,6 +28,15 @@ public class Rental extends BaseEntity {
     @Column(name = "total_price", length =30)
     private double totalPrice;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "start_location_id")
+    private Location startLocation;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "end_location_id")
+    private Location endLocation;
+
+
     //foreignkey
 
     @ManyToOne

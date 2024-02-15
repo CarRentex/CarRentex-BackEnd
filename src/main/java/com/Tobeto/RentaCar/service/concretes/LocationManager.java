@@ -22,7 +22,6 @@ public class LocationManager implements LocationService {
     @Override
     public void create(CreateLocationRequest createLocation) {
         Location location = this.modelMapperService.forRequest().map(createLocation, Location.class);
-        //location.setId(null);
         locationRepository.save(location);
     }
 
@@ -34,5 +33,11 @@ public class LocationManager implements LocationService {
                         .forResponse().map(location, GetListLocationResponse.class))
                 .collect(Collectors.toList());
         return locationResponses;
+    }
+
+    @Override
+    public GetListLocationResponse getById(int id) {
+        Location location = locationRepository.findById(((long) id)).orElseThrow();
+        return this.modelMapperService.forResponse().map(location, GetListLocationResponse.class);
     }
 }

@@ -50,8 +50,13 @@ public class RentalManager implements RentalService {
         rentalBusinessRuleManager.checkStartDateThanToday(rentalRequest.getStartDate().isBefore(LocalDate.now()));
         rentalBusinessRuleManager.checkEndDateThanStartDate(rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate()));
         rentalBusinessRuleManager.checkMaxRentDay(rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate()));
+
         // dikkat düzeltilecek
         rentalRequest.setEndKilometer(0);
+
+
+
+
 
         GetCarResponse carResponse = carService.getById(rentalRequest.getCarID());
         rentalRequest.setStartKilometer(carResponse.getKilometer());

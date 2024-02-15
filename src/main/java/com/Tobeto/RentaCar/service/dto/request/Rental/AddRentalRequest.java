@@ -2,13 +2,12 @@ package com.Tobeto.RentaCar.service.dto.request.Rental;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddRentalRequest {
@@ -22,5 +21,12 @@ public class AddRentalRequest {
     private int startKilometer;
     //@Null
     private int endKilometer;
+
+    private double totalPrice;
+
+    private int startLocationId;
+
+    private int endLocationId;
+
     private int carID;
 }

@@ -21,12 +21,10 @@ private final LocationService locationService;
         return this.locationService.getAll();
     }
 
-/*
     @GetMapping("{id}")
     public GetListLocationResponse getById(@PathVariable int id){
         return this.locationService.getById(id);
     }
-*/
 
     @PostMapping("/create")
     public void create (@RequestBody @Valid CreateLocationRequest createLocationRequest){

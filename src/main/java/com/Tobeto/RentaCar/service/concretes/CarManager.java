@@ -87,7 +87,7 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public List<GetCarListResponse> filterCars(Double minPrice, Double maxPrice, Integer modelId) {
-        return carRepository.findCarsByFilter(minPrice, maxPrice, modelId);
+    public List<GetCarListResponse> filterCars(Double minPrice, Double maxPrice, Integer brandId ,Integer modelId) {
+        return carRepository.findCarsByFilter(minPrice, maxPrice, brandId ,modelId);
     }
 }

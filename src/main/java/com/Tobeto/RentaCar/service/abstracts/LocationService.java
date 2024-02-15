@@ -10,4 +10,6 @@ public interface LocationService {
     void create(CreateLocationRequest createLocation);
 
     List<GetListLocationResponse> getAll();
+
+    GetListLocationResponse getById(int id);
 }
