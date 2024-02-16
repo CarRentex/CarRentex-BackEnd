@@ -5,11 +5,10 @@ import com.Tobeto.RentaCar.entities.concretes.FuelType;
 import com.Tobeto.RentaCar.entities.concretes.GearType;
 import com.Tobeto.RentaCar.service.dto.response.Color.GetColorResponse;
 import com.Tobeto.RentaCar.service.dto.response.Model.GetModelListResponse;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetCarListResponse {

@@ -23,9 +23,9 @@ public class  Customer extends User {
     @Column(name = "nationality_id")
     private String nationalityId;
 
-
+/*
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
-    private List<Rental> rentals;
+    private List<Rental> rentals;*/
 
 }

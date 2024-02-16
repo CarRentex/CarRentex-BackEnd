@@ -12,13 +12,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class UpdateRentalRequest {
     private int id;
-    //@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format")
     private LocalDate startDate;
-    //@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format")
     private LocalDate endDate;
-    //@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format")
-    private int startKilometer;
-    private int endKilometer;
-    private double totalPrice;
+    private int startLocationId;
+    private int endLocationId;
     private int carID;
+    private int userID;
 }

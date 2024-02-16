@@ -5,6 +5,7 @@ package com.Tobeto.RentaCar.core.config;
 import com.Tobeto.RentaCar.service.abstracts.*;
 import com.Tobeto.RentaCar.service.dto.request.Brand.AddBrandRequest;
 import com.Tobeto.RentaCar.service.dto.request.Color.AddColorRequest;
+import com.Tobeto.RentaCar.service.dto.request.Location.CreateLocationRequest;
 import com.Tobeto.RentaCar.service.dto.request.Model.AddModelRequest;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandListApi;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandListResponse;
@@ -28,10 +29,12 @@ public class SeedDataConfig{
     private final ColorService colorService;
     private final BrandService brandService;
     private final ModelService modelService;
+    private final LocationService locaitonService;
 
 
     public void run(String... args) {
 
+        //String[] brands = {"Audi", "BMW", "Mercedes", "Honda", "Toyota", "Renault", "Fiat", "Peugeot", "Volkswagen", "Ford", "Hyundai", "Kia", "Nissan", "Skoda", "Seat", "Volvo", "Mazda", "Citroen", "Opel", "Chevrolet", "Suzuki", "Dacia","Jeep", "Land Rover", "Jaguar", "Porsche", "Ferrari", "Lamborghini", "Maserati", "Alfa Romeo", "Mini", "Tesla", "Dodge", "Mitsubishi", "Isuzu", "Karsan", "BMC", "Otokar"};
         String[] brands = {"Audi", "BMW", "Mercedes", "Honda", "Toyota"};
         for (String brand : brands) {
             brandService.create(new AddBrandRequest(brand));
@@ -43,9 +46,14 @@ public class SeedDataConfig{
             modelService.create(new AddModelRequest(brand.getId(), carModels[a.indexOf(brand)]));
         }
 
-        String[] colors = {"White", "Black", "Red", "Green", "Blue"};
+        String[] colors = {"Kırmızı", "Siyah", "Beyaz", "Gri", "Mavi, Yeşil", "Sarı", "Turuncu", "Mor", "Pembe", "Kahverengi", "Lacivert", "Bordo"};
         for (String color : colors) {
             colorService.create(new AddColorRequest(color));
+        }
+
+        String[] locaitons = {"Vadi İstanbul ofis", "Ataşehir ofis", "Kadıköy ofis", "Beşiktaş ofis", "Beykoz ofis", "İstanbul Havalimanı", "Sabiha Gökçen Havalimanı"};
+        for (String location : locaitons) {
+            locaitonService.create(new CreateLocationRequest(location));
         }
 
 

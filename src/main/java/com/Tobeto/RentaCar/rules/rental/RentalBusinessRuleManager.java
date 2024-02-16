@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Service
 @AllArgsConstructor
@@ -33,5 +34,10 @@ public class RentalBusinessRuleManager implements  RentalBusinessRuleService{
         if (bool) {
             throw new RuntimeException("The car can be rented for a maximum of 25 days.");
         }
+    }
+
+    public double totalPrice(LocalDate start, LocalDate end, double dailyPrice) {
+        long daysBetween = start.until(end, ChronoUnit.DAYS);
+        return daysBetween * dailyPrice;
     }
 }

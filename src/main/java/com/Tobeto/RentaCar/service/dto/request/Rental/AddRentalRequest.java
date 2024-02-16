@@ -11,22 +11,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddRentalRequest {
-    //@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format")
     private LocalDate startDate;
-    //@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format")
     private LocalDate endDate;
-   // @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format")
-    //@Null
-    private LocalDate returnDate;
-    private int startKilometer;
-    //@Null
-    private int endKilometer;
-
-    private double totalPrice;
-
     private int startLocationId;
-
     private int endLocationId;
-
     private int carID;
+    private int userID;
 }

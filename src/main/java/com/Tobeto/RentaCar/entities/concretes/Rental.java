@@ -20,13 +20,13 @@ public class Rental extends BaseEntity {
     @Column(name = "end_date", length =20, nullable = false)
     private LocalDate endDate;
     @Column(name = "return_date", length =20)
-    private LocalDate returnDate;
+    private LocalDate returnDate; // kaldırabilirm
     @Column(name = "start_kilometer", length =30)
     private int startKilometer;
     @Column(name = "end_kilometer", length =30)
     private int endKilometer;
     @Column(name = "total_price", length =30)
-    private double totalPrice;
+    private double totalPrice; // kullanıcıya açma
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "start_location_id")
@@ -44,15 +44,8 @@ public class Rental extends BaseEntity {
     private Car car;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-
-    @ManyToOne
-    @JoinColumn(name = "corporate_id")
-    private CorporateCustomer corporate;
-
-
-
+    @JoinColumn(name = "user_id") // user id ekleyebilirsin sadece bir bak
+    private User user;
 
     @OneToMany(mappedBy = "rental")
     private List<Invoice> invoices;

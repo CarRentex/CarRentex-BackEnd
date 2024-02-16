@@ -50,20 +50,15 @@ public class RentalManager implements RentalService {
         rentalBusinessRuleManager.checkStartDateThanToday(rentalRequest.getStartDate().isBefore(LocalDate.now()));
         rentalBusinessRuleManager.checkEndDateThanStartDate(rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate()));
         rentalBusinessRuleManager.checkMaxRentDay(rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate()));
-
+        //        rentalBusinessRulesService.availableCar(addRentalRequest.getCarId(),addRentalRequest.getUserId(), addRentalRequest.getStartDate(), addRentalRequest.getEndDate());
         // dikkat düzeltilecek
-        rentalRequest.setEndKilometer(0);
-
-
-
-
 
         GetCarResponse carResponse = carService.getById(rentalRequest.getCarID());
-        rentalRequest.setStartKilometer(carResponse.getKilometer());
         Rental rental = mapperService.forRequest().map(rentalRequest, Rental.class);
-        // dikkat düzeltilecek discount hesaplaması yeni sistemde invoice üzerinden yapılacak
-//        rental.setTotalPrice(rentalRequest.getStartDate().until(rentalRequest.getEndDate(), ChronoUnit.DAYS)
-//                * carResponse.getDailyPrice() * (1.0 - rentalRequest.getDiscount() / 100));
+        rental.setTotalPrice(rentalBusinessRuleManager.totalPrice(rentalRequest.getStartDate(), rentalRequest.getEndDate(), carResponse.getDailyPrice()));
+        rental.setStartKilometer(carResponse.getKilometer());
+        rental.setEndKilometer(0);
+        rental.setReturnDate(rentalRequest.getEndDate());
         rentalRepository.save(rental);
     }
     @Override
@@ -71,11 +66,16 @@ public class RentalManager implements RentalService {
         rentalBusinessRuleManager.checkStartDateThanToday(rentalRequest.getStartDate().isBefore(LocalDate.now()));
         rentalBusinessRuleManager.checkEndDateThanStartDate(rentalRequest.getEndDate().isBefore(rentalRequest.getStartDate()));
         rentalBusinessRuleManager.checkMaxRentDay(rentalRequest.getStartDate().plusDays(25).isBefore(rentalRequest.getEndDate()));
-        Rental rental = mapperService.forRequest().map(rentalRequest, Rental.class);
-        rentalRepository.save(rental);
+        Rental rentalToUpdate = rentalRepository.findById(rentalRequest.getId())
+                .orElseThrow();
+        this.mapperService.forRequest().map(rentalRequest, rentalToUpdate);
+        rentalRepository.saveAndFlush(rentalToUpdate);
     }
     @Override
     public void delete(int id) {
         rentalRepository.deleteById(id);
     }
+
+
+
 }

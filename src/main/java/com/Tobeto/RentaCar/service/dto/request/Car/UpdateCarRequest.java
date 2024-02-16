@@ -3,11 +3,10 @@ import com.Tobeto.RentaCar.entities.concretes.Category;
 import com.Tobeto.RentaCar.entities.concretes.FuelType;
 import com.Tobeto.RentaCar.entities.concretes.GearType;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateCarRequest {
