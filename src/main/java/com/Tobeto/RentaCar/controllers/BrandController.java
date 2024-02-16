@@ -26,11 +26,11 @@ public class BrandController {
         return this.brandService.search(name);
     }*/
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public List<GetBrandListResponse> getAll() {
         return this.brandService.getAll();
     }
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public GetBrandResponse getById(@PathVariable int id){
         return this.brandService.getById(id);
     }
@@ -42,7 +42,7 @@ public class BrandController {
     public void update(@RequestBody  @Valid UpdateBrandRequest updateBrandRequest){
         this.brandService.update(updateBrandRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         this.brandService.delete(id);
     }

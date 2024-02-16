@@ -37,8 +37,5 @@ public class UpdateCorporateRequest {
     @NotBlank(message = "Address cannot be blank")
     private String address;
 
-    private boolean status;
-
-
-
+    private boolean isActive;
 }

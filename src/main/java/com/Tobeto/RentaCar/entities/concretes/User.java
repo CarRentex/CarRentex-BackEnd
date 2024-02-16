@@ -37,8 +37,8 @@ public class User extends BaseEntity implements UserDetails{
     @Column(name = "role", nullable = false)
     private Role role;
 
-    @Column(name = "is_active", columnDefinition = "boolean default false")
-    private boolean isActive;
+    @Column(name = "is_active")
+    private boolean isActive = false;
 
     @ManyToOne
     @JoinColumn(name = "city_id", nullable = false)

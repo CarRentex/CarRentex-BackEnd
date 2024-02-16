@@ -54,7 +54,7 @@ public class SecurityConfiguration {
                 .logout(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(x -> x
                         .requestMatchers(WHITE_LIST_URLS).permitAll()
-                        //.requestMatchers(HttpMethod.GET, "/api/brands/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/auths/**").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/brands/**", "/api/payments/**").hasAnyAuthority(Role.ADMIN.name())
                         .requestMatchers("**").hasAnyAuthority(Role.CUSTOMER.name()) // kaldırılacak
                         .anyRequest().authenticated()

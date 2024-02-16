@@ -44,9 +44,8 @@ public class AddCarRequest {
     @NotNull(message = "FuelType type must be specified.")
     private FuelType fuelType;
 
-    //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
     private int colorId;
-    //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
+
     private int modelId;
 
 }

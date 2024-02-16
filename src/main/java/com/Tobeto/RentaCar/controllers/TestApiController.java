@@ -46,12 +46,12 @@ public class TestApiController {
     public void seedData() {
         seedDataConfig.run();
     }
-*/
         //CİTY VE DİSTRİCT APİSİNİN TEST EDİLMESİ BİR KERE ÇALIŞTIRILMALIDIR
-/*    @GetMapping("refreshApi")
+    @GetMapping("refreshApi")
     public void refreshApi() {
         districtService.create(null);
-    }*/
+    }
+*/
 
 
 

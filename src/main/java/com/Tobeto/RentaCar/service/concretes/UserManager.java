@@ -30,6 +30,8 @@ public class UserManager implements UserService {
 
     @Override
     public void delete(int id) {
+
+        // admin onayı istenecek admin şifresini girince silinecek
         User userDelete = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Kullanıcı bulunamadı"));
         userRepository.delete(userDelete);
     }

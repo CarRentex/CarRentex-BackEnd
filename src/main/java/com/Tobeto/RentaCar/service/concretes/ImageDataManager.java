@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -25,23 +26,28 @@ public class ImageDataManager implements ImageDataService {
 
     @Override
     public String uploadImage(MultipartFile file) throws IOException {
+        String uniqueFileName = generateUniqueFileName(file.getOriginalFilename());
+
         ImageData imageData = ImageData.builder()
-                .name(file.getOriginalFilename())
+                .name(uniqueFileName)
                 .type(file.getContentType())
                 .imageData(ImageUtils.compressImage(file.getBytes())).build();
 
         Map<String, String> params = ObjectUtils.asMap(
-                "use_filename", file.getName(),
-                "unique_filename", true,
+                "public_id", "carRentex/" + uniqueFileName,
                 "overwrite", true
         );
+        imageData.setImageUrl(cloudinary.uploader().upload(file.getBytes(), params)
+                .get("url")
+                .toString());
 
-         imageData.setImageUrl(cloudinary.uploader().upload(file.getBytes(), params)
-                 .get("url")
-                 .toString());
-         dataRepository.save(imageData);
-            return imageData.getImageUrl();
+        dataRepository.save(imageData);
+        return imageData.getImageUrl();
+    }
 
+
+    private String generateUniqueFileName(String originalFileName) {
+        return UUID.randomUUID().toString() + "_" + originalFileName;
     }
 
     @Override

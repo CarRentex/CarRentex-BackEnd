@@ -10,23 +10,25 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/auths")
+@CrossOrigin
 public class AuthController {
 
     private final AuthService authService;
 
-    @PostMapping("signIn")
+    @PostMapping("/signIn")
     @ResponseStatus(HttpStatus.OK)
     public String signIn(@RequestBody LoginUserRequest loginRequest) {
+        System.out.println("ejkshtklsjetklsjrtşlsjrşoyljsnrlkhjlsş");
         return authService.login(loginRequest);
     }
 
-    @PostMapping("register")
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public void register(@RequestBody CreateUserRequest request) {
         authService.register(request);
     }
 
-    @PostMapping("signOut")
+    @PostMapping("/signOut")
     @ResponseStatus(HttpStatus.OK)
     public void signOut(@RequestParam int id) {
         authService.logout(id);

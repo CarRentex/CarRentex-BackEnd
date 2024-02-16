@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddModelRequest {
+
+    @NotBlank(message = "This field cannot be left blank")
     private int brandId;
     @Size(min = 2, max = 30, message = "Minimum 2 characters can be entered")
     @NotBlank(message = "This field cannot be left blank")

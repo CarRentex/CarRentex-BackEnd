@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddCustomerRequest {
+
+    private final Role role = Role.CUSTOMER;
+
     @NotBlank(message = "Name cannot be blank")
     @Pattern(regexp = "^[a-zA-ZğüşıöçĞÜŞİÖÇ\\s]+$", message = "Name must consist of letters only.")
     @Size(min = 2, max = 20)
@@ -52,8 +55,5 @@ public class AddCustomerRequest {
 
     @NotBlank(message = "Address cannot be blank")
     private String address;
-
-    @NotNull(message = "Role cannot be blank")
-    private Role role;
 
 }

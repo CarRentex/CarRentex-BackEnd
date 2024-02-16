@@ -50,8 +50,8 @@ public class Car extends BaseEntity {
     @JoinColumn(name = "model_id")
     private Model model;
 
-    @Column(name = "is_active", columnDefinition = "boolean default true")
-    private boolean isActive;
+    @Column(name = "is_active")
+    private boolean isActive = true;
 
     @OneToMany(mappedBy = "car")
     private List<Rental> rentals;
