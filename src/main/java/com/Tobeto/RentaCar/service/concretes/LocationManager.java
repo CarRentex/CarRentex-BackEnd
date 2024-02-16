@@ -5,6 +5,7 @@ import com.Tobeto.RentaCar.entities.concretes.Location;
 import com.Tobeto.RentaCar.repositories.LocationRepository;
 import com.Tobeto.RentaCar.service.abstracts.LocationService;
 import com.Tobeto.RentaCar.service.dto.request.Location.CreateLocationRequest;
+import com.Tobeto.RentaCar.service.dto.request.Location.UpdateLocationRequest;
 import com.Tobeto.RentaCar.service.dto.response.Location.GetListLocationResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,16 @@ public class LocationManager implements LocationService {
     public GetListLocationResponse getById(int id) {
         Location location = locationRepository.findById(((long) id)).orElseThrow();
         return this.modelMapperService.forResponse().map(location, GetListLocationResponse.class);
+    }
+
+    @Override
+    public void update(UpdateLocationRequest updateLocationRequest) {
+        Location location = this.modelMapperService.forRequest().map(updateLocationRequest, Location.class);
+        locationRepository.save(location);
+    }
+
+    @Override
+    public void delete(int id) {
+        locationRepository.deleteById((long) id);
     }
 }

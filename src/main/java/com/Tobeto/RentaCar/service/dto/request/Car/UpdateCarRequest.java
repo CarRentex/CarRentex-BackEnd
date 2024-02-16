@@ -31,6 +31,9 @@ public class UpdateCarRequest {
 
     private String imagePath;
 
+    @NotNull(message = "Capacity type must be specified.")
+    private short passengerCapacity;
+
     @NotNull(message = "Category type must be specified")
     private Category category;
 
@@ -45,5 +48,5 @@ public class UpdateCarRequest {
     //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
     private int modelId;
 
-    private boolean status;
+    private boolean isActive;
 }

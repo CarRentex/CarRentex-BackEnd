@@ -34,10 +34,10 @@ public class AddCarRequest {
     private String imagePath;
 
     @NotNull(message = "Category type must be specified.")
-    private Category category;
+    private short passengerCapacity;
 
     @NotNull(message = "Category type must be specified.")
-    private short passengerCapacity;
+    private Category category;
 
     @NotNull(message = "GearType type must be specified.")
     private GearType gearType;
@@ -49,6 +49,5 @@ public class AddCarRequest {
     private int colorId;
     //@PositiveOrZero(message = "The annotated element must be a positive number or 0.")
     private int modelId;
-
 
 }

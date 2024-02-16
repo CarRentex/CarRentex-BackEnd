@@ -21,7 +21,7 @@ import java.util.List;
 @CrossOrigin
 public class RentalController {
     private final RentalService rentalService;
-    @GetMapping
+    @GetMapping("getAll")
     public List<GetRentalListResponse> getAll() {
         return rentalService.getAll();
     }

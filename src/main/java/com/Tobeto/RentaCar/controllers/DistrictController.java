@@ -20,13 +20,13 @@ public class DistrictController {
         return districtService.getAll();
     }
 
-    @GetMapping("getById")
-    public List<GetDistrictResponse> getById(int id) {
+    @GetMapping("{id}")
+    public List<GetDistrictResponse> getById(@PathVariable int id) {
         return districtService.getById(id);
     }
 
-    @DeleteMapping("delete")
-    public void delete(int id) {
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable int id) {
         districtService.delete(id);
     }
 

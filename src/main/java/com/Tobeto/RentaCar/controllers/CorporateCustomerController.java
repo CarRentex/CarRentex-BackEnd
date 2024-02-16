@@ -24,7 +24,7 @@ import java.util.List;
 public class CorporateCustomerController {
     private final CorporateCustomerService corporateCustomerService;
 
-    @GetMapping
+    @GetMapping("getAll")
     @ResponseStatus(HttpStatus.OK)
     public List<GetCorporateListResponse> getAll() {
         return this.corporateCustomerService.getAll();

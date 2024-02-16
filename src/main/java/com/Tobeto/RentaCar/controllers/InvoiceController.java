@@ -18,7 +18,7 @@ import java.util.List;
 public class InvoiceController {
     private final InvoiceService invoiceService;
 
-    @GetMapping
+    @GetMapping("getAll")
     public List<GetInvoiceListResponse> getAll() {
         return this.invoiceService.getAll();
     }

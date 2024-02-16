@@ -20,16 +20,12 @@ public class ImageDataController {
     @PostMapping(value = "/upload" , consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     @ResponseStatus(HttpStatus.OK)
     public String uploadImage(@RequestPart("image") MultipartFile file) throws IOException {
-
         return dataService.uploadImage(file);
-
     }
 
     @GetMapping("/{fileName}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<byte[]> downloadImage(@PathVariable String fileName) {
-
-
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf("image/png")).body(dataService.downloadImage(fileName));
     }
 }

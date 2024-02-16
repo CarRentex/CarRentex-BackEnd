@@ -26,7 +26,7 @@ public class BrandController {
         return this.brandService.search(name);
     }*/
 
-    @GetMapping
+    @GetMapping("getAll")
     public List<GetBrandListResponse> getAll() {
         return this.brandService.getAll();
     }

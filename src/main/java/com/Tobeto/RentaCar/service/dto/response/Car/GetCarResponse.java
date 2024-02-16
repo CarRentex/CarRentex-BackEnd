@@ -3,6 +3,8 @@ package com.Tobeto.RentaCar.service.dto.response.Car;
 import com.Tobeto.RentaCar.entities.concretes.Category;
 import com.Tobeto.RentaCar.entities.concretes.FuelType;
 import com.Tobeto.RentaCar.entities.concretes.GearType;
+import com.Tobeto.RentaCar.service.dto.response.Color.GetColorResponse;
+import com.Tobeto.RentaCar.service.dto.response.Model.GetModelListResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,13 +17,14 @@ public class GetCarResponse {
     private int kilometer;
     private int year;
     private double dailyPrice;
+    private short minFindeksRate;
     private String plate;
     private GearType gearType;
     private FuelType fuelType;
     private Category category;
-    private String colorName;
     private short passengerCapacity;
-    private String modelName;
-    private String brandName;
     private String imagePath;
+    private GetModelListResponse model;
+    private GetColorResponse color;
+    private boolean isActive;
 }

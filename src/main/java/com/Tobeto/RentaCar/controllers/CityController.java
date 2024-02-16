@@ -31,8 +31,8 @@ public class CityController {
         return cityService.getById(id);
     }
 
-    @DeleteMapping("delete")
-    public void delete(int id) {
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable int id) {
         cityService.delete(id);
     }
 }

@@ -33,20 +33,19 @@ public class UserController {
     public void updatePassword(@RequestBody @Valid UpdatePasswordRequest updatePasswordRequest){
         userService.updatePassword(updatePasswordRequest);
     }
-
     @GetMapping("/getAll")
     @ResponseStatus(code = HttpStatus.OK)
     public List<GetUserListResponse> getAll(){
         return userService.getAll();
     }
 
-    @GetMapping("/getById")
+    @GetMapping("{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public GetUserResponse getById(@RequestParam int id){
+    public GetUserResponse getById(@PathVariable int id){
         return  userService.getById(id);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public void delete(@PathVariable int id){
         userService.delete(id);

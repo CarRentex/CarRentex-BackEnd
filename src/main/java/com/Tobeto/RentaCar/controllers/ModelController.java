@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin
 public class ModelController {
     private final ModelService modelService;
-    @GetMapping
+    @GetMapping("getAll")
     public List<GetModelListResponse> getAll() {
         return this.modelService.getAll();
     }

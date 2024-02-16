@@ -26,4 +26,5 @@ public class GetCarListResponse {
     private String imagePath;
     private GetModelListResponse model;
     private GetColorResponse color;
+    private boolean isActive;
 }

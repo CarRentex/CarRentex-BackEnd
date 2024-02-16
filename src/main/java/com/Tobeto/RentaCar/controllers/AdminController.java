@@ -31,15 +31,15 @@ public class AdminController {
         adminService.update(updateAdminRequest);
     }
 
-    @GetMapping("/getList")
+    @GetMapping("/getAll")
     @ResponseStatus(code = HttpStatus.OK)
     public List<GetAdminListResponse> getAdminList(){
         return adminService.getAll();
     }
 
-    @GetMapping("/getAdmin")
+    @GetMapping("{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public GetAdminResponse getAdmin(@RequestParam int id){
+    public GetAdminResponse getAdmin(@PathVariable int id){
         return adminService.getById(id);
     }
 

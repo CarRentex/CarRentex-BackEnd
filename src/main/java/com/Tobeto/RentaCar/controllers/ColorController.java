@@ -18,7 +18,7 @@ import java.util.List;
 public class ColorController {
     private final ColorService colorService;
 
-    @GetMapping
+    @GetMapping("getAll")
     public List<GetColorListResponse> getAll() {
         return this.colorService.getAll();
     }

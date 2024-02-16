@@ -27,14 +27,6 @@ public class CarController {
 
     private final CarService carService;
 
-
-  /*  @GetMapping("search")
-    public List<GetCarListResponse> search(@RequestParam String name){
-        return carService.search(name);
-
-
-    }*/
-
     @GetMapping("/filter")
     public List<GetCarListResponse> filterCars(
             @RequestParam(required = false) Double minPrice,
@@ -56,7 +48,7 @@ public class CarController {
         return carService.getAvailableCars(startDate, endDate);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<GetCarListResponse> getAll() {
         return carService.getAll();
     }
