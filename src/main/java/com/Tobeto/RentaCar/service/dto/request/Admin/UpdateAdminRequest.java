@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UpdateAdminRequest {
 
-    private final Role role = Role.ADMIN;
-
     private int id;
 
     @NotBlank(message = "Name cannot be blank")
@@ -45,5 +43,7 @@ public class UpdateAdminRequest {
     @NotBlank(message = "Address cannot be blank")
     private String address;
 
+    @NotNull(message = "Role cannot be blank")
+    private Role role;
 
 }

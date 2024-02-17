@@ -38,10 +38,13 @@ public class SecurityConfiguration {
             "/v2/api-docs",
             "/v3/api-docs",
             "/v3/api-docs/**",
-            "/api/auth/**",
-            "/api/cars/**",
-            "/api/payments/**",
-            "**"
+            "/api/auths/signIn",
+            "/api/auths/register",
+            "/api/cars/getAll",
+            "/api/cars/getById",
+            //"/api/brands/**",
+            //"**"
+
     };
 
     @Bean
@@ -54,9 +57,9 @@ public class SecurityConfiguration {
                 .logout(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(x -> x
                         .requestMatchers(WHITE_LIST_URLS).permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/auths/**").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/api/brands/**", "/api/payments/**").hasAnyAuthority(Role.ADMIN.name())
-                        .requestMatchers("**").hasAnyAuthority(Role.CUSTOMER.name()) // kaldırılacak
+                        .requestMatchers( "/api/auths/**").permitAll()
+                        .requestMatchers("/api/brands/**").hasAnyAuthority(Role.ADMIN.name())
+                        //.requestMatchers("**").hasAnyAuthority(Role.CUSTOMER.name()) // kaldırılacak
                         .anyRequest().authenticated()
                 )
                 .httpBasic(AbstractHttpConfigurer::disable)

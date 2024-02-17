@@ -18,7 +18,6 @@ public class AuthController {
     @PostMapping("/signIn")
     @ResponseStatus(HttpStatus.OK)
     public String signIn(@RequestBody LoginUserRequest loginRequest) {
-        System.out.println("ejkshtklsjetklsjrtşlsjrşoyljsnrlkhjlsş");
         return authService.login(loginRequest);
     }
 

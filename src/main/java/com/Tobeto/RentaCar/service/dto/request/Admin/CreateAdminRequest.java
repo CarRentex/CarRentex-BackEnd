@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CreateAdminRequest {
 
-    private final Role role = Role.ADMIN;
 
     @NotBlank(message = "Name cannot be blank")
     @Pattern(regexp = "^[a-zA-ZğüşıöçĞÜŞİÖÇ\\s]+$", message = "Name must consist of letters only.")
@@ -57,4 +56,6 @@ public class CreateAdminRequest {
     @NotBlank(message = "Address cannot be blank")
     private String address;
 
+    @NotNull(message = "Role cannot be blank")
+    private Role role;
 }

@@ -57,6 +57,7 @@ public class AdminManager implements AdminService {
         Admin admin =mapperService.forRequest().map(
                 adminRequest, Admin.class);
         admin.setPassword(exsitingAdmin.getPassword());
+        admin.setRole(Role.ADMIN);
         adminRepository.save(admin);
     }
 

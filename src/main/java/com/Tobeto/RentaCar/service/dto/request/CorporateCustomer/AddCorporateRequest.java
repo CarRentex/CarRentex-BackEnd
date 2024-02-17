@@ -12,9 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AddCorporateRequest {
 
-    private final Role role = Role.CORPORATE_CUSTOMER;
-
-
     @NotBlank(message = "Name cannot be blank")
     @Size(min = 2, max = 20)
     private String companyName;
@@ -54,5 +51,6 @@ public class AddCorporateRequest {
     @NotBlank(message = "Address cannot be blank")
     private String address;
 
-
+    @NotNull(message = "Role cannot be blank")
+    private Role role;
 }
