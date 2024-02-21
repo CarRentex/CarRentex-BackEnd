@@ -21,12 +21,12 @@ import java.util.List;
 @CrossOrigin
 public class RentalController {
     private final RentalService rentalService;
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public List<GetRentalListResponse> getAll() {
         return rentalService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/getById{id}")
     public GetRentalResponse getById(@PathVariable int id) {
         return rentalService.getById(id);
     }
@@ -39,7 +39,7 @@ public class RentalController {
     public void update(@RequestBody  @Valid UpdateRentalRequest rentalRequest){
         rentalService.update(rentalRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         rentalService.delete(id);
     }

@@ -17,12 +17,12 @@ import java.util.List;
 public class LocationController {
 private final LocationService locationService;
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public List<GetListLocationResponse> getAll() {
         return this.locationService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     public GetListLocationResponse getById(@PathVariable int id){
         return this.locationService.getById(id);
     }
@@ -36,7 +36,7 @@ private final LocationService locationService;
     public void update(@RequestBody  @Valid UpdateLocationRequest updateLocationRequest){
         this.locationService.update(updateLocationRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         this.locationService.delete(id);
     }

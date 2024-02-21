@@ -39,13 +39,13 @@ public class UserController {
         return userService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public GetUserResponse getById(@PathVariable int id){
         return  userService.getById(id);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public void delete(@PathVariable int id){
         userService.delete(id);

@@ -24,12 +24,12 @@ import java.util.List;
 public class CorporateCustomerController {
     private final CorporateCustomerService corporateCustomerService;
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     @ResponseStatus(HttpStatus.OK)
     public List<GetCorporateListResponse> getAll() {
         return this.corporateCustomerService.getAll();
     }
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     @ResponseStatus(HttpStatus.OK)
     public GetCorporateResponse getById(@PathVariable int id){
         return this.corporateCustomerService.getById(id);
@@ -44,7 +44,7 @@ public class CorporateCustomerController {
     public void update(@RequestBody  @Valid UpdateCorporateRequest updateCorporateRequest){
         this.corporateCustomerService.update(updateCorporateRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     // burayı araştır
     public void delete(@PathVariable int id){
         this.corporateCustomerService.delete(id);

@@ -15,17 +15,17 @@ import java.util.List;
 public class DistrictController {
     private final DistrictService districtService;
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public List<GetListDistrictResponse> getAll() {
         return districtService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     public List<GetDistrictResponse> getById(@PathVariable int id) {
         return districtService.getById(id);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) {
         districtService.delete(id);
     }

@@ -23,12 +23,12 @@ import java.util.List;
 public class CustomerController {
     private final CustomerService customerService;
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     @ResponseStatus(HttpStatus.OK)
     public List<GetCustomerListResponse> getAll() {
         return this.customerService.getAll();
     }
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     @ResponseStatus(HttpStatus.OK)
     public GetCustomerResponse getById(@PathVariable int id){
         return this.customerService.getById(id);
@@ -43,7 +43,7 @@ public class CustomerController {
     public void update(@RequestBody  @Valid UpdateCustomerRequest updateCustomerRequest){
         this.customerService.update(updateCustomerRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable int id){
         this.customerService.delete(id);

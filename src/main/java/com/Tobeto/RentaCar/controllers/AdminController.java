@@ -37,13 +37,13 @@ public class AdminController {
         return adminService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public GetAdminResponse getAdmin(@PathVariable int id){
         return adminService.getById(id);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public void delete(@PathVariable int id){
         adminService.delete(id);

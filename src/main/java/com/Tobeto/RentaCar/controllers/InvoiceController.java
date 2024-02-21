@@ -18,11 +18,11 @@ import java.util.List;
 public class InvoiceController {
     private final InvoiceService invoiceService;
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public List<GetInvoiceListResponse> getAll() {
         return this.invoiceService.getAll();
     }
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     public GetInvoiceResponse getById(@PathVariable int id){
         return this.invoiceService.getById(id);
     }
@@ -34,7 +34,7 @@ public class InvoiceController {
     public void update(@RequestBody  @Valid UpdateInvoiceRequest updateInvoiceRequest){
         this.invoiceService.update(updateInvoiceRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         this.invoiceService.delete(id);
     }

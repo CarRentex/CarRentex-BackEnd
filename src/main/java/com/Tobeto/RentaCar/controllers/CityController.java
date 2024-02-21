@@ -16,22 +16,22 @@ import java.util.List;
 public class CityController {
     private final CityService cityService;
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public List<GetListCityResponse> getAll() {
         return cityService.getAll();
     }
 
-    @GetMapping("getAllCities")
+    @GetMapping("/getAllCities")
     public List<GetAllCityResponse> getAllCity() {
         return cityService.getAllCity();
     }
 
-    @GetMapping("getById")
-    public GetCityResponse getById(int id) {
+    @GetMapping("/getById/{id}")
+    public GetCityResponse getById(@PathVariable int id) {
         return cityService.getById(id);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) {
         cityService.delete(id);
     }

@@ -53,7 +53,7 @@ public class CarController {
         return carService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     public GetCarResponse getById(@PathVariable int id) {
         return carService.getById(id);
     }
@@ -67,7 +67,7 @@ public class CarController {
     public void update(@RequestBody  @Valid UpdateCarRequest updateCarRequest){
         carService.update(updateCarRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         carService.delete(id);
     }

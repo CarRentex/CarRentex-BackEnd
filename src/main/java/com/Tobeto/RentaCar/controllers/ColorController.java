@@ -18,11 +18,11 @@ import java.util.List;
 public class ColorController {
     private final ColorService colorService;
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public List<GetColorListResponse> getAll() {
         return this.colorService.getAll();
     }
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     public GetColorResponse getById(@PathVariable int id){
         return this.colorService.getById(id);
     }
@@ -34,7 +34,7 @@ public class ColorController {
     public void update(@RequestBody  @Valid UpdateColorRequest updateColorRequest){
         this.colorService.update(updateColorRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         this.colorService.delete(id);
     }

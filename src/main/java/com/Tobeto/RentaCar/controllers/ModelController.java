@@ -16,11 +16,11 @@ import java.util.List;
 @CrossOrigin
 public class ModelController {
     private final ModelService modelService;
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public List<GetModelListResponse> getAll() {
         return this.modelService.getAll();
     }
-    @GetMapping("{id}")
+    @GetMapping("/getById/{id}")
     public GetModelResponse getById(@PathVariable int id){
         return this.modelService.getById(id);
     }
@@ -32,7 +32,7 @@ public class ModelController {
     public void update(@RequestBody  @Valid UpdateModelRequest updateModelRequest){
         this.modelService.update(updateModelRequest);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         this.modelService.delete(id);
     }
