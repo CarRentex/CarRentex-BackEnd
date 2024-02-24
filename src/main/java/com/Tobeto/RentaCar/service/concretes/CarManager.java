@@ -12,6 +12,7 @@ import com.Tobeto.RentaCar.service.dto.request.Car.AddCarRequest;
 import com.Tobeto.RentaCar.service.dto.request.Car.UpdateCarRequest;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
+import com.Tobeto.RentaCar.service.dto.response.Car.GetCategoryListResponse;
 import jakarta.persistence.Tuple;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -67,7 +68,7 @@ public class CarManager implements CarService {
     @Override
     public void update(UpdateCarRequest carRequest) {
         carRequest.setPlate(carRequest.getPlate().replaceAll("\\s", ""));
-        carBusinessRuleManager.checkPlate(carRequest.getPlate());
+        //carBusinessRuleManager.checkPlate(carRequest.getPlate());
         Car car = mapperService.forRequest().map(carRequest, Car.class);
         carRepository.save(car);
     }
@@ -82,7 +83,7 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public List<GetCarListResponse> getCategorizeCars(Category category) {
+    public List<GetCategoryListResponse> getCategorizeCars(Category category) {
         return carRepository.findByCategory(category);
     }
 

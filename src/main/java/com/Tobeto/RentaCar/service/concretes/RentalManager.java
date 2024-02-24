@@ -59,6 +59,7 @@ public class RentalManager implements RentalService {
         rental.setStartKilometer(carResponse.getKilometer());
         rental.setEndKilometer(0);
         rental.setReturnDate(rentalRequest.getEndDate());
+        carResponse.setActive(false);
         rentalRepository.save(rental);
     }
     @Override

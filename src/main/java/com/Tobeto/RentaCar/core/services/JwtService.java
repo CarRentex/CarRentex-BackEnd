@@ -27,7 +27,9 @@ public class JwtService {
         Map<String, Object> claims = new HashMap<>(Map.of(
                 "id", user.getId(),
                 "emailAddress", user.getEmail(),
-                "role", user.getRole()
+                "role", user.getRole(),
+                "phoneNumber", user.getPhoneNumber(),
+                "address", user.getAddress()
         ));
         return createToken(claims, user);
     }

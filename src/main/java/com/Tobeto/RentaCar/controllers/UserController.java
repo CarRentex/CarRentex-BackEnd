@@ -39,9 +39,9 @@ public class UserController {
         return userService.getAll();
     }
 
-    @GetMapping("/getById/{id}")
+    @GetMapping("/getById")
     @ResponseStatus(code = HttpStatus.OK)
-    public GetUserResponse getById(@PathVariable int id){
+    public GetUserResponse getById(@RequestParam int id){
         return  userService.getById(id);
     }
 

@@ -7,6 +7,7 @@ import com.Tobeto.RentaCar.service.dto.request.Car.AddCarRequest;
 import com.Tobeto.RentaCar.service.dto.request.Car.UpdateCarRequest;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
+import com.Tobeto.RentaCar.service.dto.response.Car.GetCategoryListResponse;
 import jakarta.persistence.Tuple;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -37,7 +38,7 @@ public class CarController {
     }
 
     @GetMapping("/category")
-    public List<GetCarListResponse> getCategorizeCars(@RequestParam Category  category) {
+    public List<GetCategoryListResponse> getCategorizeCars(@RequestParam Category  category) {
         return carService.getCategorizeCars(category);
     }
 

@@ -6,6 +6,7 @@ import com.Tobeto.RentaCar.service.dto.request.Car.AddCarRequest;
 import com.Tobeto.RentaCar.service.dto.request.Car.UpdateCarRequest;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarResponse;
+import com.Tobeto.RentaCar.service.dto.response.Car.GetCategoryListResponse;
 import jakarta.persistence.Tuple;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,7 +26,7 @@ public interface CarService {
 
     List<GetCarListResponse> getAvailableCars(LocalDate startDate, LocalDate endDate);
 
-    List<GetCarListResponse> getCategorizeCars(Category category);
+    List<GetCategoryListResponse> getCategorizeCars(Category category);
 
     List<GetCarListResponse> filterCars(Double minPrice, Double maxPrice, Integer brandId ,Integer model);
 }

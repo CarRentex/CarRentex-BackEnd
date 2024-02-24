@@ -10,10 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UpdateModelRequest {
 
-    @NotBlank(message = "This field cannot be left blank")
     private int id;
 
-    @NotBlank(message = "This field cannot be left blank")
     private int brandId;
 
     @Size(min = 2, max = 30, message = "Minimum 2 and maximum 30 characters can be entered")

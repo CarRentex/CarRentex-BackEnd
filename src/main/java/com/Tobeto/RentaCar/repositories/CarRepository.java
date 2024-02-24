@@ -5,6 +5,7 @@ import com.Tobeto.RentaCar.entities.concretes.Car;
 import com.Tobeto.RentaCar.entities.concretes.Category;
 import com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandSearchListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse;
+import com.Tobeto.RentaCar.service.dto.response.Car.GetCategoryListResponse;
 import jakarta.persistence.Tuple;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,7 +17,7 @@ import java.util.List;
 public interface CarRepository extends JpaRepository<Car, Integer> {
     boolean existsByPlate(String name);
     //List<Car> findByBrandIdIn(List<GetBrandSearchListResponse> brand
-    @Query("SELECT new com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse(" +
+    @Query("SELECT new com.Tobeto.RentaCar.service.dto.response.Car.GetCategoryListResponse(" +
             "c.id, c.kilometer, c.year, c.dailyPrice, c.minFindeksRate, c.plate, " +
             "c.gearType, c.fuelType, c.category, c.passengerCapacity, c.imagePath," +
             "new com.Tobeto.RentaCar.service.dto.response.Model.GetModelListResponse(c.model.id, c.model.name, " +
@@ -24,7 +25,7 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
             "new  com.Tobeto.RentaCar.service.dto.response.Color.GetColorResponse(c.color.name)" +
             ") " +
             "FROM Car c  WHERE c.category = :category")
-    List<GetCarListResponse> findByCategory(@Param("category") Category category);
+    List<GetCategoryListResponse> findByCategory(@Param("category") Category category);
 
 
     @Query("SELECT new com.Tobeto.RentaCar.service.dto.response.Car.GetCarListResponse(" +
@@ -46,8 +47,7 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
             "c.category, c.passengerCapacity, c.imagePath, " +
             "new com.Tobeto.RentaCar.service.dto.response.Model.GetModelListResponse(c.model.id, c.model.name, " +
             "new com.Tobeto.RentaCar.service.dto.response.Brand.GetBrandListResponse(c.model.brand.id, c.model.brand.name)), " +
-            "new com.Tobeto.RentaCar.service.dto.response.Color.GetColorResponse(c.color.name)" +
-            ") " +
+            "new com.Tobeto.RentaCar.service.dto.response.Color.GetColorResponse(c.color.name))" +
             "FROM Car c " +
             "WHERE " +
             "(:minPrice IS NULL OR c.dailyPrice >= :minPrice) AND " +
@@ -59,6 +59,7 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
             @Param("maxPrice") Double maxPrice,
             @Param("brandId") Integer brandId,
             @Param("modelId") Integer modelId);
+
 
 
 

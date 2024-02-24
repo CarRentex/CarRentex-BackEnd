@@ -42,8 +42,21 @@ public class SecurityConfiguration {
             "/api/auths/register",
             "/api/cars/getAll",
             "/api/cars/getById",
+            "/api/cars/category",
+            "/api/cars/available",
+            "/api/cars/**",
+            "/api/brands/getAll",
+            "/api/brands/getById",
+            "/api/brands/search",
+            "/api/colors/getAll",
+            "/api/colors/getById",
+            "/api/locations/getAll",
+            "/api/locations/getById",
+            "/api/rentals/create", //kaldırılacak
+            "/api/rentals/getAll",
+
+            "**"
             //"/api/brands/**",
-            //"**"
 
     };
 
@@ -57,8 +70,8 @@ public class SecurityConfiguration {
                 .logout(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(x -> x
                         .requestMatchers(WHITE_LIST_URLS).permitAll()
-                        .requestMatchers( "/api/auths/**").permitAll()
-                        .requestMatchers("/api/brands/**").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers( "**").permitAll()
+                        //.requestMatchers("/api/brands/**", "/api/rentals/**,", "/api/cars/**").hasAnyAuthority(Role.ADMIN.name())
                         //.requestMatchers("**").hasAnyAuthority(Role.CUSTOMER.name()) // kaldırılacak
                         .anyRequest().authenticated()
                 )
