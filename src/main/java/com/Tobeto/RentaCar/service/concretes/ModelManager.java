@@ -6,6 +6,7 @@ import com.Tobeto.RentaCar.rules.model.ModelBusinessRuleService;
 import com.Tobeto.RentaCar.service.abstracts.ModelService;
 import com.Tobeto.RentaCar.service.dto.request.Model.AddModelRequest;
 import com.Tobeto.RentaCar.service.dto.request.Model.UpdateModelRequest;
+import com.Tobeto.RentaCar.service.dto.response.Model.GetModelByBrandId;
 import com.Tobeto.RentaCar.service.dto.response.Model.GetModelListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Model.GetModelResponse;
 import lombok.AllArgsConstructor;
@@ -53,6 +54,15 @@ public class ModelManager implements ModelService {
     @Override
     public void delete(int id) {
         modelRepository.deleteById(id);
+    }
+
+    @Override
+    public List<GetModelByBrandId> getByBrandId(int id) {
+        List<Model> model = modelRepository.findModelsByBrandId(id);
+        List<GetModelByBrandId> getModelByBrandId = model.stream()
+                .map(color->this.mapperService.forResponse()
+                        .map(color, GetModelByBrandId.class)).collect(Collectors.toList());
+        return getModelByBrandId;
     }
 }
 

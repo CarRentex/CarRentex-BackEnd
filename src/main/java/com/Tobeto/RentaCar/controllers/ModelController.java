@@ -3,6 +3,7 @@ package com.Tobeto.RentaCar.controllers;
 import com.Tobeto.RentaCar.service.abstracts.ModelService;
 import com.Tobeto.RentaCar.service.dto.request.Model.AddModelRequest;
 import com.Tobeto.RentaCar.service.dto.request.Model.UpdateModelRequest;
+import com.Tobeto.RentaCar.service.dto.response.Model.GetModelByBrandId;
 import com.Tobeto.RentaCar.service.dto.response.Model.GetModelListResponse;
 import com.Tobeto.RentaCar.service.dto.response.Model.GetModelResponse;
 import jakarta.validation.Valid;
@@ -16,6 +17,11 @@ import java.util.List;
 @CrossOrigin
 public class ModelController {
     private final ModelService modelService;
+
+    @GetMapping("/getByBrandId")
+    public List<GetModelByBrandId> getByBrandId(@RequestParam int id){
+        return this.modelService.getByBrandId(id);
+    }
     @GetMapping("/getAll")
     public List<GetModelListResponse> getAll() {
         return this.modelService.getAll();
