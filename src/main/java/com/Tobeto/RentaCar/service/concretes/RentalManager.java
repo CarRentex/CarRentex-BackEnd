@@ -77,6 +77,10 @@ public class RentalManager implements RentalService {
         rentalRepository.deleteById(id);
     }
 
+    @Override
+    public List<Object[]> calculateYearlyIncome(int year) {
+        return rentalRepository.findYearlyIncome(year);
+    }
 
 
 }

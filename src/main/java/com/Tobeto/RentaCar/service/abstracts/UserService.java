@@ -22,5 +22,7 @@ public interface UserService extends UserDetailsService {
 
     void resetPassword(ResetPasswordRequest resetPasswordRequest);
 
+    int totalUsers();
+
 
 }

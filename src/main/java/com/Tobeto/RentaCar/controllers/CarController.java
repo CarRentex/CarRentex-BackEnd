@@ -28,6 +28,16 @@ public class CarController {
 
     private final CarService carService;
 
+
+    @GetMapping("/totalCars")
+    public int totalCars() {
+        return carService.totalCars();
+    }
+    @GetMapping("/campaign")
+    public List<GetCarListResponse> getCampaignCars() {
+        return carService.getCampaignCars();
+    }
+
     @GetMapping("/filter")
     public List<GetCarListResponse> filterCars(
             @RequestParam(required = false) Double minPrice,
@@ -54,8 +64,8 @@ public class CarController {
         return carService.getAll();
     }
 
-    @GetMapping("/getById/{id}")
-    public GetCarResponse getById(@PathVariable int id) {
+    @GetMapping("/getById")
+    public GetCarResponse getById(@RequestParam int id) {
         return carService.getById(id);
     }
 

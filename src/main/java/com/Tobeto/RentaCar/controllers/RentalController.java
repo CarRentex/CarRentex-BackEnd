@@ -44,4 +44,9 @@ public class RentalController {
         rentalService.delete(id);
     }
 
+    @GetMapping("/incomeYearly")
+    public List<Object[]> getYearlyIncome(@RequestParam int year) {
+        return rentalService.calculateYearlyIncome(year);
+    }
+
 }

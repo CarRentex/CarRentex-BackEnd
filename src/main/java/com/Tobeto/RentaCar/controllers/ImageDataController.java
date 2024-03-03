@@ -17,7 +17,7 @@ import java.io.IOException;
 public class ImageDataController {
     private final ImageDataService dataService;
 
-    @PostMapping(value = "/upload" , consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    @PostMapping(value = "" , consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     @ResponseStatus(HttpStatus.OK)
     public String uploadImage(@RequestPart("image") MultipartFile file) throws IOException {
         return dataService.uploadImage(file);

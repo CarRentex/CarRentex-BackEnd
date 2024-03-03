@@ -22,6 +22,11 @@ public class UserController {
 
     private final UserService userService;
 
+
+    @GetMapping("/totalUsers")
+    public int totalUsers() {
+        return userService.totalUsers();
+    }
     @PutMapping("/resetPassword")
     @ResponseStatus(code = HttpStatus.OK)
     public void resetPassword(@RequestBody @Valid ResetPasswordRequest resetPasswordRequest){

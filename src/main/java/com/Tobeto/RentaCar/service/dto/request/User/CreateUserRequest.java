@@ -63,8 +63,8 @@ public class CreateUserRequest {
                     "Does not contain spaces, tabs, etc.")
     private String confirmPassword;
 
-    @NotBlank(message = "PhoneNumber cannot be blank")
-    @Pattern(regexp = "05[0-9]{9}", message = "Invalid phone number format. It must be in the format 05xxxxxxxxx.")
+    //@NotBlank(message = "PhoneNumber cannot be blank")
+    //@Pattern(regexp = "05[0-9]{9}", message = "Invalid phone number format. It must be in the format 05xxxxxxxxx.")
     private String phoneNumber;
 
     @NotNull(message = "City cannot be blank")

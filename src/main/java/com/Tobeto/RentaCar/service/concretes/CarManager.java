@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -91,4 +92,26 @@ public class CarManager implements CarService {
     public List<GetCarListResponse> filterCars(Double minPrice, Double maxPrice, Integer brandId ,Integer modelId) {
         return carRepository.findCarsByFilter(minPrice, maxPrice, brandId ,modelId);
     }
+
+    @Override
+    public List<GetCarListResponse> getCampaignCars() {
+
+        List<GetCarListResponse> allCars = carRepository.findAll().stream()
+                .map(car -> mapperService.forResponse().map(car, GetCarListResponse.class))
+                .collect(Collectors.toList());
+        Collections.shuffle(allCars);
+
+        // İlk 6 aracı al veya listenin boyutu kadar araç varsa tümünü al
+        int numberOfCarsToReturn = Math.min(6, allCars.size());
+        List<GetCarListResponse> selectedCars = allCars.subList(0, numberOfCarsToReturn);
+
+        return selectedCars;
+    }
+
+    @Override
+    public int totalCars() {
+        return carRepository.findAll().size();
+    }
+
+
 }

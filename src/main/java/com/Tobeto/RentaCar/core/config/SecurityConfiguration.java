@@ -54,7 +54,7 @@ public class SecurityConfiguration {
             "/api/locations/getById",
             "/api/rentals/create", //kaldırılacak
             "/api/rentals/getAll",
-
+            "/api/imagedata/**",
             "**"
             //"/api/brands/**",
 

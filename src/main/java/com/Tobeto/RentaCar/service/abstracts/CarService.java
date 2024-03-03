@@ -29,4 +29,8 @@ public interface CarService {
     List<GetCategoryListResponse> getCategorizeCars(Category category);
 
     List<GetCarListResponse> filterCars(Double minPrice, Double maxPrice, Integer brandId ,Integer model);
+
+    List<GetCarListResponse> getCampaignCars();
+
+    int totalCars();
 }

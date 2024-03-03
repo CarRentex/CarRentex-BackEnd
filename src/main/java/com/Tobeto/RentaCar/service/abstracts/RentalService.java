@@ -13,4 +13,6 @@ public interface RentalService {
     void create(AddRentalRequest rentalRequest);
     void update(UpdateRentalRequest rentalRequest);
     void delete(int id);
+
+    List<Object[]> calculateYearlyIncome(int year);
 }
