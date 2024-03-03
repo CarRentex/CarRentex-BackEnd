@@ -12,9 +12,9 @@ The Rent A Car Project is a web application designed to manage car rental proces
 
 ## Project Demo
 
+<img src="https://github.com/CarRentex/CarRentex-FrontEnd/blob/main/public/readmeMain.png" width="500">
 
 
-[CarRentex](https://github.com/CarRentex/CarRentex-FrontEnd/blob/main/public/readmeMain.png)
 
 
 
