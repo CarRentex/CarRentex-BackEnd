@@ -1,34 +1,65 @@
-# Rent A Car Projesi
+<img src="https://github.com/CarRentex/CarRentex-FrontEnd/blob/main/public/carlogo.png" width="500">
 
-## Proje Ortakları
-Ahmet Kaya
-Büşra Yüksekel
-Zeynep Sevinç
-Burak Karlıdağ
+# Rent A Car Project
 
-## Proje Açıklaması
+## Project Manager
 
-Rent A Car Projesi, araç kiralama işlemlerini yönetmek için tasarlanmış bir web uygulamasıdır.
-Bu proje, kullanıcılara araç kiralama, araç listeleme, rezervasyon yapma ve araç bilgilerini güncelleme gibi özellikler sunar.
+Burak Karlıdağ  -->  [GitHub/bkarlida](https://github.com/bkarlida)
 
-## Proje VeriTabanı ER Diagram
+## Project Description
 
-<img src="https://github.com/bkarlida/Tobeto-RentAcar_Pair1/blob/main/dbdiagram.png" width="500">
+The Rent A Car Project is a web application designed to manage car rental processes. This project provides users with features such as renting cars, listing cars, making reservations, and updating car information.
+
+## Project Demo
 
 
-## Özellikler
 
-- Kullanıcılar, sisteme kayıt olarak araçları listeleyebilir ve kiralama işlemleri gerçekleştirebilir.
-- Yöneticiler, araçları ekleyebilir, güncelleyebilir ve silebilir.
-- Kullanıcılar ve araçlar için detaylı bilgiler görüntülenebilir.
-- Rezervasyon işlemleri takip edilebilir.
+[CarRentex](https://ibb.co/Fn9zcmK)
 
-## Teknolojiler
+
+
+## Project Database ER Diagram
+
+![ER Diagram](http://res.cloudinary.com/dca32coar/image/upload/v1709499642/carRentex/655726ce-3390-4af4-9417-3e48ba7219a2_Screenshot%202024-03-03%20at%2023.59.45.png.png)
+
+## Features
+
+- Users can register to the system, list cars, and perform rental transactions.
+- Administrators can add, update, and delete cars.
+- Detailed information for users and cars can be viewed.
+- Reservation transactions can be tracked.
+
+## Technologies
+
+### Frontend
+
+- HTML
+- CSS
+- JavaScript
+- React.js
+
+### Backend
 
 - Spring Boot
 - Java
 - PostgreSql
-- HTML, CSS, JavaScript, React.js
+
+
+## Getting Started
+
+To run the project, follow the steps below:
+
+### Backend
+
+1. Navigate to the `backend` folder.
+2. Run the command `./mvnw clean install` to install the necessary dependencies.
+3. Start the Spring Boot application with the command `./mvnw spring-boot:run`.
+
+### Frontend
+
+1. Navigate to the `frontend` folder.
+2. Run the command `npm install` to install the necessary dependencies.
+3. Start the React application with the command `npm start`.
 
 
 
