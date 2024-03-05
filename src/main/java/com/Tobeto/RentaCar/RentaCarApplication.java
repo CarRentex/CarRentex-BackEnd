@@ -10,12 +10,6 @@ public class RentaCarApplication{
     public static void main(String[] args) {
 		SpringApplication.run(RentaCarApplication.class, args);
 	}
-
-
-	@Bean
-	public ModelMapper getModelMapper() {
-		return new ModelMapper();
-	}
 }
 
 

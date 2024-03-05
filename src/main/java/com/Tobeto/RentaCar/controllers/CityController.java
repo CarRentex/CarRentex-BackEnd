@@ -1,6 +1,7 @@
 package com.Tobeto.RentaCar.controllers;
 
 import com.Tobeto.RentaCar.service.abstracts.CityService;
+import com.Tobeto.RentaCar.service.dto.response.City.GetAllCityAndDistirctResponse;
 import com.Tobeto.RentaCar.service.dto.response.City.GetAllCityResponse;
 import com.Tobeto.RentaCar.service.dto.response.City.GetCityResponse;
 import com.Tobeto.RentaCar.service.dto.response.City.GetListCityResponse;
@@ -17,7 +18,7 @@ public class CityController {
     private final CityService cityService;
 
     @GetMapping("/getAll")
-    public List<GetListCityResponse> getAll() {
+    public List<GetAllCityAndDistirctResponse> getAll() {
         return cityService.getAll();
     }
 

@@ -7,6 +7,7 @@ import com.Tobeto.RentaCar.entities.concretes.Color;
 import com.Tobeto.RentaCar.repositories.CityRepository;
 import com.Tobeto.RentaCar.service.abstracts.CityService;
 import com.Tobeto.RentaCar.service.dto.request.City.CreateCityRequest;
+import com.Tobeto.RentaCar.service.dto.response.City.GetAllCityAndDistirctResponse;
 import com.Tobeto.RentaCar.service.dto.response.City.GetAllCityResponse;
 import com.Tobeto.RentaCar.service.dto.response.City.GetCityResponse;
 import com.Tobeto.RentaCar.service.dto.response.City.GetListCityResponse;
@@ -36,11 +37,11 @@ public class CityManager implements CityService {
     }
 
     @Override
-    public List<GetListCityResponse> getAll() {
+    public List<GetAllCityAndDistirctResponse> getAll() {
         List<City> citys =  cityRepository.findAll();
-        List<GetListCityResponse> getListCityResponses = citys.stream()
+        List<GetAllCityAndDistirctResponse> getListCityResponses = citys.stream()
                 .map(color->this.mapperService.forResponse()
-                        .map(color, GetListCityResponse.class)).collect(Collectors.toList());
+                        .map(color, GetAllCityAndDistirctResponse.class)).collect(Collectors.toList());
         return getListCityResponses;
     }
 
