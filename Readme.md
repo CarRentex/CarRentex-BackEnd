@@ -35,14 +35,15 @@ The Rent A Car Project is a web application designed to manage car rental proces
 
 - HTML
 - CSS
-- JavaScript
+- TypeScript
 - React.js
 
 ### Backend
 
-- Spring Boot
+- Spring Boot Framework
 - Java
 - PostgreSql
+- Amazon RDS
 
 
 ## Getting Started
