@@ -10,6 +10,9 @@ public class RentaCarApplication{
     public static void main(String[] args) {
 		SpringApplication.run(RentaCarApplication.class, args);
 	}
+
+
+
 }
 
 
